@@ -1,0 +1,120 @@
+body {
+    background-color: #f5f5f5;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    padding-top: 30px;
+    background-color: #f5f5f5;
+}
+
+.form__group {
+    font-size: large;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.form__input--text {
+    box-sizing: border-box
+}
+
+.login__content {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 320px;
+    width: 40vw;
+    margin-right: auto;
+    margin-left: auto;
+    border: 12px solid transparent;
+    background-color:#FFFFFF
+}
+
+.login__content h2 {
+    font-size: smaller;
+    padding-bottom: 15px;
+}
+
+.button-login {
+    background-color: blue;
+    color: #fff;
+    padding: 8px;
+    border-radius: 3px;
+    font-weight: 500;
+    width: 100%;
+    border: none;
+}
+
+.link-register {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+.link-register a {
+    color: blue;
+    text-decoration: none;
+}
+
+.login-form__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.login-form__heading {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.form__group-title {
+    text-align: left;
+}
+
+.form__error {
+    height: 20px;
+    color: #ff0000;
+    font-size: small;
+    font-weight: 100;
+}
+
+.form__input--text input {
+    padding: 1px;
+    width: 100%;
+    height: 36px;
+    border: none;
+    padding-left: 10px;
+    border-bottom: 3px solid #696969;
+}
+
+.form__button {
+    margin-top: 5px;
+}
+
+.form__button-submit {
+    padding: 10px;
+    width: 30%;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    background: #0033CC;
+    color: #fff;
+    cursor: pointer;
+}
+
+.register__link {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: normal;
+    font-size: small;
+    color: #808080;
+}
+
+.register__link p {
+    padding-bottom: 5px;
+}
+
