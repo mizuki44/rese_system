@@ -59,44 +59,6 @@
                 <a href="{{ url('/review/shop_index/'.$shop['id']) }}" class="review_url">全ての口コミ情報</a>
             </div>
 
-            <!-- 自身の口コミを表示 -->
-            <!-- @if( Auth::check() )
-                @if( is_null($my_review) )
-                <div class="py-5">
-                    <a href="{{ url('/review/add/'.$shop['id']) }}" class="underline">口コミを投稿する</a>
-                </div>
-                @else
-                <div class="py-5">
-                    <hr>
-                    <div class="flex justify-end text-sm">
-                        <div class="mr-4">
-                            <a href="{{ url('/review/edit/'.$shop['id']) }}" class="underline">口コミを編集</a>
-                        </div>
-                        <div>
-                            <form method="POST" action="{{ url('/review/delete') }}">
-                                @csrf
-                                <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                <button type="submit" class="underline">口コミを削除</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div>
-                        @for ($counter = 0; $counter < 5; $counter++) <span class="{{ $counter < $my_review['star'] ? 'text-blue-600' : 'text-gray-200'}}">★</span>
-                            @endfor
-                    </div>
-                    <div>
-                        <p>{{$my_review['comment']}}</p>
-                    </div>
-                    <div class="w-56">
-                        @if (!is_null($my_review['image_url']))
-                        <img src="{{ $my_review['image_url'] }}">
-                        @endif
-                    </div>
-                    <hr>
-                </div>
-                @endif
-                @endif -->
 
         </div>
 
@@ -104,46 +66,51 @@
         <div class="reserve_content">
             <h1 class="reserve">予約</h1>
             <p class="reserve_text"></p>
-            <!-- 日付の選択 -->
-            <form method="GET" action="{{ url('/detail/'.$shop['id']) }}" name="calender_form">
-                @csrf
-                <input class="date" type="date" id="date" name="date" value="{{ $reserve_date }}" min="{{ $tomorrow }}" onchange="document.calender_form.submit()" />
-            </form>
 
-            <!-- 時間のドロップダウン -->
-            <form action="/reserve" method="POST">
+            <form action="{{ route('reserve') }}" method="POST">
+                @csrf
+                <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
+                <!-- 日付の選択 -->
+                <!-- <form method="GET" action="{{ url('/detail/'.$shop['id']) }}" name="calender_form"> -->
+                <input class="date" type="date" id="date" name="date" value="{{ $reserve_date }}" min="{{ $tomorrow }}" onchange="document.calender_form.submit()" />
+                <!-- </form> -->
+
+                <!-- 時間のドロップダウン -->
+                <!-- <form action="/reserve" method="POST"> -->
                 <select name="drop_time">
                     <optgroup label="lunch">
-                        <option value="1">11:00</option>
-                        <option value="2">11:30</option>
-                        <option value="3">12:00</option>
-                        <option value="4">12:30</option>
-                        <option value="5">13:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="11:30">11:30</option>
+                        <option value="12:00">12:00</option>
+                        <option value="12:30">12:30</option>
+                        <option value="13:00">13:00</option>
                     </optgroup>
                     <optgroup label="dinner">
-                        <option value="6">18:00</option>
-                        <option value="7">18:30</option>
-                        <option value="8">19:00</option>
-                        <option value="9">19:30</option>
-                        <option value="10">20:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="18:30">18:30</option>
+                        <option value="19:00">19:00</option>
+                        <option value="19:30">19:30</option>
+                        <option value="20:00">20:00</option>
                     </optgroup>
-            </form>
-            </select>
-            <select name="drop_number">
-                <option value="1">1人</option>
-                <option value="2">2人</option>
-                <option value="3">3人</option>
-                <option value="4">4人</option>
-                <option value="5">5人</option>
-                <option value="6">6人</option>
-                <option value="7">7人</option>
-                <option value="8">8人</option>
-                <option value="9">9人</option>
-                <option value="10">10人</option>
-            </select>
+                </select>
+                <select name="drop_number">
+                    <option value="1">1人</option>
+                    <option value="2">2人</option>
+                    <option value="3">3人</option>
+                    <option value="4">4人</option>
+                    <option value="5">5人</option>
+                    <option value="6">6人</option>
+                    <option value="7">7人</option>
+                    <option value="8">8人</option>
+                    <option value="9">9人</option>
+                    <option value="10">10人</option>
+                </select>
+                <button type="submit" class="reserve_button" onclick="location.href='./reserve/done' ">予約する</button>
             </form>
 
-            <div class="time_dropdown  flex items-center mt-3">
+            <!-- <div class="time_dropdown  flex items-center mt-3">
                 <div class="" align="left" width="48">
                     <x-slot name="trigger">
                         <button class="flex items-center bg-white rounded hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
@@ -159,13 +126,13 @@
                         </button>
                     </x-slot>
 
-                </div>
+                </div> -->
 
-                <!-- 人数のドロップダウン -->
-                <div class="flex items-center mt-3">
-                    <div class="align= left" width="48">
-                        <!-- x-dropdown -->
-                        <x-slot name="trigger">
+            <!-- 人数のドロップダウン -->
+            <!-- <div class="flex items-center mt-3">
+                    <div class="align= left" width="48"> -->
+            <!-- x-dropdown -->
+            <!-- <x-slot name="trigger">
                             <button class="flex items-center bg-white rounded hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                                 <div class="w-48 text-left py-1 px-3">
                                     <span id="reserve_num_trigger">{{ empty($num_array) ? "予約できません" : $num_array[0] . '人' }}</span>
@@ -179,10 +146,10 @@
                             </button>
                         </x-slot>
 
-                    </div>
+                    </div> -->
 
-                    <!-- 予約内容の表示 -->
-                    <!-- <div class="max-md:hidden bg-blue-500 rounded mt-4 p-4">
+            <!-- 予約内容の表示 -->
+            <!-- <div class="max-md:hidden bg-blue-500 rounded mt-4 p-4">
                     <table class="text-white">
                         <tr>
                             <td>
@@ -219,39 +186,10 @@
                     </table>
                 </div> -->
 
-                    <form method="POST" action="{{ url('/reserve') }}">
-                        @csrf
-                        <input type="hidden" id="reserve_shop_input" name="shop_id" value="{{ $shop['id'] }}">
-                        <input type="hidden" id="reserve_date_input" name="date" value="{{ $reserve_date }}">
-                        <input type="hidden" id="reserve_time_input" name="start_time" value="{{ empty($time_array) ? '' : $time_array[0] }}">
-                        <!-- $time_arrayは作る -->
-                        <input type="hidden" id="reserve_num_input" name="number_of_people" value="{{ empty($num_array) ? '' : $num_array[0] }}">
-                        <!-- $num_arrayは作る -->
 
-                        <!-- <input type="hidden" id="reserve_length" name="time_per_reservation" value="{{ $shop['time_per_reservation'] }}"> -->
-                        <div class="text-red-600">
-                            @error('shop_id')
-                            ※{{ $message }} <BR>
-                            @enderror
-                            @error('date')
-                            ※{{ $message }} <BR>
-                            @enderror
-                            @error('start_time')
-                            ※{{ $message }} <BR>
-                            @enderror
-                            @error('number_of_people')
-                            ※{{ $message }} <BR>
-                            @enderror
-                            @error('time_per_reservation')
-                            ※{{ $message }} <BR>
-                            @enderror
-                        </div>
-                        <button type="submit" class="bg-blue-700 text-white disabled:text-blue-500 w-full py-4 rounded-b absolute bottom-0 left-0" {{ empty($time_array) ? 'disabled' : '' }}>予約する</button>
-                    </form>
+        </div>
 
-                </div>
-
-            </div>
+    </div>
 
 
 

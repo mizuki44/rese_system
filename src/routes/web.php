@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShopController;
-use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\ReservationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,9 +23,9 @@ Route::get('/', [AuthController::class, 'index']);
 
 Route::get('/', [ShopController::class, 'index'])->name('shop.index');
 // Route::post('/favorite', [FavoriteController::class, 'flip']);
-Route::get('/detail/{shop_id}', [ShopController::class, 'detail']);
-Route::post('/reserve', [ReserveController::class, 'store'])->middleware(['verified']);
-Route::get('/reserve/done', [ReserveController::class, 'show'])->middleware(['verified']);
+Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->middleware('auth');
+Route::post('/reserve', [ReservationController::class, 'store'])->name('reserve');
+Route::get('/reserve/done', [ReservationController::class, 'show'])->name('reserve.done');
 // Route::get('/reserve/edit', [ReserveController::class, 'edit'])->middleware(['verified']);
 // Route::post('/reserve/update', [ReserveController::class, 'update'])->middleware(['verified']);
 // Route::post('/reserve/delete', [ReserveController::class, 'destroy'])->middleware(['verified']);

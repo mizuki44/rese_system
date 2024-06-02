@@ -96,3 +96,19 @@
         scroll-padding-bottom: 0.25rem;
         scroll-margin-top: 0.75rem;
     }
+    .reserve_button {
+        background-color: rgb(29 78 216);
+        color: rgb(255 255 255);
+        color: #4299e1 disabled;
+        width: 100%;
+        scroll-padding-top: 1rem;/* 16px */
+        scroll-padding-bottom: 1rem;/* 16px */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-bottom-right-radius: 0.25rem;/* 4px */
+        border-bottom-left-radius: 0.25rem;/* 4px */
+    }
+
+
+        /* bg-blue-700 text-white disabled:text-blue-500 w-full py-4 rounded-b absolute bottom-0 left-0 */
