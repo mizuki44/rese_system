@@ -1,11 +1,12 @@
 .card_contents {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
     flex-wrap: wrap;
+    background-color: #f5f5f5;
 }
 
 .card_contents_inner_1 {
-    width: 14rem;
+    width: 44vh;
     background-color:white;
     border-radius: 6px;
     filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
@@ -25,10 +26,15 @@
 
 .shop_name1 {
     font-weight: bold;
+    font-size: larger;
 }
 .shop_name2 {
     font-size: 0.75rem;
     line-height: 1rem;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    position: relative;
+    top: 5px;
 }
 .card_contents_inner_2 {
     flex: content;
@@ -46,23 +52,39 @@
     color: rgb(255 255 255);
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-    padding-top: 0.25rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+    /* top: 10px; */
 }
 /* <a class="text-xs h-6 rounded-md bg-blue-600 text-white px-3 pt-1" href="{{ url('/detail/'.$shop['id']) }}">詳しくみる</a> */
 
 
 
 .favorite_button {
-    font-size: 1.5rem;
+    font-size: 3.5rem;
     line-height: 2rem;
-    color: red;
-    color: aliceblue;
+    position: relative;
+    left: 255px;
+    bottom: 15px;
+    border: none;
+    background: transparent;
     /* 赤と灰色を入れ替えられるようにする */
+}
+.color_red {
+    color: red;
+}
+
+.color_gray {
+    color: gray;
 }
 
 main {
-    background-color: #D3D3D3;
-    padding: 20px 0;
+    /* background-color: #D3D3D3; */
+    /* padding: 77px 0; */
+    padding-top: 77px;
+    background-color: #f5f5f5;
+
 }
 
 .main__title {
@@ -97,3 +119,117 @@ main {
 .attendance__left {
     margin-right: 40px;
 }
+
+.search_content {
+    justify-content: center;
+    margin-right: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -45px;
+    position: relative;
+    top: 24px;
+    left: 15%;
+    }
+
+/* form-row justify-content-center */
+/* col-md-4 mb-3 */
+/* custom-select mr-sm-2 */
+/* .search_content2 {
+    position: relative;
+}
+
+.search_content2:before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border-top: 20px solid #fff;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    width: 100px;
+    z-index: 1;
+}
+
+.search_content2:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border-top: 40px solid #ff7777;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    width: 100px;
+    z-index: 0;
+} */
+
+
+
+.search_content_area {
+    width: 90px;
+    height: 40px;
+    border-style: none;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.3);
+}
+
+
+.search_content_genre {
+    width: 90px;
+    height: 40px;
+    border-style: none;
+    box-shadow: -6px 10px 10px -10px rgba(0, 0, 0, 0.3);
+    border-left: solid rgb(211, 211, 211);
+}
+
+
+
+
+
+
+.search_box {
+    display: inline-block;
+    /* なくても大丈夫だけど、念の為 */
+    position: relative;
+    /* 基準値とする */
+    width: 260px;
+    height: 40px;
+    border-style: none;
+    border-left: solid rgb(211, 211, 211);
+}
+
+.search_box::before {
+    content: "";
+    /* 疑似要素に必須 */
+    width: 16px;
+    /* アイコンの横幅 */
+    height: 16px;
+    /* アイコンの高さ */
+    background: url(../img/icon.png) no-repeat center center / auto 100%;
+    background-size: cover;
+    /* 背景にアイコン画像を配置 */
+    display: inline-block;
+    /* 高さを持たせるためにインラインブロック要素にする */
+    position: absolute;
+    /* 相対位置に指定 */
+    top: 12px;
+    /* アイコンの位置。微調整してね */
+    left: 5px;
+    /* アイコンの位置。微調整してね */
+}
+
+.search_box input {
+    padding: 3px 0 3px 2em;
+    /* アイコンを設置するため左の余白を多めに指定*/
+    width: 260px;
+    height: 40px;
+    border-style: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: -6px 10px 10px -10px rgba(0, 0, 0, 0.3);
+}
+

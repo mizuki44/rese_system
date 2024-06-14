@@ -7,7 +7,7 @@
         @section('content')
         <div class="login__content">
             <div class="login-form__heading">
-                <h2>ログイン</h2>
+                <h2>Login</h2>
             </div>
 
             <form class="form" action="/login" method="post">
@@ -18,7 +18,7 @@
                             <input type="email" name="email" value="{{ old('email') }}" placeholder="Email" />
                         </div>
 
-                        
+
 
 
 
@@ -53,10 +53,12 @@
 
             </form>
 
-            <div class="register__link">
+            <!-- <div class="register__link">
                 <p>アカウントをお持ちでない方はこちらから</p>
                 <a class="register__button-submit" href="/register">会員登録</a>
-            </div>
+            </div> -->
 
         </div>
         @endsection
+
+

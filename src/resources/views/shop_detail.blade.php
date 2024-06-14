@@ -1,31 +1,49 @@
-@extends('layouts.default')
-
+@extends('layouts.app')
 
 <head>
-    <link rel="stylesheet" href="/css/sanitize.css">
     <link rel="stylesheet" href="/css/shop_detail.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/sanitize.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-
-<!-- @section('title', '打刻ページ')
-@section('content') -->
 
 
 <main>
+    @section('content')
+    <script>
+        $(function() {
+            $(document).on('change', '#date', function(e) {
+                $('#confirm-date').text($('#date').val());
+            });
+        });
 
+        $(function() {
+            $(document).on('change', '#time', function(e) {
+                $('#confirm-time').text($('#time').val());
+            });
+        });
+
+        $(function() {
+            $(document).on('change', '#number', function(e) {
+                $('#confirm-number').text($('#number').val() + '人');
+            });
+        });
+    </script>
     <!-- <script>
-            function on_reserve_num_changed(reserve_num) {
-                show_txt = reserve_num + '人';
-                document.getElementById('reserve_num_trigger').innerHTML = show_txt;
-                document.getElementById('reserve_num_confirm').innerHTML = show_txt;
-                document.getElementById('reserve_num_input').value = reserve_num;
-            }
+        function on_reserve_num_changed(reserve_num) {
+            show_txt = reserve_num + '人';
+            document.getElementById('reserve_num_trigger').innerHTML = show_txt;
+            document.getElementById('reserve_num_confirm').innerHTML = show_txt;
+            document.getElementById('reserve_num_input').value = reserve_num;
+        }
 
-            function on_reserve_time_changed(reserve_time) {
-                document.getElementById('reserve_time_trigger').innerHTML = reserve_time;
-                document.getElementById('reserve_time_confirm').innerHTML = reserve_time;
-                document.getElementById('reserve_time_input').value = reserve_time;
-            }
-        </script> -->
+        function on_reserve_time_changed(reserve_time) {
+            document.getElementById('reserve_time_trigger').innerHTML = reserve_time;
+            document.getElementById('reserve_time_confirm').innerHTML = reserve_time;
+            document.getElementById('reserve_time_input').value = reserve_time;
+        } <
+        /script> 
+        -->
 
     <div class="detail_page">
 
@@ -33,9 +51,10 @@
         <div class="shop_detail">
             <!-- 店名 -->
             <div class="shop_name">
-                <a class="shop_name2" href="{{url('/') }}">
-                </a>
-                <h1 class="shop_name3" pl-2 font-bold text-2xl">{{ $shop['name'] }}</h1>
+                <button class="shop_trans" onclick="location.href='{{url('/')}}'">
+                    ＜</button> <!-- <a href="{{url('/') }}" class="shop_name2">
+                        矢印</a> -->
+                <h1 class="shop_name3">{{ $shop['name'] }}</h1>
             </div>
 
             <!-- 画像 -->
@@ -44,7 +63,7 @@
             </div>
 
             <!-- 分類 -->
-            <div class="pt-5">
+            <div class="classification">
                 <span>#{{ $shop['area']['name'] }}</span>
                 <span>#{{ $shop['genre']['name'] }}</span>
             </div>
@@ -55,9 +74,9 @@
             </div>
 
             <!-- 口コミ一覧へのリンク -->
-            <div class="review">
+            <!-- <div class="review">
                 <a href="{{ url('/review/shop_index/'.$shop['id']) }}" class="review_url">全ての口コミ情報</a>
-            </div>
+            </div> -->
 
 
         </div>
@@ -74,41 +93,73 @@
 
                 <!-- 日付の選択 -->
                 <!-- <form method="GET" action="{{ url('/detail/'.$shop['id']) }}" name="calender_form"> -->
-                <input class="date" type="date" id="date" name="date" value="{{ $reserve_date }}" min="{{ $tomorrow }}" onchange="document.calender_form.submit()" />
+                <div class="date">
+                    <input class="date" type="date" id="date" name="date" value="{{ $reserve_date }}" min="{{ $tomorrow }}" />
+                </div>
                 <!-- </form> -->
 
                 <!-- 時間のドロップダウン -->
                 <!-- <form action="/reserve" method="POST"> -->
-                <select name="drop_time">
-                    <optgroup label="lunch">
-                        <option value="11:00">11:00</option>
-                        <option value="11:30">11:30</option>
-                        <option value="12:00">12:00</option>
-                        <option value="12:30">12:30</option>
-                        <option value="13:00">13:00</option>
-                    </optgroup>
-                    <optgroup label="dinner">
-                        <option value="18:00">18:00</option>
-                        <option value="18:30">18:30</option>
-                        <option value="19:00">19:00</option>
-                        <option value="19:30">19:30</option>
-                        <option value="20:00">20:00</option>
-                    </optgroup>
-                </select>
-                <select name="drop_number">
-                    <option value="1">1人</option>
-                    <option value="2">2人</option>
-                    <option value="3">3人</option>
-                    <option value="4">4人</option>
-                    <option value="5">5人</option>
-                    <option value="6">6人</option>
-                    <option value="7">7人</option>
-                    <option value="8">8人</option>
-                    <option value="9">9人</option>
-                    <option value="10">10人</option>
-                </select>
+                <div class="drop_time">
+                    <select name="drop_time" class="drop_time" id="time">
+                        <optgroup label="lunch">
+                            <option value="11:00">11:00</option>
+                            <option value="11:30">11:30</option>
+                            <option value="12:00">12:00</option>
+                            <option value="12:30">12:30</option>
+                            <option value="13:00">13:00</option>
+                        </optgroup>
+                        <optgroup label="dinner">
+                            <option value="18:00">18:00</option>
+                            <option value="18:30">18:30</option>
+                            <option value="19:00">19:00</option>
+                            <option value="19:30">19:30</option>
+                            <option value="20:00">20:00</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="drop_number">
+                    <select name="drop_number" class="drop_number" id="number">
+                        <option value="1">1人</option>
+                        <option value="2">2人</option>
+                        <option value="3">3人</option>
+                        <option value="4">4人</option>
+                        <option value="5">5人</option>
+                        <option value="6">6人</option>
+                        <option value="7">7人</option>
+                        <option value="8">8人</option>
+                        <option value="9">9人</option>
+                        <option value="10">10人</option>
+                    </select>
+                </div>
+
                 <button type="submit" class="reserve_button" onclick="location.href='./reserve/done' ">予約する</button>
             </form>
+
+            <table class="reserve_confirmation">
+                <tr>
+                    <td class="reserve_confirmation_item">Shop</td>
+                    <td class="reserve_confirmation_item">{{ $shop['name'] }}</td>
+                </tr>
+                <tr>
+                    <td class="reserve_confirmation_item">Date</td>
+                    <td id="confirm-date" class="reserve_confirmation_item"></td>
+                </tr>
+                <tr>
+                    <td class="reserve_confirmation_item">Time</td>
+                    <td id="confirm-time" class="reserve_confirmation_item"></td>
+
+                </tr>
+                <tr>
+                    <td class="reserve_confirmation_item">Number</td>
+                    <td id="confirm-number" class="reserve_confirmation_item"></td>
+                </tr>
+            </table>
+            <!-- <div>{{ $shop['name'] }}</div>
+            <div id="confirm-date"></div>
+            <div id="confirm-time"></div>
+            <div id="confirm-number"></div> -->
 
             <!-- <div class="time_dropdown  flex items-center mt-3">
                 <div class="" align="left" width="48">
@@ -191,6 +242,5 @@
 
     </div>
 
-
-
+    @endsection
 </main>

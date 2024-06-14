@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.app')
 
 
 <head>
@@ -8,6 +8,7 @@
 
 
 <main>
+    @section('content')
     <div class="text_message">
         <div class="text_message_inner">
             @if ($item)
@@ -26,4 +27,5 @@
 
         </div>
     </div>
+    @endsection
 </main>
