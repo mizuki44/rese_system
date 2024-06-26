@@ -20,23 +20,30 @@ use App\Http\Requests\AddShopRequest;
 use App\Http\Traits\Content;
 use App\Consts\SortOptConst;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\ReserveRequest;
 
 class ReservationController extends Controller
 {
-    public function store(Request $request)
+    public function store(ReserveRequest $request)
     {
         // $this->validate($request, Reservation::$rules);
-        $createReservation = [
-            'user_id' => $request->user_id,
-            'shop_id' => $request->shop_id,
-            'date' => $request->date,
-            'time' => $request->drop_time,
-            'number' => $request->drop_number,
-        ];
-        $item = Reservation::create($createReservation);
+
+        // $createReservation = [
+        //     'user_id' => $request->user_id,
+        //     'shop_id' => $request->shop_id,
+        //     'date' => $request->date,
+        //     'time' => $request->time,
+        //     'number' => $request->number,
+        // ];
+        // $item = Reservation::c($createReservation);
+
+        $form = $request->all();
+        $item = Reservation::create($form);
+        // return redirect('/');
         $back_url = url("/detail/{$item->shop_id}");
 
-        return view('reserve_done', compact('item', 'back_url'));
+
+        return view('reserve_done', compact('item', 'back_url', 'form'));
         // my_pageにも飛ばす？
     }
 
@@ -55,5 +62,38 @@ class ReservationController extends Controller
         } else {
             return response()->redirect('/');
         }
+    }
+
+    // 予約削除
+    public function destroy(Request $request)
+    {
+        $id = $request->reservation_id;
+        $item = Reservation::where('id', $id)->delete();
+        if ($item) {
+            return redirect('my_page');
+        } else {
+            # TODO エラーメッセージ出す
+            return redirect('my_page');
+        }
+    }
+
+    public function update(Request $request)
+    {
+        $form = $request->all();
+        $id = $request->reservation_id;
+        $item = Reservation::find($id)->update($form);
+
+        if ($item) {
+            return redirect('my_page');
+        } else {
+            # TODO エラーメッセージ出す
+            return redirect('my_page');
+        }
+    }
+
+    public function QrCodeUpdate(string $reservation_id)
+    {
+        Reservation::find($reservation_id)->update(['visited_flg' => true]);
+        return redirect('/');
     }
 }

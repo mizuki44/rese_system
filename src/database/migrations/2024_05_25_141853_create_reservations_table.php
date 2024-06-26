@@ -20,6 +20,7 @@ class CreateReservationsTable extends Migration
             $table->date('date')->nullable(false);
             $table->time('time')->nullable(false);
             $table->tinyInteger('number')->nullable(false);
+            $table->boolean('visited_flg')->default(false);
             $table->timestamps();
         });
     }

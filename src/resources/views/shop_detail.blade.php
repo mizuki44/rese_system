@@ -86,6 +86,10 @@
             <h1 class="reserve">予約</h1>
             <p class="reserve_text"></p>
 
+            @if (count($errors) > 0)
+            <p class='error_message'>入力に問題があります</p>
+            @endif
+
             <form action="{{ route('reserve') }}" method="POST">
                 @csrf
                 <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
@@ -94,15 +98,19 @@
                 <!-- 日付の選択 -->
                 <!-- <form method="GET" action="{{ url('/detail/'.$shop['id']) }}" name="calender_form"> -->
                 <div class="date">
-                    <input class="date" type="date" id="date" name="date" value="{{ $reserve_date }}" min="{{ $tomorrow }}" />
+                    <input class="date" type="date" id="date" name="date" value="" min="{{ $tomorrow }}" />
                 </div>
+                @error('date')
+                <p class='error_message'>{{$message}}</p>
+                @enderror
                 <!-- </form> -->
 
                 <!-- 時間のドロップダウン -->
                 <!-- <form action="/reserve" method="POST"> -->
                 <div class="drop_time">
-                    <select name="drop_time" class="drop_time" id="time">
+                    <select name="time" class="drop_time" id="time">
                         <optgroup label="lunch">
+                            <option value="" selected hidden>選択してください</option>
                             <option value="11:00">11:00</option>
                             <option value="11:30">11:30</option>
                             <option value="12:00">12:00</option>
@@ -118,9 +126,13 @@
                         </optgroup>
                     </select>
                 </div>
+                @error('time')
+                <p class='error_message'>{{$message}}</p>
+                @enderror
 
                 <div class="drop_number">
-                    <select name="drop_number" class="drop_number" id="number">
+                    <select name="number" class="drop_number" id="number">
+                        <option value="" selected hidden>選択してください</option>
                         <option value="1">1人</option>
                         <option value="2">2人</option>
                         <option value="3">3人</option>
@@ -133,6 +145,9 @@
                         <option value="10">10人</option>
                     </select>
                 </div>
+                @error('number')
+                <p class='error_message'>{{$message}}</p>
+                @enderror
 
                 <button type="submit" class="reserve_button" onclick="location.href='./reserve/done' ">予約する</button>
             </form>

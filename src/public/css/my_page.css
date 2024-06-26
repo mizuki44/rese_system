@@ -4,8 +4,6 @@
     scroll-padding-right: 1rem;/* 16px */
     padding-left: 2rem;/* 32px */
     padding-right: 2rem;/* 32px */
-    padding-top: 110px;
-
 }
     /* max-w-7xl mx-auto px-4 lg:px-8 */
 
@@ -223,6 +221,7 @@ md:w-5/12 */
     width: 28px;
     display: block;
     height: 28px;
+    font-size: xxx-large;
 }
 
 .modal-close span {
@@ -256,5 +255,82 @@ md:w-5/12 */
 
 .modal.open {
     display: block;
+    z-index: 100;
+}
+
+.title {
+    padding-right: 50px;
+    font-size: x-large;
+}
+.modal_shop_name {
+    font-size: larger;
+}
+
+.date time_low {
+    display: flex;
+    justify-content: space-evenly;
+    }
+
+.time_low {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+}
+.number_low {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+}
+.cancel_button {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    min-height: 1.5rem;
+    border-radius: 0.375rem;
+    background-color: rgb(37 99 235);
+    color: rgb(255 255 255);
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+    left: 10px;
+}
+
+.button_css {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.change_button {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    min-height: 1.5rem;
+    border-radius: 0.375rem;
+    background-color: rgb(37 99 235);
+    color: rgb(255 255 255);
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+
+}
+
+.date {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.reserve_content {
+    text-align: center;
+    padding-top: 20%;
+}
+
+.drop_time {
+    height: 100%;
+}
+.drop_number {
+    height: 100%;
 }
 /* モーダル終了 */

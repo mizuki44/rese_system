@@ -74,7 +74,7 @@ h2 {
 .form__error {
     height: 20px;
     color: #ff0000;
-    font-size: smaller;
+    font-size: medium;
     font-weight: 100;
 }
 

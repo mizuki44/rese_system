@@ -16,6 +16,7 @@ class reservation extends Model
         'date',
         'time',
         'number',
+        'visited_flg'
     ];
 
 
@@ -37,7 +38,7 @@ class reservation extends Model
     public function scopeEndsAfterSearch($query, $time)
     {
         if (!empty($time)) {
-            $query->where('date', '>', $time);
+            $query->where('date', '>=', $time);
         }
     }
 

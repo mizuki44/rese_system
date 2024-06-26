@@ -3,7 +3,7 @@
     background-color: transparent;
     width: 100%;
     height: 50px;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
     right: 0;
@@ -53,6 +53,7 @@
     transform: translateX(-150%);
     background-color: #fff;
     transition: ease .4s;
+    z-index:100;
 }
 
 

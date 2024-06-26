@@ -23,17 +23,19 @@
                         <div class="flex justify-between">
                             <h3 class="reservation_number">予約{{ $reservation['reservation_num'] }}</h3>
                             <!-- QRコード表示 -->
-                            <!-- <form method="GET" action="{{ url('/qr_code') }}">
-                                    <input type="hidden" name="reservation_id" value="{{ $reservation['id'] }}">
-                                    <button type="submit" class="text-sm text-white bg-blue-600 border-solid border border-white hover:bg-gray-200 rounded w-16">QRコード</button>
-                                </form> -->
+                            @if($reservation['visited_flg'] == false)
+                            <form method="GET" action="{{ url('/qr_code') }}">
+                                <input type="hidden" name="reservation_id" value="{{ $reservation['id'] }}">
+                                <button type="submit" class="text-sm text-white bg-blue-600 border-solid border border-white hover:bg-gray-200 rounded w-16">QRコード</button>
+                            </form>
+                            @endif
                         </div>
                         <table class="reservation_card">
                             <tr>
                                 <td class="reservation_card_index">
                                     <span>Shop</span>
                                 </td>
-                                <td class="reservation_card_inner">
+                                <td class="reservation_card_inner" id="shop_name-{{$loop->index}}">
                                     <span>{{ $reservation['shop_name'] }}</span>
                                 </td>
                             </tr>
@@ -41,7 +43,7 @@
                                 <td class="reservation_card_index">
                                     <span>date</span>
                                 </td>
-                                <td class="reservation_card_inner">
+                                <td class="reservation_card_inner" id="reservation_date-{{$loop->index}}">
                                     <span>{{ $reservation['date'] }}</span>
                                 </td>
                             </tr>
@@ -49,7 +51,7 @@
                                 <td class="reservation_card_index">
                                     <span>time</span>
                                 </td>
-                                <td class="reservation_card_inner">
+                                <td class="reservation_card_inner" id="reservation_time-{{$loop->index}}">
                                     <span>{{ $reservation['time'] }}</span>
                                 </td>
                             </tr>
@@ -57,74 +59,103 @@
                                 <td class="reservation_card_index">
                                     <span>number</span>
                                 </td>
-                                <td class="reservation_card_inner">
+                                <td class="reservation_card_inner" id="reservation_number-{{$loop->index}}">
                                     <span>{{ $reservation['number'] }}人</span>
                                 </td>
                             </tr>
                         </table>
-                        <form method="GET" action="{{ url('/reserve/edit') }}">
-                            <input type="hidden" name="reservation_id" value="{{ $reservation['id'] }}">
-
-                            <a class="modal-open js-open" id="js-open">変更</a>
-                            <!-- <a class="admin__detail-btn" href="#{{ $reservation['id'] }}">変更</a> -->
-                        </form>
-                        <!-- モーダル開始 -->
-                        <div class="overlay" id="js-overlay"></div>
-                        <div class="modal" id="js-modal">
-
-                            <div>{{ $reservation['shop_name'] }}</div>
-                            <div class="modal-close__wrap">
-                                <button class="modal-close js-close" id=" js-close">
-                                    <span>×</span>
-                                </button>
-                            </div>
-                            <form method="GET" action="{{ url('/reserve/edit') }}">
-                                <input type="hidden" name="reservation_id" value="{{ $reservation['id'] }}">
-                                <div class="date">
-                                    <input class="date" type="date" id="date" name="date" value="{{ $reservation['date'] }}" />
-                                </div>
-                                <div class="drop_time">
-                                    <select name="drop_time" class="drop_time" id="time">
-                                        <optgroup label="lunch">
-                                            <option value="11:00">11:00</option>
-                                            <option value="11:30">11:30</option>
-                                            <option value="12:00">12:00</option>
-                                            <option value="12:30">12:30</option>
-                                            <option value="13:00">13:00</option>
-                                        </optgroup>
-                                        <optgroup label="dinner">
-                                            <option value="18:00">18:00</option>
-                                            <option value="18:30">18:30</option>
-                                            <option value="19:00">19:00</option>
-                                            <option value="19:30">19:30</option>
-                                            <option value="20:00">20:00</option>
-                                        </optgroup>
-                                    </select>
-                                </div>
-                                <div class="drop_number">
-                                    <select name="drop_number" class="drop_number" id="number">
-                                        <option value="1">1人</option>
-                                        <option value="2">2人</option>
-                                        <option value="3">3人</option>
-                                        <option value="4">4人</option>
-                                        <option value="5">5人</option>
-                                        <option value="6">6人</option>
-                                        <option value="7">7人</option>
-                                        <option value="8">8人</option>
-                                        <option value="9">9人</option>
-                                        <option value="10">10人</option>
-                                    </select>
-                                </div>
-
-                                <button type="submit" class="reserve_button" onclick="location.href='./reserve/done' ">変更する</button>
-                            </form>
-                        </div>
-                        <!-- モーダル終了 -->
-
+                        <input type="hidden" name="reservation_id" id="reservation_for_update" value="{{ $reservation['id'] }}">
+                        <button class="modal-open js-open" value="{{$loop->index}}">変更</button>
                     </div>
                     @endforeach
                 </div>
             </div>
+
+            <!-- モーダル開始 -->
+            <div class="overlay" id="js-overlay"></div>
+            <div class="modal" id="js-modal">
+
+                <div class="modal-close__wrap">
+                    <button class="modal-close js-close" id="js-close">
+                        <sp>×</sp>
+                    </button>
+                </div>
+                <div class='reserve_content'>
+                    <input type="hidden" name="reservation_id" value="">
+                    <div class="date">
+                        <div class="title">shop_name</div>
+                        <div id="modal_shop_name" class="modal_shop_name">
+                            <div class="title">shop_name</div>
+                        </div>
+                    </div>
+
+                    <form method="POST" action="{{ url('/reserve/update') }}">
+                        @csrf
+                        <input type="hidden" name="reservation_id" class="reservation_for_modal" value="">
+
+
+                        <div class="date">
+                            <div class="title">date</div>
+                            <input class="date" type="date" id="date" name="date" value="" />
+                        </div>
+
+                        <div class="time_low">
+                            <div class="title">time</div>
+                            <div class="drop_time">
+                                <select name="time" class="drop_time" id="time">
+                                    <option value="" selected hidden>選択してください</option>
+                                    <optgroup label="lunch">
+                                        <option value="11:00:00">11:00</option>
+                                        <option value="11:30:00">11:30</option>
+                                        <option value="12:00:00">12:00</option>
+                                        <option value="12:30:00">12:30</option>
+                                        <option value="13:00:00">13:00</option>
+                                    </optgroup>
+                                    <optgroup label="dinner">
+                                        <option value="18:00:00">18:00</option>
+                                        <option value="18:30:00">18:30</option>
+                                        <option value="19:00:00">19:00</option>
+                                        <option value="19:30:00">19:30</option>
+                                        <option value="20:00:00">20:00</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="number_low">
+                            <div class="title">number</div>
+                            <div class="drop_number">
+                                <select name="number" class="drop_number" id="number">
+                                    <option value="" selected hidden>選択してください</option>
+                                    <option value="1">1人</option>
+                                    <option value="2">2人</option>
+                                    <option value="3">3人</option>
+                                    <option value="4">4人</option>
+                                    <option value="5">5人</option>
+                                    <option value="6">6人</option>
+                                    <option value="7">7人</option>
+                                    <option value="8">8人</option>
+                                    <option value="9">9人</option>
+                                    <option value="10">10人</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="button_css">
+                            <form method="POST" action="{{ url('/reserve/update') }}">
+                                @csrf
+                                <input type="hidden" name="reservation_id" class="reservation_for_modal" value="">
+                                <button type="submit" class=" change_button">変更する</button>
+                            </form>
+
+                            <form method="POST" action="{{ url('/reserve/delete') }}">
+                                @csrf
+                                <input type="hidden" name="reservation_id" class="reservation_for_modal" value="">
+                                <button type="submit" class="cancel_button">キャンセルする</button>
+                            </form>
+                        </div>
+                </div>
+            </div>
+            <!-- モーダル終了 -->
 
             <!-- お気に入り店舗 -->
             <div class="favorite_page">
@@ -164,15 +195,27 @@
     <script>
         $(function() {
             $(".js-open").click(function() {
-                console.log('open');
                 $("#js-modal").addClass("open"); // modalクラスにopenクラス付与
                 $("#js-overlay").addClass("open"); // overlayクラスにopenクラス付与
+
+                var modal = $(this)
+                var index = $(this).val();
+                var shop_name = $(`#shop_name-${index}`).text();
+                var date = $(`#reservation_date-${index}`).text().trim();
+                var time = $(`#reservation_time-${index}`).text().trim();
+                var number = $(`#reservation_number-${index}`).text().trim().replace('人', '');
+
+                var reservation_id = $("#reservation_for_update").val();
+                $('#date').attr('value', date);
+                $('.reservation_for_modal').attr('value', reservation_id);
+                $(`#time option[value='${time}']`).prop('selected', true);
+                $(`#number option[value='${number}']`).prop('selected', true);
+                $('#modal_shop_name').text(shop_name)
             })
         });
 
         $(function() {
             $(".js-close").click(function() {
-                console.log('close');
                 $("#js-modal").removeClass("open"); // overlayクラスからopenクラスを外す
                 $("#js-overlay").removeClass("open"); // overlayクラスからopenクラスを外す
             })

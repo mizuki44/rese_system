@@ -15,8 +15,8 @@ class AreasTableSeeder extends Seeder
     public function run()
     {
         $param = [
-        'id' => 1,
-        'name' => '東京都',
+            'id' => 1,
+            'name' => '東京都',
     ];
     DB::table('areas')->insert($param);
 

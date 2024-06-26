@@ -12,16 +12,18 @@
     <div class="text_message">
         <div class="text_message_inner">
             @if ($item)
-            <p class="">
+            <p class="messege_text">
                 ご予約ありがとうございます。
             </p>
             <div class="back_button">
-                <button class="back_button_2" onclick='location.href="{{$back_url}}"'>戻る</button>
+                <!-- <a class="back_button_2" href="{{ url('/detail/{shop_id}') }}">戻る</a> -->
+                <!-- <button class="back_button_2" onclick="location.href='url('/detail/{$shop_id}')'">戻る</button> -->
+                <button class="back_button_2" onclick="history.back()">戻る</button>
             </div>
             @else
             <p class="">定員のためご予約できませんでした。</p>
             <div class="back_button">
-                <a class="back_button_2" href="{{ url('/detail/{shop_id}') }}">戻る</a>
+                <a class="back_button_2" href="{{ route('/detail/{shop_id}') }}">戻る</a>
             </div>
             @endif
 

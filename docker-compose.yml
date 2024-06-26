@@ -15,6 +15,9 @@ services:
         build: ./docker/php
         volumes:
             - ./src:/var/www/
+        command: >
+            apt-get install -y --no-install-recommends libpng-dev
+            docker-php-ext-install gd
 
     mysql:
         image: mysql:8.0.26
@@ -41,3 +44,14 @@ services:
             - mysql
         ports:
             - 8080:80
+    
+    mail:
+        image: mailhog/mailhog
+        container_name: mailhog
+        ports:
+            - "1025:1025"
+            - "8025:8025"
+        environment:
+            MH_STORAGE: maildir
+            MH_MAILDIR_PATH: /tmp
+        platform: linux/amd64

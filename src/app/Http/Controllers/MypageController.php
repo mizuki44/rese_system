@@ -56,7 +56,8 @@ class MypageController extends Controller
                 'shop_name' => $shop_name,
                 'date' => $reservation->date,
                 'time' => $reservation->time,
-                'number' => $reservation->number
+                'number' => $reservation->number,
+                'visited_flg' => $reservation->visited_flg
             );
             $reserved_shops[] = $reserve_info;
             $reservation_num++;
@@ -87,14 +88,15 @@ class MypageController extends Controller
     }
 
     // return $favorite_shops;
-}
+
 
 
     /*
         QRコードを表示する
     */
-    // public function showQrCode(Request $request)
-    // {
-    //     $reservation_id = $request->reservation_id;
-    //     return view('qr_code', compact('reservation_id'));
-    // }
+    public function showQrCode(Request $request)
+    {
+        $reservation_id = $request->reservation_id;
+        return view('qr_code', compact('reservation_id'));
+    }
+}
