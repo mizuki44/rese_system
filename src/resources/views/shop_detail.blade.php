@@ -74,9 +74,49 @@
             </div>
 
             <!-- 口コミ一覧へのリンク -->
-            <!-- <div class="review">
+            <div class="review">
                 <a href="{{ url('/review/shop_index/'.$shop['id']) }}" class="review_url">全ての口コミ情報</a>
-            </div> -->
+            </div>
+
+            <!-- 自身の口コミを表示 -->
+            @if( Auth::check() )
+            @if( is_null($my_review) )
+            <div class="py-5">
+                <a href="{{ url('/review/add/'.$shop['id']) }}" class="underline">口コミを投稿する</a>
+            </div>
+            @else
+            <div class="py-5">
+                <hr>
+                <div class="flex justify-end text-sm">
+                    <div class="mr-4">
+                        <a href="{{ url('/review/edit/'.$shop['id']) }}" class="underline">口コミを編集</a>
+                    </div>
+                    <div>
+                        <form method="POST" action="{{ url('/review/delete') }}">
+                            @csrf
+                            <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <button type="submit" class="underline">口コミを削除</button>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    @for ($counter = 0; $counter < 5; $counter++) <span class="{{ $counter < $my_review['star'] ? 'text-blue-600' : 'text-gray-200'}}">★</span>
+                        @endfor
+                </div>
+                <div>
+                    <p>{{$my_review['comment']}}</p>
+                </div>
+                <div class="w-56">
+                    @if (!is_null($my_review['image_url']))
+                    <img src="{{ $my_review['image_url'] }}">
+                    @endif
+                </div>
+                <hr>
+            </div>
+            @endif
+            @endif
+
 
 
         </div>

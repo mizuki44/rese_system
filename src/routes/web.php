@@ -7,6 +7,8 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\StripePaymentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,18 @@ Route::get('/reserve/qr_code_update/{reservation_id}', [ReservationController::c
 
 Route::get('/my_page', [MyPageController::class, 'create'])->middleware(['verified'])->middleware('auth');
 Route::get('/qr_code', [MyPageController::class, 'showQrCode'])->middleware(['verified']);
+
+
+//Review機能の追加
+Route::get('/review/add/{shop_id}', [ReviewController::class, 'create'])->middleware(['verified']);
+Route::get('/review/store', [ReviewController::class, 'store'])->middleware(['verified']);
+Route::post('/review/store', [ReviewController::class, 'store'])->middleware(['verified']);
+Route::get('/review/shop_index/{shop_id}', [ReviewController::class, 'shopIndex']);
+Route::post('/review/delete', [ReviewController::class, 'destroy']);
+Route::get('/review/edit/{shop_id}', [ReviewController::class, 'edit'])->middleware(['verified']);
+Route::post('/review/update', [ReviewController::class, 'update'])->middleware(['verified']);
+
+
 // Route::get('/feedback/{reservation_id}', [FeedbackController::class, 'create'])->middleware(['verified']);
 // Route::post('/feedback/store', [FeedbackController::class, 'store'])->middleware(['verified']);
 
@@ -47,3 +61,23 @@ Route::get('/qr_code', [MyPageController::class, 'showQrCode'])->middleware(['ve
 //         ->middleware(['signed', 'throttle:6,1'])
 //         ->name('verification.verify');
 // });
+
+// Route::get('/', [StripePaymentsController::class,'index'])->name('index');
+
+// Route::get('/payment',  [StripePaymentsController::class, 'payment'])->name('payment');
+
+// Route::get('/complete', [StripePaymentsController::class, 'complete'])->name('complete');
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/checkout', function () {
+    return view('checkout');
+});
+Route::get('success', function () {
+    return view('success');
+})->name('success');
+Route::get('cancel', function () {
+    return view('cancel');
+})->name('cancel');
+Route::get('/checkout-payment', 'App\Http\Controllers\StripeController@checkout')->name('checkout.session'); // Stripeフォームへ遷移する処理
