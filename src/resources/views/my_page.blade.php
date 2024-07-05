@@ -30,6 +30,7 @@
                             </form>
                             @endif
                         </div>
+                        <button type="button" onclick="location.href='checkout'">お支払い</button>
                         <table class="reservation_card">
                             <tr>
                                 <td class="reservation_card_index">

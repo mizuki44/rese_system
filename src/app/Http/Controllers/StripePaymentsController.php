@@ -8,16 +8,21 @@ use Stripe\Customer;
 use Stripe\Charge;
 use Illuminate\Foundation\Configuration\Exceptions;
 use App\Models\User;
+use App\Models\Stock;
 
 class StripePaymentsController extends Controller
 {
-    public function checkout()
+    public function checkout(Request $request)
     {
         $user = User::find(1);
-        return $user->checkout(config('stripe.price_id'), [
+        // $stripeCustomer = $user->createOrGetStripeCustomer();
+        $price = $request->course_name;
+        $price_id = Stock::find($price)->price_id;
+        $payment_session = $user->checkout($price_id, [
             'success_url' => route('success'),
             'cancel_url' => route('cancel')
         ]);
+        return redirect($payment_session->url);
     }
 
 

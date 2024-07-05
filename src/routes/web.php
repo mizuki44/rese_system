@@ -36,7 +36,7 @@ Route::post('/reserve/delete', [ReservationController::class, 'destroy'])->middl
 Route::post('/reserve/update', [ReservationController::class, 'update'])->middleware('auth');
 Route::get('/reserve/qr_code_update/{reservation_id}', [ReservationController::class, 'QrCodeUpdate'])->name('reserve.qr_code_update')->middleware(['verified']);
 
-Route::get('/my_page', [MyPageController::class, 'create'])->middleware(['verified'])->middleware('auth');
+Route::get('/my_page', [MyPageController::class, 'create'])->middleware(['verified'])->middleware('auth')->name('mypage');
 Route::get('/qr_code', [MyPageController::class, 'showQrCode'])->middleware(['verified']);
 
 
@@ -73,11 +73,11 @@ Route::post('/review/update', [ReviewController::class, 'update'])->middleware([
 // });
 Route::get('/checkout', function () {
     return view('checkout');
-});
+})->name('checkout');
 Route::get('success', function () {
     return view('success');
 })->name('success');
 Route::get('cancel', function () {
     return view('cancel');
 })->name('cancel');
-Route::get('/checkout-payment', 'App\Http\Controllers\StripeController@checkout')->name('checkout.session'); // Stripeフォームへ遷移する処理
+Route::post('/checkout-payment', 'App\Http\Controllers\StripePaymentsController@checkout')->name('checkout.session'); // Stripeフォームへ遷移する処理

@@ -22,7 +22,7 @@ class ReviewController extends Controller
         if (!Auth::check()) return redirect('login');
 
         $shop = Shop::find($shop_id);
-        $shop['image_url'] = Storage::url($shop['image_url']);
+        // $shop['image_url'] = Storage::url($shop['image_url']);
         $tmp_favorites = Favorite::select()->UserSearch(Auth::id())->ShopSearch($shop_id)->get();
         $shop['favorite'] = !$tmp_favorites->isEmpty();
 

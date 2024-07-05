@@ -188,4 +188,11 @@
     font-size: medium;
 }
 
+.text-blue-600 {
+    color: blue;
+}
+
+.text-gray-200 {
+    color: gray;
+}
         /* bg-blue-700 text-white disabled:text-blue-500 w-full py-4 rounded-b absolute bottom-0 left-0 */
