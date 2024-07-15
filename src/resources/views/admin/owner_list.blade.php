@@ -7,6 +7,10 @@
 
 <main>
     @section('content')
+    <form method="GET" action="{{ url('/admin/owner/create') }}">
+        @csrf
+        <button type="submit" class="owner_create_button">新規登録</button>
+    </form>
     <h1>店舗代表者一覧</h1>
 
     <form action="/admin/create" method="get">
@@ -41,6 +45,6 @@
 
 
 
-    <button type="button" onClick="history.back()">戻る</button>
+    <a class="rounded-md bg-gray-800 text-white px-4 py-2" href="{{ route('admin.index') }}">戻る</a>
     @endsection
 </main>

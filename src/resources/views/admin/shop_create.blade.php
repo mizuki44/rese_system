@@ -50,6 +50,6 @@
             </fieldset>
         </form>
     </div>
-    <button type="button" onClick="history.back()">戻る</button>
+    <a class="rounded-md bg-gray-800 text-white px-4 py-2" href="{{ route('admin.index') }}">戻る</a>
     @endsection
 </main>

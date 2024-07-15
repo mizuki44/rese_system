@@ -54,14 +54,14 @@ class SendEmails extends Command
             // ユーザーのメアド宛にメール送信する
             $user_mail = $reservation->user->email;
             $reserve_info = array(
-                'user_name' =>$reservation->user->name,
-                'shop_name' =>$reservation->shop->name,
+                'user_name' => $reservation->user->name,
+                'shop_name' => $reservation->shop->name,
                 'date' => $reservation->date,
                 'time' => $reservation->time,
                 'number' => $reservation->number,
             );
 
-            Mail::to($user_mail)->send(new SendMail($reserve_info));
+            Mail::to($user_mail)->send(new SendMail($reserve_info, 'mail.contact', '予約リマインドメール'));
             // Mailebleファイルを使って、メール送信処理を記述
             // https://qiita.com/hinako_n/items/ff451ec558abefc41247
             // のMailController.phpを参考

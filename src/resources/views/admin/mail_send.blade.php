@@ -19,13 +19,6 @@
             </div> -->
 
             <div class="form-group">
-                <label for="category-id">{{ __('メールアドレス') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-                <select class="form-control" id="category-id" name="category_id">
-                    @foreach ($users as $user)
-                    <option value="{{ $user->email }}">{{ $user->email }}</option>
-                    @endforeach
-                </select>
-
                 <div>
                     <label for="category-id">{{ __('タイトル') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
                     <input type="text" name="title" class="ml-3" value="">
@@ -40,9 +33,8 @@
                 <button type="submit" class="text-blue-800 bg-white border-solid border border-blue-800 hover:bg-gray-200 rounded w-20">送信</button>
             </div>
         </form>
-        <div class="my-3 mx-auto">
-            <a class="block text-center text-blue-800 bg-white border-solid border border-blue-800 hover:bg-gray-200 rounded w-20" href="{{ url('/admin/index') }}">戻る</a>
-        </div>
+        <a class="rounded-md bg-gray-800 text-white px-4 py-2" href="{{ route('admin.index') }}">戻る</a>
     </div>
+</div>
 </div>
 </div>

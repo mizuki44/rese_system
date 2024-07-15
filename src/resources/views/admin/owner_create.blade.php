@@ -13,7 +13,7 @@
 
     <div class="container small">
         <h1>店舗代表者を登録</h1>
-            <form action="{{ route('admin.owner_store') }}" method="POST">
+        <form action="{{ route('admin.owner_store') }}" method="POST">
             @csrf
             <fieldset>
                 <div class="form-group">
@@ -38,6 +38,7 @@
                     <button type="submit" class="btn btn-success">
                         {{ __('登録') }}
                     </button>
+                    <a class="rounded-md bg-gray-800 text-white px-4 py-2" href="{{ route('admin.index') }}">戻る</a>
                 </div>
             </fieldset>
         </form>
