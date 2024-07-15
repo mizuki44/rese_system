@@ -30,7 +30,7 @@ return [
         'array'   => 'This content must have between :min and :max items.',
     ],
     'boolean'              => 'This field must be true or false.',
-    'confirmed'            => 'The confirmation does not match.',
+    // 'confirmed'            => 'The confirmation does not match.',
     'date'                 => 'This is not a valid date.',
     'date_equals'          => 'This must be a date equal to :date.',
     'date_format'          => 'This does not match the format :format.',

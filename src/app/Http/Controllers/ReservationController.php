@@ -14,6 +14,7 @@ use App\Models\Reservation;
 use App\Models\Shop;
 use App\Models\Genre;
 use App\Models\Area;
+use App\Models\User;
 use App\Models\Favorite;
 use App\Http\Requests\UpdateShopRequest;
 use App\Http\Requests\AddShopRequest;
@@ -67,8 +68,11 @@ class ReservationController extends Controller
     // 予約削除
     public function destroy(Request $request)
     {
+        // dd($request);
         $id = $request->reservation_id;
+        // dd($id);
         $item = Reservation::where('id', $id)->delete();
+        // dd($item);
         if ($item) {
             return redirect('my_page');
         } else {
@@ -77,7 +81,7 @@ class ReservationController extends Controller
         }
     }
 
-    public function update(Request $request)
+    public function update(ReserveRequest $request)
     {
         $form = $request->all();
         $id = $request->reservation_id;
@@ -96,4 +100,11 @@ class ReservationController extends Controller
         Reservation::find($reservation_id)->update(['visited_flg' => true]);
         return redirect('/');
     }
+
+    // public function index(Request $request)
+    // {
+    //     $reservations = Reservation::all();
+
+    //     return view('admin.reserve_list', compact('reservations'));
+    // }
 }

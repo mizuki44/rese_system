@@ -17,9 +17,9 @@
             <div class="drop_course">
                 <select name="course_name" class="course_name" id="course_name">
                     <option value="" selected hidden>選択してください</option>
-                    <option value="1">松</option>
-                    <option value="2">竹</option>
-                    <option value="3">梅</option>
+                    <option value="1">松（5000円）</option>
+                    <option value="2">竹（7000円）</option>
+                    <option value="3">梅（10000円）</option>
                 </select>
                 <button type="submit" id="card-button" class="btn btn-primary mt-5">
                     購入画面へ

@@ -21,13 +21,20 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->instance(LogoutResponse::class, new class implements LogoutResponse
-        {
-            public function toResponse($request)
+        if (request()->is('admin/*')) {
+            config()->set('fortify.guard', 'admin');
+
+            config()->set('fortify.home', '/admin/index');
+        } else {
+            config()->set('fortify.guard', 'web');
+            $this->app->instance(LogoutResponse::class, new class implements LogoutResponse
             {
-                return redirect('/my_page');
-            }
-        });
+                public function toResponse($request)
+                {
+                    return redirect('/my_page');
+                }
+            });
+        }
     }
 
     /**

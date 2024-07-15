@@ -35,8 +35,8 @@ class MypageController extends Controller
         $user_id = Auth::id();
         $reservations = $this->getRreservedShops($user_id);
         $favorites = Favorite::select()->UserSearch($user_id)->get();
-
-        return view('my_page', compact('reservations', 'favorites'));
+        $tomorrow = Carbon::now()->addDay()->format('Y-m-d');
+        return view('my_page', compact('reservations', 'favorites', 'tomorrow'));
     }
     /*
         予約している店舗情報を取得する(プライベート関数)

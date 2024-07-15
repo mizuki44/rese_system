@@ -1,3 +1,17 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rese</title>
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/review.css') }}">
+    @yield('css')
+</head>
+
+
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var dropZone = document.getElementById('drop-zone');
@@ -56,19 +70,20 @@
                 <p class="text-center text-2xl my-6">今回のご利用はいかがでしたか？</p>
                 <div class="w-56 bg-white rounded-md shadow-md mb-4 mx-auto">
                     <div>
-                        <img class="w-full h-28 object-cover rounded-t-md" src="{{ $shop['image_url'] }}">
+                        <img class="shop_img" src="{{ $shop['image_url'] }}">
                     </div>
                     <div class="p-3">
                         <h2 class="font-bold">{{ $shop['name'] }}</h2>
                         <div class="text-xs">
-                            <span>#{{ $shop['region'] }}</span>
-                            <span>#{{ $shop['genre'] }}</span>
+                            <span>#{{ $shop['area']['name'] }}</span>
+                            <span>#{{ $shop['genre']['name'] }}</span>
+
                         </div>
                         <div class="flex justify-between items-center mt-2">
                             <a class="text-xs h-6 rounded-md bg-blue-600 text-white px-3 pt-1" href="{{ url('/detail/'.$shop['id']) }}">詳しくみる</a>
-                            @if( Auth::check() )
-                            <button class="text-2xl {{ $shop['favorite'] ? 'text-red-500' : 'text-gray-100' }}" type="submit" disabled>&#9829; </button>
-                            @endif
+                            <!-- @if( Auth::check() )
+                            <button class="favorite_button  color_red {{ $shop['favorite'] ? 'text-red-500' : 'text-gray-100' }}" type="submit" disabled>&#9829; </button> -->
+                            <!-- @endif -->
                         </div>
                     </div>
                 </div>
@@ -105,7 +120,7 @@
                         @enderror
                     </div>
                 </div>
-                <p class="mt-6">画像の編集</p>
+                <!-- <p class="mt-6">画像の編集</p>
                 <div class="w-56">
                     @if (!is_null($review['image_url']))
                     <img src="{{ $review['image_url'] }}">
@@ -115,8 +130,8 @@
                     <div>
                         <input type="radio" value="0" id="img_edit_mode0" name="img_edit_mode" checked>
                         <label for="img_edit_mode0">変更しない</label>
-                    </div>
-                    <div>
+                    </div> -->
+                <!-- <div>
                         <input type="radio" value="1" id="img_edit_mode1" name="img_edit_mode">
                         <label for="img_edit_mode1">削除する</label>
                     </div>
@@ -133,17 +148,17 @@
                                 ※{{ $message }}
                                 @enderror
                             </div>
-                            <div id="preview" class="w-56"></div>
-                        </div>
-                    </div>
-                </div>
+                            <div id="preview" class="w-56"></div> -->
             </div>
         </div>
-        <div class="my-6 text-center">
-            <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
-            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-            <button type="submit" class="text-blue-800 bg-white border-solid border border-blue-800 hover:bg-gray-200 rounded-full w-80">口コミを変更</button>
-        </div>
-    </form>
+</div>
+</div>
+</div>
+<div class="my-6 text-center">
+    <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
+    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+    <button type="submit" class="text-blue-800 bg-white border-solid border border-blue-800 hover:bg-gray-200 rounded-full w-80">口コミを変更</button>
+</div>
+</form>
 
 </div>

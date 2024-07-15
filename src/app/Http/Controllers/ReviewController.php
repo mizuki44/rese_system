@@ -84,13 +84,13 @@ class ReviewController extends Controller
         if (!Auth::check()) return redirect('login');
 
         $shop = Shop::find($shop_id);
-        $shop['image_url'] = Storage::url($shop['image_url']);
+        // $shop['image_url'] = Storage::url($shop['image_url']);
         $tmp_favorites = Favorite::select()->UserSearch(Auth::id())->ShopSearch($shop_id)->get();
         $shop['favorite'] = !$tmp_favorites->isEmpty();
 
         $review = Review::select()->UserSearch(Auth::id())->ShopSearch($shop_id)->first();
         if (is_null($review)) return redirect()->back();
-        $review['image_url'] = empty($review['image_url']) ? null : Storage::url($review['image_url']);
+        // $review['image_url'] = empty($review['image_url']) ? null : Storage::url($review['image_url']);
 
         return view('review_edit', compact('shop', 'review'));
     }
@@ -140,9 +140,10 @@ class ReviewController extends Controller
         $shop = Shop::find($shop_id);
         $shop['image_url'] = Storage::url($shop['image_url']);
         $reviews = Review::select()->ShopSearch($shop_id)->get();
-        foreach ($reviews as $review) {
-            $review['image_url'] = empty($review['image_url']) ? null : Storage::url($review['image_url']);
-        }
+        // dd($reviews);
+        // foreach ($reviews as $review) {
+        //     $review['image_url'] = empty($review['image_url']) ? null : Storage::url($review['image_url']);
+        // }
 
         return view('review_shop_index', compact('shop', 'reviews'));
     }

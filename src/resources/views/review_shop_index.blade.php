@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/review_shop_index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/review.css') }}">
     @yield('css')
 </head>
 
@@ -27,18 +27,18 @@
         @foreach($reviews as $review)
         <div class="py-2">
             <div>
-                {{dd($review)}}
                 @for($counter = 0; $counter < 5; $counter++) <span class="{{ $counter < $review['star'] ? 'text-blue-600' : 'text-gray-200'}}">★</span>
                     @endfor
             </div>
             <div>
-                ああああ{{ $review['comment'] }}
+                {{ $review['comment'] }}
             </div>
             <div class="w-56">
                 @if(!is_null($review['image_url']))
                 <img src="{{ $review['image_url'] }}">
                 @endif
             </div>
+
         </div>
         @endforeach
     </div>

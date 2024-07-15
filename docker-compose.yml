@@ -15,9 +15,6 @@ services:
         build: ./docker/php
         volumes:
             - ./src:/var/www/
-        command: >
-            apt-get install -y --no-install-recommends libpng-dev
-            docker-php-ext-install gd
 
     mysql:
         image: mysql:8.0.26
