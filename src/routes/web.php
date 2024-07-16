@@ -87,7 +87,7 @@ Route::get('cancel', function () {
 Route::post('/checkout-payment', 'App\Http\Controllers\StripePaymentsController@checkout')->name('checkout.session'); // Stripeフォームへ遷移する処理
 
 Route::prefix('admin')->name('admin.')->group(function () {
-// ログイン・登録
+    // ログイン・登録
     Route::view('/login', 'admin.auth.login')->middleware('guest:admin')->name('login');
     $limiter = config('fortify.limiters.login');
     Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest:admin');
@@ -95,32 +95,31 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::view('/register', 'admin.auth.register')->middleware('guest:admin')->name('register');
     Route::post('/register', [RegisteredUserController::class, 'store'])->middleware('guest:admin');
 
-// トップページ
+    // トップページ
     Route::view('/index', 'admin.index')->middleware('auth:admin')->name('index');
 
-// 店舗代表者
-    Route::get('/owner', [App\Http\Controllers\Admin\AdminController::class, 'index'])->middleware('auth:admin');
-    Route::get('/owner/create', [App\Http\Controllers\Admin\AdminController::class, 'create'])->middleware('auth:admin');
-    Route::post('/owner/store', [App\Http\Controllers\Admin\AdminController::class, 'store'])->middleware('auth:admin')->name('owner_store');
-    Route::get('/owner/edit', [App\Http\Controllers\Admin\AdminController::class, 'edit'])->middleware('auth:admin');
-    Route::post('/owner/update', [App\Http\Controllers\Admin\AdminController::class, 'update'])->middleware('auth:admin');
-    Route::post('/owner/delete', [App\Http\Controllers\Admin\AdminController::class, 'delete'])->middleware('auth:admin'); 
+    // 店舗代表者
+    Route::group(['middleware' => ['auth:admin', 'can:admin_only']], function () {
+        Route::get('/owner', [App\Http\Controllers\Admin\AdminController::class, 'index']);
+        Route::get('/owner/create', [App\Http\Controllers\Admin\AdminController::class, 'create']);
+        Route::post('/owner/store', [App\Http\Controllers\Admin\AdminController::class, 'store'])->name('owner_store');
+        Route::get('/owner/edit', [App\Http\Controllers\Admin\AdminController::class, 'edit']);
+        Route::post('/owner/update', [App\Http\Controllers\Admin\AdminController::class, 'update']);
+        Route::post('/owner/delete', [App\Http\Controllers\Admin\AdminController::class, 'delete']);
+        // お知らせメール
+        Route::get('/mail', [App\Http\Controllers\Admin\UserController::class, 'create']);
+        Route::post('/mail/send', [App\Http\Controllers\Admin\UserController::class, 'send']);
+    });
 
-
-// 店舗情報
-    Route::get('/shop/index', [App\Http\Controllers\Admin\ShopController::class, 'index'])->middleware('auth:admin');
-    Route::get('/shop/create', [App\Http\Controllers\Admin\ShopController::class, 'create'])
-    ->middleware('auth:admin');
-    Route::post('/shop/store', [App\Http\Controllers\Admin\ShopController::class, 'store'])->middleware('auth:admin')->name('shop_store');
-    Route::get('/shop/edit', [App\Http\Controllers\Admin\ShopController::class, 'edit'])->middleware('auth:admin');
-    Route::post('/shop/update', [App\Http\Controllers\Admin\ShopController::class, 'update'])->middleware('auth:admin')->name('shop_update');
-    Route::post('/shop/delete', [App\Http\Controllers\Admin\ShopController::class, 'delete'])->middleware('auth:admin')->name('shop_delete');
-
-// 予約一覧
-    Route::get('/reserve', [App\Http\Controllers\Admin\ReservationController::class, 'index'])->middleware('auth:admin');
-
-// お知らせメール
-    Route::get('/mail', [App\Http\Controllers\Admin\UserController::class, 'create'])->middleware('auth:admin');
-    Route::post('/mail/send', [App\Http\Controllers\Admin\UserController::class, 'send'])->middleware('auth:admin');
-
+    // 店舗情報
+    Route::group(['middleware' => ['auth:admin', 'can:owner_only']], function () {
+        Route::get('/shop/index', [App\Http\Controllers\Admin\ShopController::class, 'index']);
+        Route::get('/shop/create', [App\Http\Controllers\Admin\ShopController::class, 'create']);
+        Route::post('/shop/store', [App\Http\Controllers\Admin\ShopController::class, 'store'])->name('shop_store');
+        Route::get('/shop/edit', [App\Http\Controllers\Admin\ShopController::class, 'edit']);
+        Route::post('/shop/update', [App\Http\Controllers\Admin\ShopController::class, 'update'])->name('shop_update');
+        Route::post('/shop/delete', [App\Http\Controllers\Admin\ShopController::class, 'delete'])->name('shop_delete');
+        // 予約一覧
+        Route::get('/reserve', [App\Http\Controllers\Admin\ReservationController::class, 'index']);
+    });
 });
