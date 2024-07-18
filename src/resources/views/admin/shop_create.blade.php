@@ -13,7 +13,7 @@
 
     <div class="container small">
         <h1>店舗を登録</h1>
-        <form action="{{ route('admin.shop_store') }}" method="POST">
+        <form action="{{ route('admin.shop_store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <fieldset>
                 <div class="form-group">
@@ -42,6 +42,8 @@
                     <label for="owner_name">{{ __('image_url') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
                     <input type="url" class="form-control" name="image_url" id="image_url"><br>
 
+                    <input type="file" name="thumbnail" />
+                    {{ csrf_field() }}
 
                     <button type="submit" class="btn btn-success">
                         {{ __('登録') }}

@@ -92,6 +92,7 @@
                     </td>
                 </tr>
 
+
             </table>
             <div class="button_css">
                 <!-- <form method="POST" action="{{url('/admin/shop/update')}}">

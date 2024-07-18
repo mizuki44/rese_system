@@ -50,6 +50,16 @@ class ShopController extends Controller
             'description' => $request->description,
             'image_url' => $request->image_url,
         ]);
+        // $shop = new Shop;
+
+        // name属性が'thumbnail'のinputタグをファイル形式に、画像をpublic/avatarに保存
+        $image_path = $request->file('thumbnail')->store('public/avatar/');
+
+        // 上記処理にて保存した画像に名前を付け、userテーブルのthumbnailカラムに、格納
+        $shop->image_url = basename($image_path);
+
+        $shop->save();
+
 
         return redirect('admin/shop/index');
     }
