@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\OwnerCreateRequest;
 
 class AdminController extends Controller
 {
@@ -20,7 +21,7 @@ class AdminController extends Controller
         return view('admin.owner_create');
     }
 
-    public function store(Request $request)
+    public function store(OwnerCreateRequest $request)
     {
 
         $admin = Admin::create([

@@ -120,3 +120,7 @@ body {
     top: 10px;
     margin-left: 5px;
 }
+
+.error_message {
+    color: red;
+}

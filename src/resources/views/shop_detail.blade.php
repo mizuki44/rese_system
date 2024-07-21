@@ -74,9 +74,9 @@
             </div>
 
             <!-- 口コミ一覧へのリンク -->
-            <div class="review">
+            <!-- <div class="review">
                 <a href="{{ url('/review/shop_index/'.$shop['id']) }}" class="review_url">全ての口コミ情報</a>
-            </div>
+            </div> -->
 
             <!-- 自身の口コミを表示 -->
             @if( Auth::check() )

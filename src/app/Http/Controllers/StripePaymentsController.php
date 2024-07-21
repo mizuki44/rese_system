@@ -9,10 +9,11 @@ use Stripe\Charge;
 use Illuminate\Foundation\Configuration\Exceptions;
 use App\Models\User;
 use App\Models\Stock;
+use App\Http\Requests\CheckoutRequest;
 
 class StripePaymentsController extends Controller
 {
-    public function checkout(Request $request)
+    public function checkout(CheckoutRequest $request)
     {
         $user = User::find(1);
         // $stripeCustomer = $user->createOrGetStripeCustomer();

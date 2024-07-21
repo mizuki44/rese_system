@@ -25,11 +25,12 @@ use App\Http\Requests\ReserveRequest;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\File;
-
+use App\Http\Requests\ShopCreateRequest;
 
 
 class ShopController extends Controller
 {
+// 店舗一覧表示
     public function index(Request $request)
     {
         $shops = Shop::all();
@@ -37,6 +38,8 @@ class ShopController extends Controller
         return view('admin.shop_list', compact('shops'));
     }
 
+
+// 店舗情報新規作成フォーム表示
     public function create(Request $request)
     {
         $areas = Area::all();
@@ -45,7 +48,8 @@ class ShopController extends Controller
         return view('admin.shop_create', compact('areas', 'genres'));
     }
 
-    public function store(Request $request)
+// 店舗情報新規作成
+    public function store(ShopCreateRequest $request)
     {
         $shop = shop::create([
             'name' => $request->name,
@@ -54,8 +58,6 @@ class ShopController extends Controller
             'description' => $request->description,
             'image_url' => $request->image_url,
         ]);
-        // $shop = new Shop;
-
 
         // S3へファイルをアップロード
         $result = Storage::disk('s3')->put('/', $request->file('image_url'));
@@ -63,10 +65,10 @@ class ShopController extends Controller
         // 上記処理にて保存した画像に名前を付け、userテーブルのthumbnailカラムに、格納
         $shop->image_url = $url;
         $shop->save();
-// dd($shop->image_url);
-       
+
         return redirect('admin/shop/index' );
     }
+
     // 店舗情報変更フォーム表示
     public function edit(Request $request)
     {

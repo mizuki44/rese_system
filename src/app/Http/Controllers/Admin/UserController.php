@@ -25,6 +25,7 @@ use App\Http\Requests\ReserveRequest;
 use App\Http\Controllers\Controller;
 use App\Mail\SendMail;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\MailSendRequest;
 
 class UserController extends Controller
 {
@@ -36,7 +37,7 @@ class UserController extends Controller
         return view('admin.mail_send', compact('users'));
     }
     // お知らせメール送信
-    public function send(Request $request)
+    public function send(MailSendRequest $request)
     {
         $users = User::all();
         foreach ($users as $user) {

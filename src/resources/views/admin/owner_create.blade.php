@@ -15,7 +15,10 @@
                         {{ __('氏名') }}
                     </th>
                     <td class="contact-body">
-                        <input type="text" class="form-text" name="name" id="name">
+                        <input type="text" class="form-text" name="name" id="name"><br>
+                        @error('name')
+                        <p class='error_message'>{{$message}}</p>
+                        @enderror
                     </td>
                 </tr>
                 <tr>
@@ -27,6 +30,9 @@
                         <label for="role_1" class="contact-role-txt">管理者</label>
                         <input type="radio" id="role_2" name="role" value="2" />
                         <label for="role_2" class="contact-role-txt">店舗代表者</label><br>
+                        @error('role')
+                        <p class='error_message'>{{$message}}</p>
+                        @enderror
                     </td>
                 </tr>
                 <tr>
@@ -35,6 +41,9 @@
                     </th>
                     <td class="contact-body">
                         <input type="email" class="form-text" name="email" id="email">
+                        @error('email')
+                        <p class='error_message'>{{$message}}</p>
+                        @enderror
                     </td>
                 </tr>
                 <tr>
@@ -43,6 +52,9 @@
                     </th>
                     <td class="contact-body">
                         <input type="password" class="form-text" name="password" id="password"><br>
+                        @error('password')
+                        <p class='error_message'>{{$message}}</p>
+                        @enderror
                     </td>
                 </tr>
             </table>

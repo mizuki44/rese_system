@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/review.css') }}">
-    @yield('css')
+    <link rel="stylesheet" href="/css/sanitize.css">
+    <link rel="stylesheet" href="/css/review.css">
 </head>
 
 
@@ -104,7 +105,7 @@
                 </div>
                 <div class="text-red-600">
                     @error('star')
-                    ※{{ $message }}
+                    <p class='error_message'>{{$message}}</p>
                     @enderror
                 </div>
                 <p class="mt-6">コメント</p>
@@ -116,7 +117,7 @@
                     </div>
                     <div class="text-red-600">
                         @error('comment')
-                        ※{{ $message }}
+                        <p class='error_message'>{{$message}}</p>
                         @enderror
                     </div>
                 </div>

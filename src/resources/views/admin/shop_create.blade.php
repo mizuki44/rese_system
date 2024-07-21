@@ -15,7 +15,10 @@
                         {{ __('店舗名') }}
                     </th>
                     <td class="contact-body">
-                        <input type="text" class="form-text" name="name" id="name">
+                        <input type="text" class="form-text" name="name" id="name"><br>
+                        @error('name')
+                        <p class='error_message'>{{$message}}</p>
+                        @enderror
                     </td>
                 </tr>
 
@@ -25,6 +28,9 @@
                     </th>
                     <td class="contact-body">
                         <input type="text" class="form-textarea" name="description" id="description"><br>
+                        @error('description')
+                        <p class='error_message'>{{$message}}</p>
+                        @enderror
                     </td>
                 </tr>
 
@@ -39,6 +45,9 @@
                             <option value="{{ $area->id }}">{{ $area->name }}</option>
                             @endforeach
                         </select><br>
+                        @error('area_id')
+                        <p class='error_message'>{{$message}}</p>
+                        @enderror
                     </td>
                 </tr>
 
@@ -53,6 +62,9 @@
                             <option value="{{ $genre->id }}">{{ $genre->name }}</option>
                             @endforeach
                         </select><br>
+                        @error('genre_id')
+                        <p class='error_message'>{{$message}}</p>
+                        @enderror
                     </td>
                 </tr>
 
@@ -63,8 +75,11 @@
                     <td class="contact-body">
                         <!-- <input type="url" class="form-text" name="image_url" id="image_url"> -->
 
-                        <input type="file" name="image_url" id="image_url" />
+                        <input type="file" name="image_url" id="image_url" /><br>
                         {{ csrf_field() }}
+                        @error('image_url')
+                        <p class='error_message'>{{$message}}</p>
+                        @enderror
                     </td>
                 </tr>
             </table>

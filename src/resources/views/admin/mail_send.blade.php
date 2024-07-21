@@ -32,14 +32,20 @@
                     <th class="contact-item">{{ __('タイトル') }}
                     </th>
                     <td class="contact-body">
-                        <input type="text" name="title" class="form-text" value="">
+                        <input type="text" name="title" class="form-text" >
+                        @error('title')
+                        <p class='error_message'>{{$message}}</p>
+                        @enderror
                     </td>
                 </tr>
                 <tr>
                     <th class="contact-item">{{ __('内容') }}</label>
                     </th>
                     <td class="contact-body">
-                        <textarea name="content" class="form-textarea"></textarea>
+                        <textarea name="content" class="form-textarea" value="content" ></textarea>
+                        @error('content')
+                        <p class='error_message'>{{$message}}</p>
+                        @enderror
                     </td>
                 </tr>
             </table>

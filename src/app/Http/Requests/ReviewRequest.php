@@ -24,9 +24,37 @@ class ReviewRequest extends FormRequest
     public function rules()
     {
         return [
-            'star' => ['required', 'numeric', 'between:1,5'],
-            'comment' => ['nullable', 'string', 'max:400'],
-            'image_file' => ['nullable', 'file', 'mimes:jpeg,jpg,png', 'dimensions:min_width=100,min_height=100,max_width=2000,max_width=2000']
+            'star' => 'required',
+            'comment' => 'required|max:400',
+        ];
+    }
+
+    /**
+     * バリデーションエラーメッセージを定義
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'star.required' => ':attributeは必ず選択してください',
+            'comment.required' => ':attributeは必ず入力してください',
+            'comment.max' => ':attributeは最大:max文字以内で入力してください。',
+
+
+        ];
+    }
+
+    /**
+     * カスタム属性名を定義
+     *
+     * @return array
+     */
+    public function attributes(): array
+    {
+        return [
+            'star' => '星',
+            'comment' => 'コメント',
         ];
     }
 }

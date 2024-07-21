@@ -79,7 +79,7 @@
                             <span>#{{ $shop['genre']['name'] }}</span>
                         </div>
                         <div class="flex justify-between items-center mt-2">
-                            <a class="text-xs h-6 rounded-md bg-blue-600 text-white px-3 pt-1" href="{{ url('/detail/'.$shop['id']) }}">詳しくみる</a>
+                            <a class="text-xs h-6 rounded-md bg-blue-600 text-white px-3 pt-1" href="{{ url('/detail/'.$shop['id']) }}">店舗詳細へ</a>
                             <!-- @if( Auth::check() ) -->
                             <!-- <button class="text-2xl {{ $shop['favorite'] ? 'text-red-500' : 'text-gray-100' }}" type="submit" disabled>&#9829; </button> -->
                             <!-- @endif -->
@@ -101,11 +101,9 @@
                     <input type="radio" id="star1" name="star" value=1 class="hidden peer">
                     <label for="star1" class="relative py-0 px-[5px] text-gray-200 cursor-pointer text-[35px] hover:text-blue-600 peer-hover:text-blue-600 peer-checked:text-blue-600">★</label>
                 </div>
-                <div class="text-red-600">
-                    @error('star')
-                    ※{{ $message }}
-                    @enderror
-                </div>
+                @error('star')
+                <p class='error_message'>{{$message}}</p>
+                @enderror
                 <p class="mt-6">コメント</p>
                 <div>
                     <textarea name="comment" class="w-full h-32" onkeyup="ShowLength(value)"></textarea>
@@ -113,11 +111,9 @@
                         <span id="inputlength">0</span>
                         <span>/400(最大文字数)</span>
                     </div>
-                    <div class="text-red-600">
-                        @error('comment')
-                        ※{{ $message }}
-                        @enderror
-                    </div>
+                    @error('comment')
+                    <p class='error_message'>{{$message}}</p>
+                    @enderror
                 </div>
                 <!-- <p class="mt-6">画像の追加</p>
                 <div>
