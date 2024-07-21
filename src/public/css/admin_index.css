@@ -1,11 +1,30 @@
 
+.body {
+    display: flex;
+    justify-content: center;
+}
+
+
 .title {
     text-align: center;
     font-size: x-large;
+    padding: 5px;
+    margin: 5px;
 }
 
+.list {
+    color: #668ad8;
+    border: double 5px rgb(37 99 235);
+    background: #f1f8ff;
+    padding: 0.5em 0.5em 0.5em 2em;
+    width: 70%;
+}
+
+
 .list_content {
-    text-align: center;
     font-size: larger;
+    margin: 10px;
+    line-height: 1.5;
+    padding: 0.5em 0;
     margin: 10px;
 }

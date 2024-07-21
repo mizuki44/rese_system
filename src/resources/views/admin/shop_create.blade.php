@@ -1,57 +1,77 @@
-@extends('layouts.app')
-
-
 <head>
     <link rel="stylesheet" href="/css/sanitize.css">
+    <link rel="stylesheet" href="/css/admin_shop_create.css">
 </head>
 
-<main>
-    @section('content')
+<body>
 
-
-
-
-    <div class="container small">
-        <h1>店舗を登録</h1>
+    <div class="contact">
+        <h1 class="contact-ttl">店舗を登録</h1>
         <form action="{{ route('admin.shop_store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <fieldset>
-                <div class="form-group">
-                    <label for="owner_name">{{ __('店舗名') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-                    <input type="text" class="form-control" name="name" id="name"><br>
+            <table class="contact-table">
+                <tr>
+                    <th class="contact-item">
+                        {{ __('店舗名') }}
+                    </th>
+                    <td class="contact-body">
+                        <input type="text" class="form-text" name="name" id="name">
+                    </td>
+                </tr>
 
-                    <label for="owner_name">{{ __('説明') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-                    <input type="text" class="form-control" name="description" id="description"><br>
+                <tr>
+                    <th class="contact-item">
+                        {{ __('説明') }}
+                    </th>
+                    <td class="contact-body">
+                        <input type="text" class="form-textarea" name="description" id="description"><br>
+                    </td>
+                </tr>
 
-                    <label for="owner_name">{{ __('エリア') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-                    <select class="create_area" id="area_id" name="area_id">
-                        <option value="">area</option>
-                        @foreach($areas as $area)
-                        <option value="{{ $area->id }}">{{ $area->name }}</option>
-                        @endforeach
-                    </select><br>
+                <tr>
+                    <th class="contact-item">
+                        {{ __('エリア') }}
+                    </th>
+                    <td class="contact-body">
+                        <select class="form-select" id="area_id" name="area_id">
+                            <option value="">area</option>
+                            @foreach($areas as $area)
+                            <option value="{{ $area->id }}">{{ $area->name }}</option>
+                            @endforeach
+                        </select><br>
+                    </td>
+                </tr>
 
-                    <label for="owner_name">{{ __('ジャンル') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-                    <select class="create_genre" id="genre_id" name="genre_id">
-                        <option value="">genre</option>
-                        @foreach($genres as $genre)
-                        <option value="{{ $genre->id }}">{{ $genre->name }}</option>
-                        @endforeach
-                    </select><br>
+                <tr>
+                    <th class="contact-item">
+                        {{ __('ジャンル') }}
+                    </th>
+                    <td class="contact-body">
+                        <select class="form-select" id="genre_id" name="genre_id">
+                            <option value="">genre</option>
+                            @foreach($genres as $genre)
+                            <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                            @endforeach
+                        </select><br>
+                    </td>
+                </tr>
 
-                    <label for="owner_name">{{ __('image_url') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-                    <input type="url" class="form-control" name="image_url" id="image_url"><br>
+                <tr>
+                    <th class="contact-item">
+                        {{ __('image_url') }}
+                    </th>
+                    <td class="contact-body">
+                        <!-- <input type="url" class="form-text" name="image_url" id="image_url"> -->
 
-                    <input type="file" name="thumbnail" />
-                    {{ csrf_field() }}
-
-                    <button type="submit" class="btn btn-success">
-                        {{ __('登録') }}
-                    </button>
-                </div>
-            </fieldset>
+                        <input type="file" name="image_url" id="image_url" />
+                        {{ csrf_field() }}
+                    </td>
+                </tr>
+            </table>
+            <button type="submit" class="contact-submit">
+                {{ __('登録') }}
+            </button>
         </form>
+        <a class="return" href="{{ route('admin.index') }}">戻る</a>
     </div>
-    <a class="rounded-md bg-gray-800 text-white px-4 py-2" href="{{ route('admin.index') }}">戻る</a>
-    @endsection
-</main>
+</body>

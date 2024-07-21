@@ -1,7 +1,17 @@
+<head>
+    <link rel="stylesheet" href="/css/sanitize.css">
+    <link rel="stylesheet" href="/css/admin_mail_send.css">
+</head>
+
+
+
+
 <!-- お知らせメールの作成 -->
-<div>
-    <h1 class="">お知らせメールの作成</h1>
-    <div class="">
+
+<body>
+
+    <div class="contact">
+        <h1 class="contact-ttl">お知らせメールの作成</h1>
         <form method="POST" action="{{ url('admin/mail/send') }}">
             @csrf
             <div>
@@ -17,24 +27,24 @@
                 </div>
                 @endforeach
             </div> -->
-
-            <div class="form-group">
-                <div>
-                    <label for="category-id">{{ __('タイトル') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-                    <input type="text" name="title" class="ml-3" value="">
-                </div>
-                <div>
-                    <label for="category-id">{{ __('内容') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-                    <textarea name="content" class="w-72 h-32 ml-3"></textarea>
-                </div>
-            </div>
-
-            <div class="my-3 mx-auto">
-                <button type="submit" class="text-blue-800 bg-white border-solid border border-blue-800 hover:bg-gray-200 rounded w-20">送信</button>
-            </div>
+            <table class="contact-table">
+                <tr>
+                    <th class="contact-item">{{ __('タイトル') }}
+                    </th>
+                    <td class="contact-body">
+                        <input type="text" name="title" class="form-text" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <th class="contact-item">{{ __('内容') }}</label>
+                    </th>
+                    <td class="contact-body">
+                        <textarea name="content" class="form-textarea"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <button type="submit" class="contact-submit">送信</button>
         </form>
-        <a class="rounded-md bg-gray-800 text-white px-4 py-2" href="{{ route('admin.index') }}">戻る</a>
+        <a class="return" href="{{ route('admin.index') }}">戻る</a>
     </div>
-</div>
-</div>
-</div>
+</body>

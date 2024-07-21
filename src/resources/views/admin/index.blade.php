@@ -9,7 +9,7 @@
 <main>
     @section('content')
     <h1 class='title'>管理画面</h1>
-    <div>
+    <div class="body">
 
 
         <ul class='list'>

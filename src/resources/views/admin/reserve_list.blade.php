@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="/css/sanitize.css">
-    <link rel="stylesheet" href="/css/reserve_list.css">
+    <link rel="stylesheet" href="/css/admin_reserve_list.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
@@ -16,23 +16,23 @@
 
 
     <div class="list">
-        <table class="owner_list">
-            <tr class="table-title">
-                <th>予約者氏名</th>
-                <th>店舗名</th>
-                <th>日付</th>
-                <th>時間</th>
-                <th>人数</th>
+        <table class="reserve_list">
+            <tr class="table-low">
+                <th class="table-title_inner">予約者氏名</th>
+                <th class="table-title_inner">店舗名</th>
+                <th class="table-title_inner">日付</th>
+                <th class="table-title_inner">時間</th>
+                <th class="table-title_inner">人数</th>
             </tr>
             @foreach($reservations as $reservation)
             <form action="/admin/reserve" method="get">
                 @if(!empty($reservation))
-                <tr class="table-value table-value-info">
-                    <td>{{$reservation->user->name}}</td>
-                    <td>{{$reservation->shop->name}}</td>
-                    <td>{{$reservation->date}}</td>
-                    <td>{{$reservation->time}}</td>
-                    <td>{{$reservation->number}}</td>
+                <tr class="table-low">
+                    <td class="table-inner">{{$reservation->user->name}}</td>
+                    <td class="table-inner">{{$reservation->shop->name}}</td>
+                    <td class="table-inner">{{$reservation->date}}</td>
+                    <td class="table-inner">{{$reservation->time}}</td>
+                    <td class="table-inner">{{$reservation->number}}</td>
 
                     <!-- 変更ボタン -->
                     <!-- <td> <input type="hidden" name="reservation_id" id="reservation_for_update" value="{{ $reservation['id'] }}">
@@ -146,6 +146,6 @@
     <!-- モーダル終了 -->
 
 
-    <a class="rounded-md bg-gray-800 text-white px-4 py-2" href="{{ route('admin.index') }}">戻る</a>
+    <a class="return" href="{{ route('admin.index') }}">戻る</a>
     @endsection
 </main>
