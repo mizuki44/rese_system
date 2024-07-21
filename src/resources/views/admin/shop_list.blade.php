@@ -32,8 +32,7 @@
                 <td>{{$shop->area->name}}</td>
                 <td>{{$shop->genre->name}}</td>
                 <td>{{$shop['description']}}</td>
-                <td>{{$shop['image_url']}}</td>
-                <td><img src="{{ asset('storage/avatar/' . $shop->image_url) }}" /></td>
+                <td><img src="{{ $shop->image_url }}" /></td>
                 <!-- 変更ボタン -->
                 <td>
                     <form method="GET" action="{{url('/admin/shop/edit')}}">

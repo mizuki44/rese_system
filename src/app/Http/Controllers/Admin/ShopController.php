@@ -23,6 +23,10 @@ use App\Consts\SortOptConst;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ReserveRequest;
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Promise\Create;
+use Illuminate\Http\File;
+
+
 
 class ShopController extends Controller
 {
@@ -52,16 +56,16 @@ class ShopController extends Controller
         ]);
         // $shop = new Shop;
 
-        // name属性が'thumbnail'のinputタグをファイル形式に、画像をpublic/avatarに保存
-        $image_path = $request->file('thumbnail')->store('public/avatar/');
 
+        // S3へファイルをアップロード
+        $result = Storage::disk('s3')->put('/', $request->file('thumbnail'));
+        $url = Storage::disk('s3')->url($result);
         // 上記処理にて保存した画像に名前を付け、userテーブルのthumbnailカラムに、格納
-        $shop->image_url = basename($image_path);
-
+        $shop->image_url = $url;
         $shop->save();
-
-
-        return redirect('admin/shop/index');
+// dd($shop->image_url);
+       
+        return redirect('admin/shop/index' );
     }
     // 店舗情報変更フォーム表示
     public function edit(Request $request)
