@@ -80,7 +80,7 @@ class ShopController extends Controller
     }
 
     // 店舗情報変更処理
-    public function update(Request $request)
+    public function update(ShopCreateRequest $request)
     {
         $form = $request->all();
         $id = $request->shop_id;

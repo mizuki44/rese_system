@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+
 
 class ReserveRequest extends FormRequest
 {
@@ -38,4 +40,6 @@ class ReserveRequest extends FormRequest
             'number.required' => '人数を選択してください',
         ];
     }
+
+   
 }

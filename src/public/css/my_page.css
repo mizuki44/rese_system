@@ -184,7 +184,7 @@ md:w-5/12 */
 }
 
 .reserve_situation {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     /* 20px */
     line-height: 1.75rem;
     /* 28px */
@@ -425,7 +425,7 @@ md:w-5/12 */
 .payment_button::after {
     content: "";
     /* 疑似要素に必須 */
-    width: 20px;
+    width: 34px;
     /* アイコンの横幅 */
     height: 20px;
     /* アイコンの高さ */
@@ -439,5 +439,24 @@ md:w-5/12 */
     /* top: 105px; */
     /* アイコンの位置。微調整してね */
     /* right: 93px; */
+    /* アイコンの位置。微調整してね */
+}
+
+.reservation_number::before {
+    content: "";
+    /* 疑似要素に必須 */
+    width: 34%;
+    /* アイコンの横幅 */
+    height: 2%;
+    /* アイコンの高さ */
+    background: url(../img/time.png) no-repeat center center / auto 90%;
+    /* 背景にアイコン画像を配置 */
+    display: inline-block;
+    /* 高さを持たせるためにインラインブロック要素にする */
+    position: absolute;
+    /* 相対位置に指定 */
+    /* top: 45%; */
+    /* アイコンの位置。微調整してね */
+    /* left: -4%; */
     /* アイコンの位置。微調整してね */
 }

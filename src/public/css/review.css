@@ -8,9 +8,92 @@
 
 .shop_img {
     height: 30%;
-    width: 50%;
+    width: 40%;
 }
 
 .error_message {
     color: red;
+}
+
+
+.card_contents_inner_1 {
+    width: 44vh;
+    background-color: white;
+    border-radius: 6px;
+    filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+    margin-bottom: 16px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.image {
+    width: 100%;
+    min-height: 112px;
+    object-fit: cover;
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+}
+
+.shop_name {
+    padding: 1rem;
+}
+
+.shop_name1 {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.shop_name2 {
+        font-size: 0.75rem;
+        line-height: 1rem;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        position: relative;
+        top: 5px;
+    }
+
+.card_contents_inner_2 {
+    text-align: center;
+}
+
+.comment {
+    text-align: center;
+    font-size: larger;
+}
+
+.submit {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    min-height: 1.5rem;
+    border-radius: 0.375rem;
+    background-color: rgb(37 99 235);
+    color: rgb(255 255 255);
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+    margin: 10px;
+    border: none;
+    margin-bottom: 5px;
+}
+
+.textarea {
+    width: 94%;
+    min-height: 8rem;
+        /* 128px */
+    margin: 10px;
+}
+
+.comment_p {
+    margin-top: 10px;
+}
+
+.star {
+    margin: 5px;
+}
+
+.content {
+    margin: 25px;
 }

@@ -17,11 +17,14 @@ main {
     margin-bottom: 5px;
 }
 
-.form__input--text {
-    box-sizing: border-box
+.form__input--text_mail {
+    box-sizing: border-box;
+    position: relative;
+    /* 基準値とする */
 }
 
 .login__content {
+    color: #ff0000;
     font-size: 25px;
     font-weight: bold;
     text-align: center;
@@ -93,8 +96,8 @@ main {
     font-weight: 100;
 }
 
-.form__input--text input {
-    padding: 1px;
+.form__input--text_mail input {
+   padding: 1px;
     width: 80%;
     height: 36px;
     border: none;
@@ -103,6 +106,20 @@ main {
     border-bottom: 1px solid #696969;
     margin-left: 12px;
 }
+
+.form__input--text_password input {
+padding: 1px;
+    width: 80%;
+    height: 36px;
+    border: none;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-bottom: 1px solid #696969;
+    margin-left: 12px;
+}
+
+
+
 
 .form__button {
     margin-top: 5px;
@@ -135,3 +152,44 @@ main {
     padding-bottom: 5px;
 }
 
+
+.form__input--text_mail::before {
+    content: "";
+    /* 疑似要素に必須 */
+    width: 20%;
+    /* アイコンの横幅 */
+    height: 55%;
+    /* アイコンの高さ */
+    background: url(../img/mail.png) no-repeat center center / auto 90%;
+    /* 背景にアイコン画像を配置 */
+    display: inline-block;
+    /* 高さを持たせるためにインラインブロック要素にする */
+    position: absolute;
+    /* 相対位置に指定 */
+    top: 45%;
+    /* アイコンの位置。微調整してね */
+    left: -4%;
+    /* アイコンの位置。微調整してね */
+}
+
+
+
+
+.form__input--text_password::before {
+    content: "";
+    /* 疑似要素に必須 */
+    width: 10%;
+    /* アイコンの横幅 */
+    height: 10%;
+    /* アイコンの高さ */
+    background: url(../img/key.png) no-repeat center center / auto 90%;
+    /* 背景にアイコン画像を配置 */
+    display: inline-block;
+    /* 高さを持たせるためにインラインブロック要素にする */
+    position: absolute;
+    /* 相対位置に指定 */
+    top: 58%;
+    /* アイコンの位置。微調整してね */
+    left: 1%;
+    /* アイコンの位置。微調整してね */
+}

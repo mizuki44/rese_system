@@ -233,3 +233,13 @@ main {
     box-shadow: -6px 10px 10px -10px rgba(0, 0, 0, 0.3);
 }
 
+.heart {
+    /* 背景色を無色に */
+    background: transparent;
+    /* 枠線を消す */
+    border: none;
+    /* クリックした際に枠線をnone消す */
+    outline: none;
+    /* 影を消す */
+    box-shadow: none;
+}
