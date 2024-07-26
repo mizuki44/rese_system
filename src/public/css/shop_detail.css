@@ -32,6 +32,13 @@
 
 }
 
+/* レスポンシブ (768px以上)*/
+@media screen and (max-width: 768px) {
+    .shop_detail {
+        width: 30%;
+    }
+}
+
 .shop_name {
     display: flex;
     align-items: center;}

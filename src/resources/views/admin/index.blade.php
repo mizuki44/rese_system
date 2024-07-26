@@ -24,6 +24,10 @@
         </ul>
     </div>
 
+    <form action="{{route('admin.logout')}}" method="post">
+        @csrf
+        <button class="admin__logout">Logout</button>
+    </form>
 
     @endsection
 </main>
