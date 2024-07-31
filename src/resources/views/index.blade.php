@@ -55,12 +55,13 @@
             </nav>
 
             <div class="logo_hamburger">
-                <button class=" header__hamburger hamburger" id="js-hamburger">
-                    <span class="span_1"></span>
-                    <span class="span_2"></span>
-                    <span class="span_3"></span>
-                </button>
-
+                <div class="logo_hamburger_1">
+                    <button class=" header__hamburger hamburger" id="js-hamburger">
+                        <span class="span_1"></span>
+                        <span class="span_2"></span>
+                        <span class="span_3"></span>
+                    </button>
+                </div>
                 <div class="header__inner">
                     <h1 class="header__title header-title">
                         <a href="/">
