@@ -221,3 +221,22 @@ small {
     left: -3%;
     /* アイコンの位置。微調整してね */
 }
+
+@media screen and (max-width: 767.9px) {
+    .register__content {
+        width: 40vh;
+        /* margin-left: 20px; */
+
+
+    }
+
+    .form__button-submit {
+        width: 20vw;
+    }
+
+    .form__button {
+        position: relative;
+        left: 32px;
+    }
+
+}

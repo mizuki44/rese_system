@@ -22,6 +22,7 @@ use App\Http\Traits\Content;
 use App\Consts\SortOptConst;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ReserveRequest;
+use Carbon\Carbon;
 
 class ReservationController extends Controller
 {
@@ -81,10 +82,23 @@ class ReservationController extends Controller
         }
     }
 
+    public function edit(Request $request)
+    {
+        $id = $request->reservation_id;
+        $reserve = Reservation::find($id);
+        $today = Carbon::now()->format('Y-m-d');
+        $today_time = Carbon::now()->addHour()->format('H:i');
+
+
+        return view('reserve_edit', compact('id', 'reserve', 'today', 'today_time'));
+    }
+
+
     public function update(ReserveRequest $request)
     {
         $form = $request->all();
         $id = $request->reservation_id;
+
         $item = Reservation::find($id)->update($form);
 
         if ($item) {

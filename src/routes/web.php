@@ -37,6 +37,7 @@ Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->middleware([
 Route::post('/reserve', [ReservationController::class, 'store'])->name('reserve');
 Route::get('/reserve/done', [ReservationController::class, 'show'])->name('reserve.done');
 Route::post('/reserve/delete', [ReservationController::class, 'destroy'])->middleware('auth');
+Route::get('/reserve/edit', [ReservationController::class, 'edit'])->middleware('auth');
 Route::post('/reserve/update', [ReservationController::class, 'update'])->middleware('auth');
 Route::get('/reserve/qr_code_update/{reservation_id}', [ReservationController::class, 'QrCodeUpdate'])->name('reserve.qr_code_update')->middleware(['verified']);
 

@@ -193,3 +193,21 @@ padding: 1px;
     left: 1%;
     /* アイコンの位置。微調整してね */
 }
+
+
+@media screen and (max-width: 767.9px) {
+    .login__content {
+        width: 45vh;
+        /* margin-left: 20px; */
+
+        
+    }
+    .button-login {
+width: 374%;
+    }
+.form__button {
+    position: relative;
+    left: 32px;
+}
+
+}

@@ -26,13 +26,16 @@
 .reservation_number {
     padding: 10px;
     font-size: medium;
+    margin-left: 21px;
 }
 
-
+.main_page {
+    margin: 20px;
+}
 .reserve_page {
-    width: 100%;
+    width: 50%;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-evenly;
     /* width: 41.666667%; */
 }
 
@@ -56,8 +59,16 @@ md:w-5/12 */
 }
 
 .card_contents_inner_1 {
-    width: 44vh;
+    width: 52vh;
     background-color: #136FFF;
+    border-radius: 6px;
+    filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+    margin-bottom: 16px;
+}
+
+.card_content {
+    width: 52vh;
+    /* background-color: #136FFF; */
     border-radius: 6px;
     filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
     margin-bottom: 16px;
@@ -65,7 +76,7 @@ md:w-5/12 */
 
 .card_contents_inner_2 {
     padding-bottom: 50px;
-    padding-top: 15px;
+    padding-top: 17px;
 }
 
 
@@ -89,38 +100,43 @@ md:w-5/12 */
 
 /* bg-blue-700 text-white disabled:text-blue-500 w-full py-2 rounded-b absolute bottom-0 left-0 */
 .favorite_page {
-    width: 58.333333%;
+    width: 50%;
 }
 
 .favorite_situation {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-evenly; */
     flex-wrap: wrap;
+    /* margin-left: 126px; */
 
 }
 
 /* flex justify-between flex-wrap */
 
 .favorite_page_inner {
-    width: 14rem;
+    width: 17rem;
     /* 224px */
     background-color: rgb(255 255 255);
     border-radius: 0.375rem;
     /* 6px */
     filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     /* 16px */
-
+    height: 18rem;
+    margin-top: 30px;
+    margin-right: 20px;
+   margin-top: 1rem;
 }
 
 /* w-56 bg-white rounded-md shadow-md mb-4 */
 
 .image {
     width: 100%;
-    min-height: 112px;
+    min-height: 160px;
     object-fit: cover;
     border-top-left-radius: 0.375rem;
     border-top-right-radius: 0.375rem;
+    height: 20%;
 }
 
 .shop_name1 {
@@ -145,8 +161,8 @@ md:w-5/12 */
     border-radius: 0.375rem;
     background-color: rgb(37 99 235);
     color: rgb(255 255 255);
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 1.0rem;
+    padding-right: 1.0rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     position: relative;
@@ -180,6 +196,7 @@ md:w-5/12 */
     /* 8px */
     scroll-margin-top: 1rem;
     /* 16px */
+    padding-left: 16%;
 
 }
 
@@ -381,6 +398,8 @@ md:w-5/12 */
 
 .main_contents {
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .qr_code_button {
@@ -459,4 +478,65 @@ md:w-5/12 */
     /* アイコンの位置。微調整してね */
     /* left: -4%; */
     /* アイコンの位置。微調整してね */
+}
+
+.heart {
+    /* 背景色を無色に */
+    background: transparent;
+    /* 枠線を消す */
+    border: none;
+    /* クリックした際に枠線をnone消す */
+    outline: none;
+    /* 影を消す */
+    box-shadow: none;
+    display: inline-block;
+    /* 高さを持たせるためにインラインブロック要素にする */
+    position: absolute;
+    /* 相対位置に指定 */
+    top: 79%;
+    /* アイコンの位置。微調整してね */
+    right: 9%;
+    /* アイコンの位置。微調整してね */
+    width: 14%;
+}
+
+.heart_image {
+width: 135%;
+    min-height: 35px;
+    object-fit: cover;
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+}
+
+.shop_name {
+    padding: 22px;
+}
+
+
+/* レスポンシブ (768px以上)*/
+@media screen and (max-width: 767.9px) {
+
+    .main_contents {
+        width: 50%;
+        flex-direction: column;
+    }
+        .favorite_page {
+            width: 100%;
+        }
+
+    .favorite_situation {
+        margin-left: 0%;
+    }
+
+
+    /* .reserve_page {
+        width: 50%;
+    }
+
+   .card_content {
+       width: 25%;
+    }
+ .favorite_page {
+width: 25%;
+} */
 }
