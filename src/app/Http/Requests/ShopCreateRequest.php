@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class ShopCreateRequest extends FormRequest
 {
     /**
@@ -37,7 +38,7 @@ class ShopCreateRequest extends FormRequest
      *
      * @return array
      */
-    public function messages(): array
+    public function messages()
     {
         return [
             'name.required' => ':attributeは必須項目です。',
@@ -57,7 +58,7 @@ class ShopCreateRequest extends FormRequest
      *
      * @return array
      */
-    public function attributes(): array
+    public function attributes()
     {
         return [
             'name' => '店舗名',

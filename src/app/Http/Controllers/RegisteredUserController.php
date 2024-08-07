@@ -54,8 +54,7 @@ class RegisteredUserController extends Controller
 
             Auth::login($admin);
 
-            return 'success!';
-
+            return redirect('admin/index');
         } else {
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],

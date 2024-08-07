@@ -155,7 +155,7 @@
                             <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
                             <!-- <button class="favorite_button  {{ Auth::user()->favorites->where('shop_id', $shop->id)->first->id ? 'color_red' : 'color_gray' }}" type="submit">&#9829;</button> -->
 
-                            <button class="heart"><img class="image" src="{{ Auth::user()->favorites->where('shop_id', $shop->id)->first->id ? url('../img/red_heart.png') : url('../img/gray_heart.png')}}"></button>
+                            <button class="heart"><img class="image" src="{{ Auth::user()->favorites->where('shop_id', $shop->id)->first->id ? url('../img/red_heart.jpeg') : url('../img/gray_heart.jpeg')}}"></button>
                             <!-- whereは複数検索する（箱）。'shop_id'と$shop->idが一致していたらfirstで取り出す（箱から取り出す）。 -->
                         </form>
                         @endif

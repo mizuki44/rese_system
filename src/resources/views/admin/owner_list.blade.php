@@ -1,4 +1,4 @@
-@extends('layouts.app')
+
 
 
 <head>
@@ -7,7 +7,6 @@
 </head>
 
 <main>
-    @section('content')
     <h1 class="title">店舗代表者一覧</h1>
     <form method="GET" action="{{ url('/admin/owner/create') }}">
         @csrf
@@ -48,5 +47,4 @@
 
 
     <a class="return" href="{{ route('admin.index') }}">戻る</a>
-    @endsection
 </main>

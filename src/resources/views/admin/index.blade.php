@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
 
 <head>
     <link rel="stylesheet" href="/css/sanitize.css">
@@ -7,7 +5,6 @@
 </head>
 
 <main>
-    @section('content')
     <h1 class='title'>管理画面</h1>
     <div class="body">
 
@@ -29,5 +26,5 @@
         <button class="admin__logout">Logout</button>
     </form>
 
-    @endsection
+  
 </main>

@@ -30,7 +30,7 @@ use App\Http\Requests\ShopCreateRequest;
 
 class ShopController extends Controller
 {
-// 店舗一覧表示
+    // 店舗一覧表示
     public function index(Request $request)
     {
         $shops = Shop::all();
@@ -39,7 +39,7 @@ class ShopController extends Controller
     }
 
 
-// 店舗情報新規作成フォーム表示
+    // 店舗情報新規作成フォーム表示
     public function create(Request $request)
     {
         $areas = Area::all();
@@ -48,7 +48,7 @@ class ShopController extends Controller
         return view('admin.shop_create', compact('areas', 'genres'));
     }
 
-// 店舗情報新規作成
+    // 店舗情報新規作成
     public function store(ShopCreateRequest $request)
     {
         $shop = shop::create([
@@ -66,7 +66,7 @@ class ShopController extends Controller
         $shop->image_url = $url;
         $shop->save();
 
-        return redirect('admin/shop/index' );
+        return redirect('admin/shop/index');
     }
 
     // 店舗情報変更フォーム表示
@@ -85,7 +85,6 @@ class ShopController extends Controller
         $form = $request->all();
         $id = $request->shop_id;
         $item = Shop::find($id)->update($form);
-
 
         if ($item) {
             return redirect('admin/shop/index');

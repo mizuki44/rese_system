@@ -172,7 +172,7 @@ small {
     /* アイコンの横幅 */
     height: 9%;
     /* アイコンの高さ */
-    background: url(../img/mail.png) no-repeat center center / auto 90%;
+    background: url(../img/mail.jpeg) no-repeat center center / auto 90%;
     /* 背景にアイコン画像を配置 */
     display: inline-block;
     /* 高さを持たせるためにインラインブロック要素にする */
@@ -191,7 +191,7 @@ small {
     /* アイコンの横幅 */
     height: 10%;
     /* アイコンの高さ */
-    background: url(../img/key.png) no-repeat center center / auto 90%;
+    background: url(../img/key.jpeg) no-repeat center center / auto 90%;
     /* 背景にアイコン画像を配置 */
     display: inline-block;
     /* 高さを持たせるためにインラインブロック要素にする */
@@ -210,7 +210,7 @@ small {
     /* アイコンの横幅 */
     height: 10%;
     /* アイコンの高さ */
-    background: url(../img/user.png) no-repeat center center / auto 90%;
+    background: url(../img/user.jpeg) no-repeat center center / auto 90%;
     /* 背景にアイコン画像を配置 */
     display: inline-block;
     /* 高さを持たせるためにインラインブロック要素にする */

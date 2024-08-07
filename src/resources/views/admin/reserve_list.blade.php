@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
 
 <head>
     <link rel="stylesheet" href="/css/sanitize.css">
@@ -8,7 +6,6 @@
 </head>
 
 <main>
-    @section('content')
     <h1 class="title">予約情報一覧</h1>
     <form action="/admin/create" method="get">
         @csrf
@@ -147,5 +144,4 @@
 
 
     <a class="return" href="{{ route('admin.index') }}">戻る</a>
-    @endsection
 </main>

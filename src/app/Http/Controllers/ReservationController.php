@@ -28,17 +28,6 @@ class ReservationController extends Controller
 {
     public function store(ReserveRequest $request)
     {
-        // $this->validate($request, Reservation::$rules);
-
-        // $createReservation = [
-        //     'user_id' => $request->user_id,
-        //     'shop_id' => $request->shop_id,
-        //     'date' => $request->date,
-        //     'time' => $request->time,
-        //     'number' => $request->number,
-        // ];
-        // $item = Reservation::c($createReservation);
-
         $form = $request->all();
         $item = Reservation::create($form);
         // return redirect('/');
@@ -49,22 +38,22 @@ class ReservationController extends Controller
         // my_pageにも飛ばす？
     }
 
-    public function show(Request $request)
-    {
-        $id = $request->id;
-        $item = Reservation::find($id);
+    // public function show(Request $request)
+    // {
+    //     $id = $request->id;
+    //     $item = Reservation::find($id);
 
-        // ショップ名取得
-        $shop_id = $item->shop_id;
-        $shop = Shop::find($shop_id);
-        $item->shopname = $shop->shopname;
+    //     // ショップ名取得
+    //     $shop_id = $item->shop_id;
+    //     $shop = Shop::find($shop_id);
+    //     $item->shopname = $shop->shopname;
 
-        if ($item) {
-            return view('reserve.done', ['item' => $item]);
-        } else {
-            return response()->redirect('/');
-        }
-    }
+    //     if ($item) {
+    //         return view('reserve.done', ['item' => $item]);
+    //     } else {
+    //         return response()->redirect('/');
+    //     }
+    // }
 
     // 予約削除
     public function destroy(Request $request)

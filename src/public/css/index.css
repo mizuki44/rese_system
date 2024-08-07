@@ -15,7 +15,7 @@
 }
 .image {
     width: 100%;
-    min-height: 33px;
+    min-height: 28px;
     object-fit: cover;
     border-top-left-radius: 0.375rem;
     border-top-right-radius: 0.375rem;
@@ -213,7 +213,7 @@ main {
     /* アイコンの横幅 */
     height: 16px;
     /* アイコンの高さ */
-    background: url(../img/icon.png) no-repeat center center / auto 100%;
+    background: url(../img/icon.jpeg) no-repeat center center / auto 100%;
     background-size: cover;
     /* 背景にアイコン画像を配置 */
     display: inline-block;

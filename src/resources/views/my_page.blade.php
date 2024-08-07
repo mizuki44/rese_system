@@ -23,8 +23,8 @@
                         <div>
                             @foreach ($reservations as $reservation)
                             <div class="card_contents_inner_2 w-4/5 h-48 bg-blue-600 text-white rounded-md shadow-md mb-4 px-3 py-3 relative">
-                                <div class="flex justify-between">
-                                    <h3 class="reservation_number">予約{{ $reservation['reservation_num'] }}</h3>
+                                <div class="flex">
+                                    <div class="reservation_number">予約{{ $reservation['reservation_num'] }}</div>
                                     <div class='card_contents_inner_3'>
                                         <!-- QRコード表示 -->
                                         @if($reservation['visited_flg'] == false)
@@ -113,7 +113,7 @@
                                     <input type="hidden" name="shop_id" value="{{ $favorite->shop->id }}">
 
 
-                                    <button class="heart"><img class="heart_image" src="{{ $favorite->shop->id ? url('../img/red_heart.png') : url('../img/gray_heart.png')}}"></button>
+                                    <button class="heart"><img class="heart_image" src="{{ $favorite->shop->id ? url('../img/red_heart.jpeg') : url('../img/gray_heart.jpeg')}}"></button>
                                     <!-- <button class="favorite_button {{ $favorite->shop ? 'color_red' : 'color_gray' }}" type="submit">&#9829;</button> -->
                                 </form>
                                 @endif

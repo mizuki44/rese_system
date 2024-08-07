@@ -31,23 +31,22 @@ use App\Http\Controllers\AdminController;
 // Route::get('/', [AuthController::class, 'index']);
 
 Route::get('/', [ShopController::class, 'index'])->name('shop.index');
-Route::post('/favorite', [FavoriteController::class, 'flip']);
 Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->middleware(['verified'])->middleware('auth');
 
 Route::post('/reserve', [ReservationController::class, 'store'])->name('reserve');
-Route::get('/reserve/done', [ReservationController::class, 'show'])->name('reserve.done');
+// Route::get('/reserve/done', [ReservationController::class, 'show'])->name('reserve.done');
 Route::post('/reserve/delete', [ReservationController::class, 'destroy'])->middleware('auth');
 Route::get('/reserve/edit', [ReservationController::class, 'edit'])->middleware('auth');
 Route::post('/reserve/update', [ReservationController::class, 'update'])->middleware('auth');
 Route::get('/reserve/qr_code_update/{reservation_id}', [ReservationController::class, 'QrCodeUpdate'])->name('reserve.qr_code_update')->middleware(['verified']);
-
+Route::post('/favorite', [FavoriteController::class, 'flip']);
 Route::get('/my_page', [MyPageController::class, 'create'])->middleware(['verified'])->middleware('auth')->name('mypage');
 Route::get('/qr_code', [MyPageController::class, 'showQrCode'])->middleware(['verified']);
 
 
 //Review機能の追加
 Route::get('/review/add/{shop_id}', [ReviewController::class, 'create'])->middleware(['verified']);
-Route::get('/review/store', [ReviewController::class, 'store'])->middleware(['verified']);
+// Route::get('/review/store', [ReviewController::class, 'store'])->middleware(['verified']);
 Route::post('/review/store', [ReviewController::class, 'store'])->middleware(['verified']);
 Route::get('/review/shop_index/{shop_id}', [ReviewController::class, 'shopIndex']);
 Route::post('/review/delete', [ReviewController::class, 'destroy']);
@@ -87,6 +86,7 @@ Route::get('cancel', function () {
 })->name('cancel');
 Route::post('/checkout-payment', 'App\Http\Controllers\StripePaymentsController@checkout')->name('checkout.session'); // Stripeフォームへ遷移する処理
 
+// admin
 Route::prefix('admin')->name('admin.')->group(function () {
     // ログイン・登録
     Route::view('/login', 'admin.auth.login')->middleware('guest:admin')->name('login');

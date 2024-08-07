@@ -33,7 +33,7 @@
                     <th class="contact-item">エリア</th>
                     <td class="contact-body">
                         <div class="drop_area">
-                            <select name="area" class="form-select" id="area">
+                            <select name="area_id" class="form-select" id="area">
                                 <option value="{{ $item->area_id}}" selected hidden>{{ $item->area->name }}</option>
                                 <option value=" 1">東京都</option>
                                 <option value="2">大阪府</option>
@@ -49,7 +49,7 @@
                     <th class="contact-item">ジャンル</th>
                     <td class="contact-body">
                         <div class="drop_genre">
-                            <select name="genre" class="form-select" id="genre">
+                            <select name="genre_id" class="form-select" id="genre">
                                 <option value="{{ $item->genre_id}}" selected hidden>{{ $item->genre->name }}</option>
                                 <option value=" 1">寿司</option>
                                 <option value="2">焼肉</option>
