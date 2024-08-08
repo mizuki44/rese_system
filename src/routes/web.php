@@ -48,7 +48,7 @@ Route::get('/qr_code', [MyPageController::class, 'showQrCode'])->middleware(['ve
 Route::get('/review/add/{shop_id}', [ReviewController::class, 'create'])->middleware(['verified']);
 // Route::get('/review/store', [ReviewController::class, 'store'])->middleware(['verified']);
 Route::post('/review/store', [ReviewController::class, 'store'])->middleware(['verified']);
-Route::get('/review/shop_index/{shop_id}', [ReviewController::class, 'shopIndex']);
+// Route::get('/review/shop_index/{shop_id}', [ReviewController::class, 'shopIndex']);
 Route::post('/review/delete', [ReviewController::class, 'destroy']);
 Route::get('/review/edit/{shop_id}', [ReviewController::class, 'edit'])->middleware(['verified']);
 Route::post('/review/update', [ReviewController::class, 'update'])->middleware(['verified']);

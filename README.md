@@ -78,7 +78,7 @@
 
 ## 環境構築
 Docker ビルド
-1. git clone git@github.com:mizuki44/attendance_system.git
+1. git clone git@github.com:mizuki44/rese_system.git
 2. DockerDesktopアプリを立ち上げる
 3. docker-compose up -d --build
 

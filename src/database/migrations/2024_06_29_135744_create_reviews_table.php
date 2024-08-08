@@ -20,7 +20,6 @@ class CreateReviewsTable extends Migration
             $table->unique(['user_id', 'shop_id']);
             $table->integer('star');
             $table->text('comment')->nullable();
-            $table->text('image_url')->nullable();
             $table->timestamps();
         });
     }
