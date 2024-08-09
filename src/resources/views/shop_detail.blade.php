@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-<head>
-    <link rel="stylesheet" href="/css/shop_detail.css">
-    <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/sanitize.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- レスポンシブ対応用にmetaのviewportを記載 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@section('css')
+<link rel="stylesheet" href="/css/shop_detail.css">
+<!-- <link rel="stylesheet" href="/css/app.css"> -->
+<!-- <link rel="stylesheet" href="/css/sanitize.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- レスポンシブ対応用にmetaのviewportを記載 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@endsection
 
-</head>
 
 
-<main>
+<main class="main">
     @section('content')
     <script>
         $(function() {

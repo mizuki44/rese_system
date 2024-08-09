@@ -74,15 +74,15 @@ h2 {
 .form__error {
     height: 20px;
     color: #ff0000;
-    font-size: medium;
+    font-size: 13px;
     font-weight: 100;
 }
 
 
 .form__input--text_user input {
     padding: 1px;
-    width: 80%;
-    height: 36px;
+    width: 77%;
+    height: 20px;
     border: none;
     padding-left: 6px;
     padding-right: 6px;
@@ -90,21 +90,22 @@ h2 {
     margin-left: 12px;
 }
 
-.form__input--text_mail input {
+.form__input--text_email input {
     padding: 1px;
-    width: 80%;
-    height: 36px;
+    width: 77%;
+    height: 20px;
     border: none;
     padding-left: 6px;
     padding-right: 6px;
     border-bottom: 1px solid #696969;
     margin-left: 12px;
 }
+
 
 .form__input--text_password input {
     padding: 1px;
-    width: 80%;
-    height: 36px;
+    width: 77%;
+    height: 20px;
     border: none;
     padding-left: 6px;
     padding-right: 6px;
@@ -112,12 +113,26 @@ h2 {
     margin-left: 12px;
 }
 
+.form__input--role input {
+    padding: 1px;
+    width: 77%;
+    height: 20px;
+    border: none;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-bottom: 1px solid #696969;
+    margin-left: 12px;
+}
 .form__button {
     margin-top: 5px;
     width: 10vw;
     position: relative;
     left: 70%;
     padding-bottom: 20px;
+}
+
+.form__input--text_user {
+    margin-top: 20px;
 }
 
 .form__button-submit {
@@ -165,12 +180,12 @@ small {
     font-weight: bold;
 }
 
-.form__input--text_mail::before {
+.form__input--text_email::before {
     content: "";
     /* 疑似要素に必須 */
     width: 20%;
     /* アイコンの横幅 */
-    height: 9%;
+    height: 8%;
     /* アイコンの高さ */
     background: url(../img/mail.jpeg) no-repeat center center / auto 90%;
     /* 背景にアイコン画像を配置 */
@@ -178,7 +193,7 @@ small {
     /* 高さを持たせるためにインラインブロック要素にする */
     position: absolute;
     /* 相対位置に指定 */
-    top: 45%;
+    top: 39%;
     /* アイコンの位置。微調整してね */
     left: -4%;
     /* アイコンの位置。微調整してね */
@@ -189,7 +204,7 @@ small {
     /* 疑似要素に必須 */
     width: 10%;
     /* アイコンの横幅 */
-    height: 10%;
+    height: 8%;
     /* アイコンの高さ */
     background: url(../img/key.jpeg) no-repeat center center / auto 90%;
     /* 背景にアイコン画像を配置 */
@@ -197,7 +212,7 @@ small {
     /* 高さを持たせるためにインラインブロック要素にする */
     position: absolute;
     /* 相対位置に指定 */
-    top: 62%;
+    top: 53%;
     /* アイコンの位置。微調整してね */
     left: 1%;
     /* アイコンの位置。微調整してね */
@@ -206,9 +221,9 @@ small {
 .form__input--text_user::before {
     content: "";
     /* 疑似要素に必須 */
-    width: 18%;
+    width: 17%;
     /* アイコンの横幅 */
-    height: 10%;
+    height: 9%;
     /* アイコンの高さ */
     background: url(../img/user.jpeg) no-repeat center center / auto 90%;
     /* 背景にアイコン画像を配置 */
@@ -216,7 +231,7 @@ small {
     /* 高さを持たせるためにインラインブロック要素にする */
     position: absolute;
     /* 相対位置に指定 */
-    top: 25%;
+    top: 23%;
     /* アイコンの位置。微調整してね */
     left: -3%;
     /* アイコンの位置。微調整してね */
@@ -224,7 +239,7 @@ small {
 
 @media screen and (max-width: 767.9px) {
     .register__content {
-        width: 40vh;
+        width: 45vh;
         /* margin-left: 20px; */
 
 

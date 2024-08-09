@@ -1,8 +1,23 @@
-<div class="max-w-7xl mx-auto px-4 lg:px-8">
-    <div class="m-6">
-        {!! QrCode::size(300)->generate(route('reserve.qr_code_update',['reservation_id' => $reservation_id])); !!}
-    </div>
-    <div>
-        <a class="ml-6 block text-center text-blue-800 bg-white border-solid border border-blue-800 hover:bg-gray-200 rounded w-20" href="{{ url('/my_page') }}">戻る</a>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/qr_cord.css') }}">
+</head>
+
+<body>
+    <main>
+        <div class="content">
+            <h1>店員へ提示してください</h1>
+            <div class="qr_cord">
+                {!! QrCode::size(300)->generate(route('reserve.qr_code_update',['reservation_id' => $reservation_id])); !!}
+            </div>
+            <div>
+                <a class="back" href="{{ url('/my_page') }}">戻る</a>
+            </div>
+        </div>
+    </main>
+</body>

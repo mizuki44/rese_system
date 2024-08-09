@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<main>
+<main class="main">
     @section('content')
     <div class="main_page">
         <h1 class="name">{{ Auth::user()->name }}さん</h1>
@@ -60,7 +60,7 @@
                                     </tr>
                                     <tr>
                                         <td class="reservation_card_index">
-                                            <span>date</span>
+                                            <span>Date</span>
                                         </td>
                                         <td class="reservation_card_inner" id="reservation_date-{{$loop->index}}">
                                             <span>{{ $reservation['date'] }}</span>
@@ -68,7 +68,7 @@
                                     </tr>
                                     <tr>
                                         <td class="reservation_card_index">
-                                            <span>time</span>
+                                            <span>Time</span>
                                         </td>
                                         <td class="reservation_card_inner" id="reservation_time-{{$loop->index}}">
                                             <span>{{ $reservation['time'] }}</span>
@@ -76,7 +76,7 @@
                                     </tr>
                                     <tr>
                                         <td class="reservation_card_index">
-                                            <span>number</span>
+                                            <span>Number</span>
                                         </td>
                                         <td class="reservation_card_inner" id="reservation_number-{{$loop->index}}">
                                             <span>{{ $reservation['number'] }}人</span>
@@ -104,7 +104,7 @@
                                 <span>#{{ $favorite->shop->area->name }}</span>
                                 <span>#{{ $favorite->shop->genre->name}}</span>
                             </div>
-                            <div class="card_contents_inner_2">
+                            <div class="card_contents_inner_4">
                                 <a class="detail" href="{{ url('/detail/'.$favorite->shop->id) }}">詳しくみる</a>
                                 @if( Auth::check() )
                                 <form method="POST" action="{{ url('/favorite') }}">

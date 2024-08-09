@@ -26,6 +26,7 @@ use App\Http\Controllers\Controller;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\File;
 use App\Http\Requests\ShopCreateRequest;
+// use Config;
 
 
 class ShopController extends Controller
@@ -65,7 +66,7 @@ class ShopController extends Controller
         // 上記処理にて保存した画像に名前を付け、userテーブルのthumbnailカラムに、格納
         $shop->image_url = $url;
         $shop->save();
-
+        // dd(Config::get('filesystems'));
         return redirect('admin/shop/index');
     }
 

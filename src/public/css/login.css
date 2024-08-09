@@ -98,7 +98,7 @@ main {
 
 .form__input--text_mail input {
    padding: 1px;
-    width: 80%;
+    width: 77%;
     height: 36px;
     border: none;
     padding-left: 6px;
@@ -109,7 +109,7 @@ main {
 
 .form__input--text_password input {
 padding: 1px;
-    width: 80%;
+    width: 77%;
     height: 36px;
     border: none;
     padding-left: 6px;
@@ -203,7 +203,7 @@ padding: 1px;
         
     }
     .button-login {
-width: 374%;
+width: 315%;
     }
 .form__button {
     position: relative;

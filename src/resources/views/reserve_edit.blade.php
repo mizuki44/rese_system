@@ -1,4 +1,4 @@
-@extends('layouts.app')
+
 
 <head>
     <link rel="stylesheet" href="/css/reserve_edit.css">
@@ -12,32 +12,31 @@
 </head>
 
 <main>
-    @section('content')
-    <div>
+    <div class="content">
         <form method="POST" action="{{ url('/reserve/update') }}">
             @csrf
-            <table class='reserve_content'>
-                <tr class="date">
-                    <th class="title">店舗名</th>
-                    <td id="modal_shop_name" class="modal_shop_name">
+            <table class='contact-table'>
+                <tr class="">
+                    <th class="contact-item">店舗名</th>
+                    <td id="modal_shop_name" class="contact-body">
                         <div class="title">{{$reserve->shop->name}}</div>
                     </td>
                 </tr>
                 <input type="hidden" name="reservation_id" value="{{$reserve->id}}">
-                <tr class="date">
-                    <th class="title">日にち</th>
-                    <td>
+                <tr class="">
+                    <th class="contact-item">日にち</th>
+                    <td class="contact-body">
                         <input class="date" type="date" id="date" name="date" value="{{$reserve->date}}" min="{{ $today }}" />
                         @error('date')
                         <p class='error_message'>{{$message}}</p>
                         @enderror
                     </td>
                 </tr>
-               
 
-                <tr class="time_low">
-                    <th class="title">時間</th>
-                    <td>
+
+                <tr class="">
+                    <th class="contact-item">時間</th>
+                    <td class="contact-body">
                         <input type="hidden" name="selected_drop_time" value="{{$reserve->time}}" />
                         <input class="drop_time timepicker" id="TimePicker" name="time" value="{{$reserve->time}}" autocomplete="off" />
                         @error('time')
@@ -46,10 +45,10 @@
                     </td>
                 </tr>
                 <tr class="number_low">
-                    <th class="title">人数</th>
-                    <td>
+                    <th class="contact-item">人数</th>
+                    <td class="contact-body">
                         <div class="drop_number">
-                            <select name="number" class="drop_number" id="number">
+                            <select name="number" class="form-select" id="number">
                                 <option value="" selected hidden>選択してください</option>
                                 <option value="1">1人</option>
                                 <option value="2">2人</option>
@@ -70,7 +69,7 @@
                 </tr>
             </table>
             <div class="button_css">
-                <button type="submit" class="change_button">変更する</button>
+                <button type="submit" class="contact-submit">変更する</button>
             </div>
         </form>
     </div>
@@ -122,5 +121,4 @@
             });
         });
     </script>
-    @endsection
 </main>

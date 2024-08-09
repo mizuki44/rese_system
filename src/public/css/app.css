@@ -140,7 +140,7 @@
 /* ハンバーガーメニュー */
 .header__hamburger {
     width: 50px;
-    height: 96%;
+    height: 80%;
     background-color: rgb(37 99 235);
     /* filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06)); */
     color: rgb(107 114 128);
