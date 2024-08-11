@@ -1,9 +1,7 @@
-
-
-
 <head>
     <link rel="stylesheet" href="/css/sanitize.css">
     <link rel="stylesheet" href="/css/admin_owner_list.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <main>

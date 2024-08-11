@@ -291,8 +291,9 @@ main {
     }
 }
 
-.body {
+body {
     margin: 10px;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
 @media screen and (max-width: 665px) {
@@ -311,8 +312,8 @@ main {
         }
 }
 
-.header__hamburger{
-    width: 50px;
+.header__hamburger_for_index {
+    width: 46px;
     height: 150%;
     background-color: rgb(37 99 235);
     /* filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06)); */
@@ -321,6 +322,8 @@ main {
     box-shadow: 2px 2px 4px;
     /* padding: 9%; */
     /* margin: 6%; */
+    position: relative;
+    top: -6px;
 }
 
 .hamburger {

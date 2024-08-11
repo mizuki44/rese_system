@@ -1,10 +1,8 @@
-
-
-
 <head>
     <link rel="stylesheet" href="/css/sanitize.css">
     <link rel="stylesheet" href="/css/admin_shop_list.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <main>
@@ -37,24 +35,24 @@
                 <!-- 変更ボタン -->
                 <td class="table-inner">
                     <div class="button_layout">
-                    <form method="GET" action="{{url('/admin/shop/edit')}}">
-                        @csrf
-                        <input type="hidden" name="shop_id" id="shop_id" value="{{ $shop['id'] }}">
-                        <button type="submit" class="button">変更</button>
-                    </form>
-                    <!-- キャンセルボタン -->
-                    <form method="POST" action="{{url('/admin/shop/delete')}}">
-                        @csrf
-                        <input type="hidden" name="shop_id" class="shop_id" value="{{ $shop['id'] }}">
-                        <button type="submit" class="button">削除</button>
-                    </form>
+                        <form method="GET" action="{{url('/admin/shop/edit')}}">
+                            @csrf
+                            <input type="hidden" name="shop_id" id="shop_id" value="{{ $shop['id'] }}">
+                            <button type="submit" class="button">変更</button>
+                        </form>
+                        <!-- キャンセルボタン -->
+                        <form method="POST" action="{{url('/admin/shop/delete')}}">
+                            @csrf
+                            <input type="hidden" name="shop_id" class="shop_id" value="{{ $shop['id'] }}">
+                            <button type="submit" class="button">削除</button>
+                        </form>
                     </div>
                 </td>
-    </tr>
-    @endif
+            </tr>
+            @endif
 
-    @endforeach
-    </table>
+            @endforeach
+        </table>
     </div>
 
     <a class="return" href="{{ route('admin.index') }}">戻る</a>

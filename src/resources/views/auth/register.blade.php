@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/register.css') }}">
+<link rel="stylesheet" href="{{ asset('css/user_register.css') }}">
 @endsection
 
 @section('content')
@@ -29,7 +29,7 @@
 
         <div class="form__group">
             <div class="form__group-content">
-                <div class="form__input--text_mail">
+                <div class="form__input--text_email">
                     <input type="email" name="email" value="{{ old('email') }}" placeholder="Email" />
                 </div>
 

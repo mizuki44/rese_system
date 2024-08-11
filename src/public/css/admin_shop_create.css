@@ -6,7 +6,7 @@
 
 body {
     color: #333;
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
 .contact {
@@ -131,4 +131,18 @@ body {
 
 .error_message {
     color: red;
+}
+
+@media screen and (max-width: 767.9px) {
+    .contact-table {
+        width: 50%;
+        margin-left: 15px;
+    }
+    .contact-ttl {
+        margin-left: -53%;
+    }
+
+    .contact-submit {
+        margin-left: 11%;
+    }
 }

@@ -13,21 +13,22 @@
 * mailhog：http://localhost:8025/<br>
 
 　本番環境
-* ユーザーサイト：52.199.182.201<br>
-* phpMyAdmin：52.199.182.201:8080<br>
-* mailhog：52.199.182.201:8025<br>
+* ユーザーサイト：http://52.199.182.201<br>
+* phpMyAdmin：http://52.199.182.201:8080<br>
+* mailhog：http://52.199.182.201:8025<br>
 
 
 ## 他のリポジトリ
 なし
 
 ## 機能一覧
-* 会員登録機能（入力項目は名前、メールアドレス、パスワード）
-  左上のプルダウンメニューの"register"から会員登録画面を表示する。登録時は登録されたメールアドレスに確認メールが送信される。
-* メール認証機能（会員登録時、メールが届き、認証することで会員登録ができる）
+* 会員登録機能（入力項目は名前、メールアドレス、パスワード）<br>
+  左上のハンバーガーメニューの"register"から会員登録画面を表示する。
+  登録時は登録されたメールアドレスに確認メールが送信される。
+* メール認証機能（会員登録時、MailHogにメールが届き、認証することで会員登録ができる）
 * ログイン（メールアドレスとパスワードで認証）
-* ログアウト機能（左上のプルダウンメニューからログアウト）
-  
+* ログアウト機能（左上の左上のハンバーガーメニューから"Logout"を押下）
+
 * 検索<br>
 →トップページの右上の検索メニューから、エリア、ジャンル、店舗名ごとに店舗を検索することができる。検索実行時は、トップページに検索された店舗のみが表示される。<br>
 * 店舗詳細表示<br>
@@ -35,9 +36,10 @@
 * 予約<br>
 →店舗詳細画面から予約することができる。
 * マイページ表示<br>
-→ログインしたユーザーは、左上のプルダウンメニューの"マイページ"ボタンから、予約情報やお気に入り店舗情報を記載したマイページをみることができる。
+→ログインしたユーザーは、左上のハンバーガーメニューの"Mypage"ボタンから、予約情報やお気に入り店舗情報を記載したマイページをみることができる。
 * 予約変更・キャンセル<br>
 マイページに表示された各予約情報の"変更"ボタンから予約情報の変更、キャンセルボタンからキャンセルができる。
+予約変更は、当日の1時間以降は選択できる。<br>
 * QRコード表示<br>
 マイページに表示された各予約情報の"QRコード"アイコンボタンから、来店時に提示するためのQRコードを表示することができる。
 * 決済機能<br>
@@ -49,10 +51,13 @@
 店舗詳細画面左下の"口コミを投稿する"表示を押すと星5段階評価とコメントが投稿できる。<br>
 * リマインダー機能<br>
 毎朝8：00に当日の予約があるユーザーに予約確認メールを送信する。<br>
-    * 方法<br>
+バッチを動かすには"php artisan schedule:work"のコマンドをうつ<br>
+    * 動作確認方法<br>
     1. 当日の予約を作成する<br>
-    2. ターミナルでphpコンテナにログインし、「php artisan command:SendMail」とコマンド入力<br>
-    3. MailHogにリマインドメールが届く<br>
+    2. ターミナルでphpコンテナにログイン<br>
+    「docker exec -it rese_system-php-1 bash」
+    3. 「php artisan command:sendMail」とコマンド入力<br>
+    4. MailHogにリマインドメールが届く<br>
 * 管理者・店舗代表者のログイン<br>
 上記アプリケーションURLに"admin/login"をつけたURLを直打ちするとログイン画面が表示される。
 * 管理者権限（role:1）で出来ること<br>
@@ -79,11 +84,14 @@
 
 
 ## テーブル設計
+<img width="649" alt="スクリーンショット 2024-08-10 17 58 05" src="https://github.com/user-attachments/assets/9649b36d-4117-4213-b942-92649ff0f505">
+<img width="649" alt="スクリーンショット 2024-08-10 17 58 50" src="https://github.com/user-attachments/assets/a82007f1-7a43-4771-ab27-ac2e02a696c1">
+<img width="649" alt="スクリーンショット 2024-08-10 17 59 06" src="https://github.com/user-attachments/assets/e324d7ed-15a8-4e5a-b61d-e5e656e6ef9c">
 
 
 
 ## ER図
-<img width="763" alt="スクリーンショット 2024-08-07 22 43 03" src="https://github.com/user-attachments/assets/1d7ddb48-f2c4-4056-abd3-d3ec64d933af">
+<img width="840" alt="スクリーンショット 2024-08-11 16 05 10" src="https://github.com/user-attachments/assets/1ca3fcca-f54c-42a3-adad-1a464c633523">
 
 
 
@@ -96,28 +104,26 @@ Docker ビルド
 ## Laravel環境構築<br>
 1. コンテナに入る<br>
 docker-compose exec php bash
-2. composerをインストールする
+2. composerをインストールする<br>
 composer install
 3. 「.env.example」ファイルを 「.env」ファイルに命名を変更する。
 または、新しく.envファイルを作成
 4. .envに以下の環境変数を追加<br>
-DB_CONNECTION=mysql<br>
-DB_HOST=mysql<br>
-DB_PORT=3306<br>
-DB_DATABASE=laravel_db<br>
-DB_USERNAME=laravel_user<br>
-DB_PASSWORD=laravel_pass<br>
-<br>
-MAIL_FROM_ADDRESS=info@example.com<br>
+<pre>
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel_db
+DB_USERNAME=laravel_user
+DB_PASSWORD=laravel_pass
 
+MAIL_FROM_ADDRESS=info@example.com
+</pre>
 5. keyを生成する<br>
 php artisan key:generate
-
 6. マイグレーションの実行<br>
 php artisan migrate
-
-7. 店舗情報をシーディング<br>
+7. シーディングの実行<br>
 php artisan db:seed
-
 8. ユーザーの場合→トップページ左上のハンバーガーメニュー内「register」より会員登録
-9. 管理者の場合→アプリケーションURLに"admin/register"をつけたURLを直打ちし、会員登録
+9. 管理者の場合→アプリケーションURLに"admin/login"をつけたURLを直打ちし、サンプル管理者でログイン

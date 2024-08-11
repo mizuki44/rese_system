@@ -14,7 +14,6 @@ class Review extends Model
         'shop_id',
         'star',
         'comment',
-        'image_url'
     ];
 
     public function user()
@@ -40,6 +39,4 @@ class Review extends Model
             $query->where('user_id', $user_id);
         }
     }
-
-
 }

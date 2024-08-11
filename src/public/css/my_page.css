@@ -26,18 +26,18 @@
 .reservation_number {
     padding: 13px;
     font-size: medium;
-    margin-left: 40px;
+    margin-left: 56px;
     font-weight: normal;
     color: white;
     position: relative;
-
+    padding-left: 26px;
 }
 
 .main_page {
     margin: 20px;
 }
 .reserve_page {
-    width: 53%;
+    width: 50%;
     display: flex;
     justify-content:space-evenly;
     /* width: 41.666667%; */
@@ -61,6 +61,7 @@ md:w-5/12 */
 
 .reservation_card_inner {
     scroll-padding-left: 2rem;
+    padding-left: 20px;
     /* 32px */
 }
 
@@ -116,7 +117,7 @@ md:w-5/12 */
 
 .favorite_situation {
     display: flex;
-    /* justify-content: space-evenly; */
+    justify-content: space-evenly;
     flex-wrap: wrap;
     /* margin-left: 126px; */
 
@@ -207,12 +208,12 @@ md:w-5/12 */
     /* 8px */
     scroll-margin-top: 1rem;
     /* 16px */
-    padding-left: 16%;
+    /* padding-left: 16%; */
 
 }
 
 .reserve_situation {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     /* 20px */
     line-height: 1.75rem;
     /* 28px */
@@ -220,7 +221,7 @@ md:w-5/12 */
     /* 8px */
     scroll-margin-top: 1rem;
     /* 16px */
-    padding: 7px;
+    padding-bottom: 16px;
 
 }
 
@@ -510,7 +511,7 @@ md:w-5/12 */
     /* 高さを持たせるためにインラインブロック要素にする */
     position: absolute;
     /* 相対位置に指定 */
-    top: 79%;
+    top: 83%;
     /* アイコンの位置。微調整してね */
     right: 9%;
     /* アイコンの位置。微調整してね */
@@ -565,4 +566,8 @@ width: 25%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+body {
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }

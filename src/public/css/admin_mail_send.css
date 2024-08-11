@@ -6,7 +6,7 @@
 
 body {
     color: #333;
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
 .contact {
@@ -42,6 +42,16 @@ body {
     text-align: center;
     vertical-align: middle;
 }
+
+.contact-item_title {
+    text-align: left;
+    width: 15%;
+    background-color: #eee;
+    font-size: larger;
+    text-align: center;
+    vertical-align: middle;
+}
+
 
 .contact-body {
     width: 70%;
@@ -123,4 +133,23 @@ body {
 
 .error_message {
     color: red;
+}
+
+@media screen and (max-width: 767.9px) {
+    .contact-table {
+        width: 50%;
+        margin-left: 20px;
+    }
+    .contact-ttl {
+        margin-left: -54%;
+    }
+    .contact-submit {
+        margin-left: 10%;
+    }
+    .contact-body {
+        padding: 10px;
+    }
+    .contact-item_title {
+        height: 30px;
+    }
 }

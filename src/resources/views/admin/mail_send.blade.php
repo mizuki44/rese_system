@@ -1,6 +1,7 @@
 <head>
     <link rel="stylesheet" href="/css/sanitize.css">
     <link rel="stylesheet" href="/css/admin_mail_send.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 
@@ -29,10 +30,10 @@
             </div> -->
             <table class="contact-table">
                 <tr>
-                    <th class="contact-item">{{ __('タイトル') }}
+                    <th class="contact-item_title">{{ __('タイトル') }}
                     </th>
                     <td class="contact-body">
-                        <input type="text" name="title" class="form-text" >
+                        <input type="text" name="title" class="form-text">
                         @error('title')
                         <p class='error_message'>{{$message}}</p>
                         @enderror
@@ -42,7 +43,7 @@
                     <th class="contact-item">{{ __('内容') }}</label>
                     </th>
                     <td class="contact-body">
-                        <textarea name="content" class="form-textarea" value="content" ></textarea>
+                        <textarea name="content" class="form-textarea" value="content"></textarea>
                         @error('content')
                         <p class='error_message'>{{$message}}</p>
                         @enderror

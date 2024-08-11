@@ -5,6 +5,7 @@
     scroll-padding-left: 1rem;/* 16px */
     scroll-padding-right: 1rem;/* 16px */
     /* max-w-7xl mx-auto px-4 lg:px-8 */
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
 .text_message_inner {

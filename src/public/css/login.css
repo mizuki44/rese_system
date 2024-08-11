@@ -1,5 +1,6 @@
 body {
     background-color: #f5f5f5;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
 main {
@@ -42,15 +43,16 @@ main {
 .login__content h2 {
     font-size: smaller;
     font-weight: normal;
+    padding-left: 9px;
 }
 
 .button-login {
-    background-color: blue;
+    background-color: rgb(37 99 235);
     color: #fff;
     padding: 8px;
-    border-radius: 3px;
+    border-radius: 5px;
     font-weight: 500;
-    width: 100%;
+    width: 93%;
     border: none;
    
 }
@@ -75,10 +77,9 @@ main {
 .login-form__heading {
     margin-bottom: 9px;
     text-align: left;
-    background-color: blue;
+    background-color: rgb(37 99 235);
     color: white;
     line-height: 70px;
-    width: 96%;
     padding-left: 12px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -98,24 +99,28 @@ main {
 
 .form__input--text_mail input {
    padding: 1px;
-    width: 77%;
-    height: 36px;
+    width: 74%;
+    height: 20px;
     border: none;
     padding-left: 6px;
     padding-right: 6px;
     border-bottom: 1px solid #696969;
-    margin-left: 12px;
+    margin-left: 23px;
+    margin-top: 18px;
+}
+
+.form__input--text_password {
+    position: relative;
 }
 
 .form__input--text_password input {
-padding: 1px;
-    width: 77%;
-    height: 36px;
+    width: 74%;
+    height: 20px;
     border: none;
     padding-left: 6px;
     padding-right: 6px;
     border-bottom: 1px solid #696969;
-    margin-left: 12px;
+    margin-left: 23px;
 }
 
 
@@ -135,7 +140,7 @@ padding: 1px;
     height: 40px;
     border: none;
     border-radius: 3px;
-    background: #0033CC;
+    background: rgb(37 99 235);
     color: #fff;
     cursor: pointer;
 }
@@ -168,7 +173,7 @@ padding: 1px;
     /* 相対位置に指定 */
     top: 45%;
     /* アイコンの位置。微調整してね */
-    left: -4%;
+    left: 0%;
     /* アイコンの位置。微調整してね */
 }
 
@@ -180,7 +185,7 @@ padding: 1px;
     /* 疑似要素に必須 */
     width: 10%;
     /* アイコンの横幅 */
-    height: 10%;
+    height: 100%;
     /* アイコンの高さ */
     background: url(../img/key.jpeg) no-repeat center center / auto 90%;
     /* 背景にアイコン画像を配置 */
@@ -188,9 +193,9 @@ padding: 1px;
     /* 高さを持たせるためにインラインブロック要素にする */
     position: absolute;
     /* 相対位置に指定 */
-    top: 58%;
+    /* top: 58%; */
     /* アイコンの位置。微調整してね */
-    left: 1%;
+    left: 5%;
     /* アイコンの位置。微調整してね */
 }
 

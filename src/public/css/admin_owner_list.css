@@ -1,7 +1,8 @@
 .owner_list {
-    width: 100%;
+    width: 98%;
     border-collapse: separate;
     border-spacing: 0;
+    margin: 5px;
 }
 
 .table-title_inner:first-child {
@@ -84,4 +85,48 @@
     text-align: center;
     padding: 5px;
     margin: 5px;
+}
+
+body {
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+}
+
+/* @media screen and (max-width: 767.9px) {
+    .owner_list {
+        width: 80%;
+        margin-left: 20px;
+    }
+
+
+} */
+
+@media screen and (max-width: 767.9px) {
+    .owner_list .head {
+        display: none;
+    }
+
+    .owner_list {
+        width: 98%;
+        margin: 1%;
+    }
+
+    table.owner_list td {
+        display: block;
+        width: 100%;
+        border-bottom: none;
+    }
+
+    table.owner_list td:first-child {
+        background: linear-gradient(#829ebc, #225588);
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .owner_list tr:last-child {
+        border-bottom: solid 1px #ccc;
+    }
+
+    .table-title_inner {
+        display: none;
+    }
 }

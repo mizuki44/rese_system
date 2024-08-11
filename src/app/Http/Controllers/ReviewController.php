@@ -36,18 +36,12 @@ class ReviewController extends Controller
     {
         if (!Auth::check()) return redirect('login');
 
-        //ストレージに画像を登録
-        $image = $request->file('image_file');
-        // $path = $this->myStoreImage($image);
-
         $table = [
             'user_id' => $request->user_id,
             'shop_id' => $request->shop_id,
             'star' => $request->star,
             'comment' => $request->comment,
         ];
-        $table['image_url'] = empty($path) ? null : $path;
-
         //追加
         $review = Review::create($table);
 
@@ -103,7 +97,7 @@ class ReviewController extends Controller
         if (!Auth::check()) return redirect('login');
 
         //ストレージに画像を登録
-        $image = $request->file('image_file');
+        // $image = $request->file('image_file');
         // $path = $this->myStoreImage($image);
 
         $table = [
@@ -112,7 +106,7 @@ class ReviewController extends Controller
             'star' => $request->star,
             'comment' => $request->comment,
         ];
-        $table['image_url'] = empty($path) ? null : $path;
+        // $table['image_url'] = empty($path) ? null : $path;
 
         //更新
         $review = Review::select()->UserSearch($request->user_id)->ShopSearch($request->shop_id);
@@ -120,11 +114,11 @@ class ReviewController extends Controller
             case 0:
                 //変更しない
                 $tmp_review = $review->first();
-                $table['image_url'] = $tmp_review['image_url'];
+                // $table['image_url'] = $tmp_review['image_url'];
                 break;
             case 1:
                 //削除
-                $table['image_url'] = null;
+                // $table['image_url'] = null;
                 break;
         }
         $review->update($table);

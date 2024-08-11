@@ -84,7 +84,7 @@
             <!-- 自身の口コミを表示 -->
             @if( Auth::check() )
             @if( is_null($my_review) )
-            <div class="py-5">
+            <div class="review">
                 <a href="{{ url('/review/add/'.$shop['id']) }}" class="underline">口コミを投稿する</a>
             </div>
             @else
@@ -109,11 +109,6 @@
                 </div>
                 <div>
                     <p>{{$my_review['comment']}}</p>
-                </div>
-                <div class="w-56">
-                    @if (!is_null($my_review['image_url']))
-                    <img src="{{ $my_review['image_url'] }}">
-                    @endif
                 </div>
                 <hr>
             </div>
@@ -197,21 +192,21 @@
 
             <table class="reserve_confirmation">
                 <tr>
-                    <td class="reserve_confirmation_item">Shop</td>
-                    <td class="reserve_confirmation_item">{{ $shop['name'] }}</td>
+                    <td class="reserve_confirmation_shop">Shop</td>
+                    <td class="reserve_confirmation_item_shop">{{ $shop['name'] }}</td>
                 </tr>
                 <tr>
-                    <td class="reserve_confirmation_item">Date</td>
+                    <td class="reserve_confirmation_title">Date</td>
                     <td id="confirm-date" class="reserve_confirmation_item"></td>
                 </tr>
                 <tr>
-                    <td class="reserve_confirmation_item">Time</td>
+                    <td class="reserve_confirmation_title">Time</td>
                     <td id="confirm-time" class="reserve_confirmation_item"></td>
 
                 </tr>
                 <tr>
-                    <td class="reserve_confirmation_item">Number</td>
-                    <td id="confirm-number" class="reserve_confirmation_item"></td>
+                    <td class="reserve_confirmation_number">Number</td>
+                    <td id="confirm-number" class="reserve_confirmation_item_number"></td>
                 </tr>
             </table>
             <!-- <div>{{ $shop['name'] }}</div>

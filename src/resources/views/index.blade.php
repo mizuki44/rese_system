@@ -56,7 +56,7 @@
 
             <div class="logo_hamburger">
                 <div class="logo_hamburger_1">
-                    <button class=" header__hamburger hamburger" id="js-hamburger">
+                    <button class=" header__hamburger_for_index hamburger" id="js-hamburger">
                         <span class="span_1"></span>
                         <span class="span_2"></span>
                         <span class="span_3"></span>
