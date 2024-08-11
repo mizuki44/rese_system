@@ -12,8 +12,6 @@
     line-height: 1.75rem;
         /* 28px */
     text-align: center;
-    padding: 10px;
-    padding-bottom: 20px;
 }
 
 
@@ -44,21 +42,14 @@
 
 /* レスポンシブ (768px以上)*/
 @media screen and (max-width: 767.9px) {
-    /* .detail_page {
-        width: 50%;
-    }
-     */
-    
     .shop_detail {
         width: 45%;
     }
-
     .reserve_content {
         width: 50%;
         margin-left: 40px;
         margin-top: 11px;
     }
-
 }
 
 
@@ -89,7 +80,7 @@
 } 
 
 .drop_time {
-    width: 37vw;
+    width: 97%;
     height: 32px;
     border-radius: 6px;
     margin-bottom: 7px;
@@ -97,7 +88,7 @@
 }
 
 .drop_number {
-    width: 37vw;
+    width: 97%;
     height: 32px;
     border-radius: 6px;
     margin-top: 9px;
@@ -153,12 +144,6 @@
     height: 65vh;
     filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
 }
-    @media (min-width: 768px) {
-            .reserve_content {
-                width: 41.666667%;
-                margin-top: 1.25rem;
-            }
-        }
 
 
     .reserve {
@@ -204,7 +189,7 @@
             border-collapse: collapse;
             border-spacing: 0;
             background-color:#6495ED;
-            width: 36vw;
+            width: 95%;
             height: 17vh;
             padding: 16px;
             margin-top: 24px;

@@ -10,3 +10,7 @@
     margin: auto;
     padding: 5%;
 }
+
+body{
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+}

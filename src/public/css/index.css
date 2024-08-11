@@ -313,7 +313,7 @@ body {
 }
 
 .header__hamburger_for_index {
-    width: 46px;
+    width: 43px;
     height: 150%;
     background-color: rgb(37 99 235);
     /* filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06)); */
