@@ -10,8 +10,8 @@ body {
 }
 
 .contact {
-    width: 960px;
-    margin: 0 auto;
+    width: 98%;
+    margin: 1%;
     padding: 60px 0;
 }
 
@@ -138,8 +138,8 @@ body {
 /* レスポンシブ (768px以上)*/
 @media screen and (max-width: 767.9px) {
     .contact-table {
-        width: 50%;
-        margin-left: 20px;
+        width: 70%;
+        margin-left: 10%;
     }
     .contact-ttl {
         margin-left: -54%;

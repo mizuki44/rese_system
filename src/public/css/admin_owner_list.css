@@ -2,7 +2,7 @@
     width: 98%;
     border-collapse: separate;
     border-spacing: 0;
-    margin: 5px;
+    margin: 1%;
 }
 
 .table-title_inner:first-child {
@@ -103,6 +103,7 @@ body {
     table.owner_list td {
         display: block;
         width: 100%;
+        border-right: 1px solid #a8b7c5;
         border-bottom: none;
     }
     table.owner_list td:first-child {

@@ -110,7 +110,9 @@ body {
     table.shop_list td {
         display: block;
         width: 100%;
+        border-right: 1px solid #a8b7c5;
         border-bottom: none;
+        border-top: 1px solid #a8b7c5;
     }
     table.shop_list td:first-child {
         background: linear-gradient(#829ebc, #225588);
@@ -131,4 +133,8 @@ body {
     .table-title_inner {
         display: none;
         }
+    .shop_list:last-child .table-inner:first-child {
+        border-radius: 5px 5px 0 0;
+        border-top: 1px solid #a8b7c5;
+    }
     }
