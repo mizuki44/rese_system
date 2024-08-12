@@ -5,10 +5,6 @@
 </head>
 
 <body>
-
-
-
-    <!-- モーダル開始 -->
     <div class="contact">
         <div class="contact-ttl" id="js-overlay">店舗情報変更</div>
         <form method="POST" action="{{url('/admin/shop/update')}}">
@@ -28,8 +24,6 @@
                     </td>
                 </tr>
 
-
-
                 <tr class="">
                     <th class="contact-item">エリア</th>
                     <td class="contact-body">
@@ -46,6 +40,7 @@
                     <p class='error_message'>{{$message}}</p>
                     @enderror
                 </tr>
+
                 <tr class="">
                     <th class="contact-item">ジャンル</th>
                     <td class="contact-body">
@@ -90,17 +85,11 @@
                         @enderror
                     </td>
                 </tr>
-
-
             </table>
-            <div class="button_css">
-                <!-- <form method="POST" action="{{url('/admin/shop/update')}}">
-                    @csrf -->
-                <!-- <input type="hidden" name="shop_id" class="shop_for_modal" value=""> -->
-                <button type="submit" class="contact-submit">変更する</button>
+                <div class="button_css">
+                    <button type="submit" class="contact-submit">変更する</button>
+                </div>
         </form>
-    </div>
-    </form>
-    <a class="return" href="{{ route('admin.index') }}">戻る</a>
+        <a class="return" href="{{ route('admin.index') }}">戻る</a>
     </div>
 </body>

@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
-
 <head>
     <link rel="stylesheet" href="/css/sanitize.css">
     <link rel="stylesheet" href="/css/reserve_done.css">
 </head>
-
 
 <main>
     @section('content')
@@ -16,8 +14,6 @@
                 ご予約ありがとうございます。
             </p>
             <div class="back_button">
-                <!-- <a class="back_button_2" href="{{ url('/detail/{shop_id}') }}">戻る</a> -->
-                <!-- <button class="back_button_2" onclick="location.href='url('/detail/{$shop_id}')'">戻る</button> -->
                 <button class="back_button_2" onclick="history.back()">戻る</button>
             </div>
             @else
@@ -26,7 +22,6 @@
                 <a class="back_button_2" href="{{ route('/detail/{shop_id}') }}">戻る</a>
             </div>
             @endif
-
         </div>
     </div>
     @endsection

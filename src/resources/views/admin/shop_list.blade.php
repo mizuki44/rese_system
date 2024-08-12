@@ -27,12 +27,11 @@
 
             @if(!empty($shop))
             <tr class="table-low">
-                <td class="table-inner">{{$shop['name']}}</td>
-                <td class="table-inner">{{$shop->area->name}}</td>
-                <td class="table-inner">{{$shop->genre->name}}</td>
-                <td class="table-inner">{{$shop['description']}}</td>
-                <td class="table-inner"><img class="image" src="{{ $shop->image_url }}" /></td>
-                <!-- 変更ボタン -->
+                <td class="table-inner" data-label="店舗名">{{$shop['name']}}</td>
+                <td class="table-inner" data-label="エリア">{{$shop->area->name}}</td>
+                <td class="table-inner" data-label="ジャンル">{{$shop->genre->name}}</td>
+                <td class="table-inner" data-label="説明">{{$shop['description']}}</td>
+                <td class="table-inner" data-label="イメージ"><img class="image" src="{{ $shop->image_url }}" /></td>
                 <td class="table-inner">
                     <div class="button_layout">
                         <form method="GET" action="{{url('/admin/shop/edit')}}">
@@ -40,7 +39,6 @@
                             <input type="hidden" name="shop_id" id="shop_id" value="{{ $shop['id'] }}">
                             <button type="submit" class="button">変更</button>
                         </form>
-                        <!-- キャンセルボタン -->
                         <form method="POST" action="{{url('/admin/shop/delete')}}">
                             @csrf
                             <input type="hidden" name="shop_id" class="shop_id" value="{{ $shop['id'] }}">

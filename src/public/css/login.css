@@ -21,7 +21,6 @@ main {
 .form__input--text_mail {
     box-sizing: border-box;
     position: relative;
-    /* 基準値とする */
 }
 
 .login__content {
@@ -54,7 +53,6 @@ main {
     font-weight: 500;
     width: 93%;
     border: none;
-   
 }
 
 .link-register {
@@ -123,9 +121,6 @@ main {
     margin-left: 23px;
 }
 
-
-
-
 .form__button {
     margin-top: 5px;
     width: 10vw;
@@ -157,62 +152,37 @@ main {
     padding-bottom: 5px;
 }
 
-
 .form__input--text_mail::before {
     content: "";
-    /* 疑似要素に必須 */
     width: 20%;
-    /* アイコンの横幅 */
     height: 55%;
-    /* アイコンの高さ */
     background: url(../img/mail.jpeg) no-repeat center center / auto 90%;
-    /* 背景にアイコン画像を配置 */
     display: inline-block;
-    /* 高さを持たせるためにインラインブロック要素にする */
     position: absolute;
-    /* 相対位置に指定 */
     top: 45%;
-    /* アイコンの位置。微調整してね */
     left: 0%;
-    /* アイコンの位置。微調整してね */
 }
-
-
-
 
 .form__input--text_password::before {
     content: "";
-    /* 疑似要素に必須 */
     width: 10%;
-    /* アイコンの横幅 */
     height: 100%;
-    /* アイコンの高さ */
     background: url(../img/key.jpeg) no-repeat center center / auto 90%;
-    /* 背景にアイコン画像を配置 */
     display: inline-block;
-    /* 高さを持たせるためにインラインブロック要素にする */
     position: absolute;
-    /* 相対位置に指定 */
-    /* top: 58%; */
-    /* アイコンの位置。微調整してね */
     left: 5%;
-    /* アイコンの位置。微調整してね */
 }
 
-
+/* レスポンシブ (768px以上)*/
 @media screen and (max-width: 767.9px) {
     .login__content {
         width: 45vh;
-        /* margin-left: 20px; */
-
-        
     }
     .button-login {
-width: 315%;
+        width: 315%;
     }
-.form__button {
-    position: relative;
-    left: 32px;
-}
-
+    .form__button {
+        position: relative;
+        left: 32px;
+    }
 }

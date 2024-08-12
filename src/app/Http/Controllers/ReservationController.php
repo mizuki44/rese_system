@@ -26,51 +26,29 @@ use Carbon\Carbon;
 
 class ReservationController extends Controller
 {
+    // 予約情報を保存
     public function store(ReserveRequest $request)
     {
         $form = $request->all();
         $item = Reservation::create($form);
-        // return redirect('/');
         $back_url = url("/detail/{$item->shop_id}");
 
-
         return view('reserve_done', compact('item', 'back_url', 'form'));
-        // my_pageにも飛ばす？
     }
-
-    // public function show(Request $request)
-    // {
-    //     $id = $request->id;
-    //     $item = Reservation::find($id);
-
-    //     // ショップ名取得
-    //     $shop_id = $item->shop_id;
-    //     $shop = Shop::find($shop_id);
-    //     $item->shopname = $shop->shopname;
-
-    //     if ($item) {
-    //         return view('reserve.done', ['item' => $item]);
-    //     } else {
-    //         return response()->redirect('/');
-    //     }
-    // }
 
     // 予約削除
     public function destroy(Request $request)
     {
-        // dd($request);
         $id = $request->reservation_id;
-        // dd($id);
         $item = Reservation::where('id', $id)->delete();
-        // dd($item);
         if ($item) {
             return redirect('my_page');
         } else {
-            # TODO エラーメッセージ出す
             return redirect('my_page');
         }
     }
 
+    // 予約変更ページ表示
     public function edit(Request $request)
     {
         $id = $request->reservation_id;
@@ -78,36 +56,27 @@ class ReservationController extends Controller
         $today = Carbon::now()->format('Y-m-d');
         $today_time = Carbon::now()->addHour()->format('H:i');
 
-
         return view('reserve_edit', compact('id', 'reserve', 'today', 'today_time'));
     }
 
-
+    // 予約変更
     public function update(ReserveRequest $request)
     {
         $form = $request->all();
         $id = $request->reservation_id;
-
         $item = Reservation::find($id)->update($form);
 
         if ($item) {
             return redirect('my_page');
         } else {
-            # TODO エラーメッセージ出す
             return redirect('my_page');
         }
     }
 
+    // QRコード読み取り
     public function QrCodeUpdate(string $reservation_id)
     {
         Reservation::find($reservation_id)->update(['visited_flg' => true]);
         return redirect('/');
     }
-
-    // public function index(Request $request)
-    // {
-    //     $reservations = Reservation::all();
-
-    //     return view('admin.reserve_list', compact('reservations'));
-    // }
 }

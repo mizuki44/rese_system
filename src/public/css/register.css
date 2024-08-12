@@ -148,7 +148,7 @@ h2 {
     margin-top: 5px;
     width: 10vw;
     position: relative;
-   right: 2%;
+    right: 2%;
     padding-bottom: 20px;
 
 }
@@ -166,7 +166,6 @@ h2 {
 }
 
 footer {
-
     width: 100%;
     background-color: white;
     height: 5vh;
@@ -183,73 +182,45 @@ small {
 
 .form__input--text_email::before {
     content: "";
-    /* 疑似要素に必須 */
     width: 20%;
-    /* アイコンの横幅 */
     height: 8%;
-    /* アイコンの高さ */
     background: url(../img/mail.jpeg) no-repeat center center / auto 90%;
-    /* 背景にアイコン画像を配置 */
     display: inline-block;
-    /* 高さを持たせるためにインラインブロック要素にする */
     position: absolute;
-    /* 相対位置に指定 */
     top: 39%;
-    /* アイコンの位置。微調整してね */
     left: -4%;
-    /* アイコンの位置。微調整してね */
 }
 
 .form__input--text_password::before {
     content: "";
-    /* 疑似要素に必須 */
     width: 10%;
-    /* アイコンの横幅 */
     height: 8%;
-    /* アイコンの高さ */
     background: url(../img/key.jpeg) no-repeat center center / auto 90%;
-    /* 背景にアイコン画像を配置 */
     display: inline-block;
-    /* 高さを持たせるためにインラインブロック要素にする */
     position: absolute;
-    /* 相対位置に指定 */
     top: 53%;
-    /* アイコンの位置。微調整してね */
     left: 1%;
-    /* アイコンの位置。微調整してね */
 }
 
 .form__input--text_user::before {
     content: "";
-    /* 疑似要素に必須 */
     width: 17%;
-    /* アイコンの横幅 */
     height: 9%;
-    /* アイコンの高さ */
     background: url(../img/user.jpeg) no-repeat center center / auto 90%;
-    /* 背景にアイコン画像を配置 */
     display: inline-block;
-    /* 高さを持たせるためにインラインブロック要素にする */
     position: absolute;
-    /* 相対位置に指定 */
     top: 23%;
-    /* アイコンの位置。微調整してね */
     left: -3%;
-    /* アイコンの位置。微調整してね */
 }
 
+/* レスポンシブ (768px以上)*/
 @media screen and (max-width: 767.9px) {
     .register__content {
         width: 45vh;
-        /* margin-left: 20px; */
-
-
     }
-
     .form__button-submit {
         width: 20vw;
     }
-
     .form__button {
         position: relative;
         left: 32px;

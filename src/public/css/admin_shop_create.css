@@ -133,6 +133,7 @@ body {
     color: red;
 }
 
+/* レスポンシブ (768px以上)*/
 @media screen and (max-width: 767.9px) {
     .contact-table {
         width: 50%;
@@ -141,7 +142,6 @@ body {
     .contact-ttl {
         margin-left: -53%;
     }
-
     .contact-submit {
         margin-left: 11%;
     }

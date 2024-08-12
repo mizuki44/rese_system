@@ -27,6 +27,7 @@ use Carbon\Carbon;
 
 class ReservationController extends Controller
 {
+    // 予約情報一覧ページ表示
     public function index(Request $request)
     {
         $reservations = Reservation::all();
@@ -35,6 +36,7 @@ class ReservationController extends Controller
         return view('admin.reserve_list', compact('reservations', 'tomorrow'));
     }
 
+    // 予約変更ページ表示
     public function edit(Request $request)
     {
         $reservations = Reservation::all();
@@ -42,9 +44,9 @@ class ReservationController extends Controller
         return view('admin.reserve_list', compact('reservations'));
     }
 
+    // 予約変更
     public function update(Request $request)
     {
-
         $form = $request->all();
         $id = $request->reservation_id;
         $item = Reservation::find($id)->update($form);
@@ -52,25 +54,19 @@ class ReservationController extends Controller
         if ($item) {
             return redirect('admin/reserve');
         } else {
-            # TODO エラーメッセージ出す
             return redirect('admin/reserve');
         }
 
     }
 
-
     // 予約削除
     public function delete(Request $request)
     {
-        // dd($request);
         $id = $request->reservation_id;
-        // dd($id);
         $item = Reservation::where('id', $id)->delete();
-        // dd($item);
         if ($item) {
             return redirect('admin/reserve');
         } else {
-            # TODO エラーメッセージ出す
             return redirect('admin/reserve');
         }
     }

@@ -6,7 +6,7 @@
 
 body {
     color: #333;
-font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
 .contact {
@@ -135,6 +135,7 @@ font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothi
     color: red;
 }
 
+/* レスポンシブ (768px以上)*/
 @media screen and (max-width: 767.9px) {
     .contact-table {
         width: 50%;

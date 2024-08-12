@@ -13,10 +13,10 @@ use App\Http\Requests\CheckoutRequest;
 
 class StripePaymentsController extends Controller
 {
+    // 決済処理
     public function checkout(CheckoutRequest $request)
     {
         $user = User::find(1);
-        // $stripeCustomer = $user->createOrGetStripeCustomer();
         $price = $request->course_name;
         $price_id = Stock::find($price)->price_id;
         $payment_session = $user->checkout($price_id, [
@@ -25,37 +25,4 @@ class StripePaymentsController extends Controller
         ]);
         return redirect($payment_session->url);
     }
-
-
-
-
-    // public function index()
-    // {
-    //     return view('index');
-    // }
-
-    // public function payment(Request $request)
-    // {
-    //     try {
-    //         Stripe::setApiKey(env('STRIPE_SECRET'));
-
-    //         $customer = Customer::create(array(
-    //             'email' => $request->stripeEmail,
-    //             'source' => $request->stripeToken
-    //         ));
-
-    //         $charge = Charge::create(array(
-    //             'customer' => $customer->id, 'amount' => 2000, 'currency' => 'jpy'
-    //         ));
-
-    //         return redirect()->route('complete');
-    //     } catch (Exception $e) {
-    //         return $e->getMessage();
-    //     }
-    // }
-
-    // public function complete()
-    // {
-    //     return view('complete');
-    // }
 }

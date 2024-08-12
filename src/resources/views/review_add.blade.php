@@ -61,6 +61,7 @@
         document.getElementById("inputlength").innerHTML = str.length;
     }
 </script>
+
 <div class="content">
     <p class="comment">今回のご利用はいかがでしたか？</p>
     <div class="card_contents_inner_1">
@@ -82,15 +83,13 @@
                             </div>
                             <div class="flex justify-between items-center mt-2">
                                 <a class="text-xs h-6 rounded-md bg-blue-600 text-white px-3 pt-1" href="{{ url('/detail/'.$shop['id']) }}">店舗詳細へ</a>
-                                <!-- @if( Auth::check() ) -->
-                                <!-- <button class="text-2xl {{ $shop['favorite'] ? 'text-red-500' : 'text-gray-100' }}" type="submit" disabled>&#9829; </button> -->
-                                <!-- @endif -->
                             </div>
                         </div>
 
                         <div class="md:w-3/5 px-6">
                             <p>体験を評価してください</p>
                             <div class="star">
+                                <!-- 星ラジオボタン -->
                                 <input type="radio" id="star5" name="star" value=5 class="hidden peer">
                                 <label for="star5" class="relative py-0 px-[5px] text-gray-200 cursor-pointer text-[35px] hover:text-blue-600 peer-hover:text-blue-600 peer-checked:text-blue-600">5★</label>
                                 <input type="radio" id="star4" name="star" value=4 class="hidden peer">
@@ -107,6 +106,7 @@
                             @enderror
                             <p class="comment_p">コメント</p>
                             <div>
+                                <!-- コメントテキストエリア -->
                                 <textarea name="comment" class="textarea w-full h-32" onkeyup="ShowLength(value)"></textarea>
                                 <div class="text-xs text-end">
                                     <span id="inputlength">0</span>
@@ -116,17 +116,6 @@
                                 <p class='error_message'>{{$message}}</p>
                                 @enderror
                             </div>
-                            <!-- <p class="mt-6">画像の追加</p>
-                <div>
-                    <div id="drop-zone" class="border p-8 text-center">
-                        <p>ファイルをドラッグ＆ドロップもしくは</p>
-                        <input type="file" name="image_file" id="file-input">
-                    </div>
-                    <div class="text-red-600">
-                        @error('image_file')
-                        ※{{ $message }}
-                        @enderror
-                    </div> -->
                             <div id="preview" class="w-56"></div>
                         </div>
                     </div>

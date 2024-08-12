@@ -27,9 +27,7 @@ use Carbon\Carbon;
 
 class MypageController extends Controller
 {
-    /*
-        マイページを表示する
-    */
+    // マイページ表示
     public function create()
     {
         $user_id = Auth::id();
@@ -39,9 +37,8 @@ class MypageController extends Controller
         $shops = Shop::query();
         return view('my_page', compact('reservations', 'favorites', 'tomorrow','shops'));
     }
-    /*
-        予約している店舗情報を取得する(プライベート関数)
-    */
+
+    // 予約店舗情報を取得
     private function getRreservedShops($user_id)
     {
         $now = Carbon::now();
@@ -63,38 +60,10 @@ class MypageController extends Controller
             $reserved_shops[] = $reserve_info;
             $reservation_num++;
         }
-
         return $reserved_shops;
     }
 
-    /*
-        お気に入り店舗情報を取得する(プライベート関数)
-    */
-    private function getFavoriteShops($user_id)
-    {
-        $favorites = Favorite::select()->UserSearch($user_id)->get();
-        // $favorite_shops = array();
-        // foreach ($favorites as $favorite) {
-        //     $shop_id = $favorite->shop_id;
-        //     $favorite_shops[] = Shop::find($shop_id);
-        // $shop_info = array(
-        //     'id' => $shop->id,
-        //     'name' => $shop->name,
-        //     'area' => $shop->area,
-        //     'genre' => $shop->genre,
-        //     'image_url' => Storage::url($shop->image_url),
-        //     'favorite' => true
-        // );
-        // $favorite_shops[] = $shop_info;
-    }
-
-    // return $favorite_shops;
-
-
-
-    /*
-        QRコードを表示する
-    */
+    // QRコード表示
     public function showQrCode(Request $request)
     {
         $reservation_id = $request->reservation_id;

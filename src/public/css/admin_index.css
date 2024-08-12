@@ -1,10 +1,8 @@
-
-.body {
+body {
     display: flex;
     justify-content: center;
     font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
-
 
 .title {
     text-align: center;
@@ -18,9 +16,8 @@
     border: double 5px rgb(37 99 235);
     background: #f1f8ff;
     padding: 0.5em 0.5em 0.5em 2em;
-    width: 70%;
+    width: auto;
 }
-
 
 .list_content {
     font-size: larger;
@@ -43,6 +40,5 @@
     padding-bottom: 0.5rem;
     position: relative;
     border: none;
-    left: 12%;
     margin-top: 10px;
 }

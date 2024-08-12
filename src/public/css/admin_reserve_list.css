@@ -92,41 +92,35 @@ body {
     font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
-/* @media screen and (max-width: 767.9px) {
-    .reserve_list {
-        width: 90%;
-        margin-left: 20px;
-    }
-
-   
-} */
-
+/* レスポンシブ (768px以上)*/
 @media screen and (max-width: 767.9px) {
     .reserve_list .head {
         display: none;
     }
-
     .reserve_list {
         width: 98%;
         margin: 1%;
     }
-
     table.reserve_list td {
         display: block;
         width: 100%;
         border-bottom: none;
     }
-
     table.reserve_list td:first-child {
         background: linear-gradient(#829ebc, #225588);
         color: #fff;
         font-weight: bold;
     }
-
     .reserve_list tr:last-child {
         border-bottom: solid 1px #ccc;
     }
-
+    table.reserve_list td:before {
+        content: attr(data-label);
+        font-size: .7rem;
+        font-weight: bold;
+        color: #999;
+        display: block;
+    }
     .table-title_inner {
         display: none;
     }

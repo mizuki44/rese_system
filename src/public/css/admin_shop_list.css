@@ -98,28 +98,33 @@ body {
     font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
+/* レスポンシブ (768px以上)*/
 @media screen and (max-width: 767.9px) {
     .shop_list .head {
         display: none;
     }
-
     .shop_list {
         width: 98%;
         margin: 1%;
     }
-
     table.shop_list td {
         display: block;
         width: 100%;
         border-bottom: none;
     }
-
     table.shop_list td:first-child {
         background: linear-gradient(#829ebc, #225588);
         color: #fff;
         font-weight: bold;
     }
 
+    table.shop_list td:before {
+        content: attr(data-label);
+        font-size: .7rem;
+        font-weight: bold;
+        color: #999;
+        display: block;
+    }
     .shop_list tr:last-child {
         border-bottom: solid 1px #ccc;
     }

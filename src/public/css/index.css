@@ -56,11 +56,7 @@
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     position: relative;
-    /* top: 10px; */
 }
-/* <a class="text-xs h-6 rounded-md bg-blue-600 text-white px-3 pt-1" href="{{ url('/detail/'.$shop['id']) }}">詳しくみる</a> */
-
-
 
 .favorite_button {
     font-size: 3.5rem;
@@ -70,8 +66,8 @@
     bottom: 15px;
     border: none;
     background: transparent;
-    /* 赤と灰色を入れ替えられるようにする */
 }
+
 .color_red {
     color: red;
 }
@@ -81,13 +77,10 @@
 }
 
 main {
-    /* background-color: #D3D3D3; */
-    /* padding: 77px 0; */
     padding-top: 20px;
     background-color: #f5f5f5;
     margin-left: 10px;
     margin-right: 10px;
-
 }
 
 .main__title {
@@ -113,12 +106,6 @@ main {
     background-color: white;
 }
 
-/* button {
-    padding: 65px 180px;
-    font-size: 20px;
-    background-color: white;
-} */
-
 .attendance__left {
     margin-right: 40px;
 }
@@ -135,43 +122,6 @@ main {
     width: 440px;
     }
 
-/* form-row justify-content-center */
-/* col-md-4 mb-3 */
-/* custom-select mr-sm-2 */
-/* .search_content2 {
-    position: relative;
-}
-
-.search_content2:before {
-    content: "";
-    position: absolute;
-    top: 3px;
-    right: 0;
-    left: 0;
-    margin: auto;
-    border-top: 20px solid #fff;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    width: 100px;
-    z-index: 1;
-}
-
-.search_content2:after {
-    content: "";
-    position: absolute;
-    top: 3px;
-    right: 0;
-    left: 0;
-    margin: auto;
-    border-top: 40px solid #ff7777;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    width: 100px;
-    z-index: 0;
-} */
-
-
-
 .search_content_area {
     width: 90px;
     height: 40px;
@@ -181,7 +131,6 @@ main {
     box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.3);
 }
 
-
 .search_content_genre {
     width: 90px;
     height: 40px;
@@ -190,16 +139,9 @@ main {
     border-left: solid rgb(211, 211, 211);
 }
 
-
-
-
-
-
 .search_box {
     display: inline-block;
-    /* なくても大丈夫だけど、念の為 */
     position: relative;
-    /* 基準値とする */
     width: 260px;
     height: 40px;
     border-style: none;
@@ -208,27 +150,18 @@ main {
 
 .search_box::before {
     content: "";
-    /* 疑似要素に必須 */
     width: 16px;
-    /* アイコンの横幅 */
     height: 16px;
-    /* アイコンの高さ */
     background: url(../img/icon.jpeg) no-repeat center center / auto 100%;
     background-size: cover;
-    /* 背景にアイコン画像を配置 */
     display: inline-block;
-    /* 高さを持たせるためにインラインブロック要素にする */
     position: absolute;
-    /* 相対位置に指定 */
     top: 12px;
-    /* アイコンの位置。微調整してね */
     left: 5px;
-    /* アイコンの位置。微調整してね */
 }
 
 .search_box input {
     padding: 3px 0 3px 2em;
-    /* アイコンを設置するため左の余白を多めに指定*/
     width: 260px;
     height: 40px;
     border-style: none;
@@ -238,56 +171,45 @@ main {
 }
 
 .heart {
-    /* 背景色を無色に */
     background: transparent;
-    /* 枠線を消す */
     border: none;
-    /* クリックした際に枠線をnone消す */
     outline: none;
-    /* 影を消す */
     box-shadow: none;
     display: inline-block;
-    /* 高さを持たせるためにインラインブロック要素にする */
     position: absolute;
-    /* 相対位置に指定 */
     top: 84%;
-    /* アイコンの位置。微調整してね */
     right: 5%;
-    /* アイコンの位置。微調整してね */
     width: 14%;
 }
-
-/* @media screen and (max-width: 767.9px) {
-    .card_contents_inner_1 {
-        width: 35vh;
-    }
-} */
-
-
-
+/* レスポンシブ (768px以上)*/
 @media screen and (max-width: 767.9px) {
     .card_contents {
         width: 85vh;
         margin-left: 20px;
     }
-
     .search_content {
-        /* position: relative; */
         width: 220px;
-        /* left: 172%; */
-        /* /* right: 56%; */
     }
-
-    /* .header__title {
-        display: none;
-    } */
-
     .search_box input {
         width: 180px;
     }
-
     .header {
         width: 50%;
+    }
+}
+/* レスポンシブ（666px以上） */
+@media screen and (max-width: 665.9px) {
+    .card_contents {
+        width: 68vh;
+        margin-left: 20px;
+    }
+
+    .header__title {
+        display: none;
+    }
+
+    .search_content {
+        width: 80px;
     }
 }
 
@@ -296,41 +218,23 @@ body {
     font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
-@media screen and (max-width: 665px) {
-    .card_content {
-        width: 60vh;
-        margin-left: 20px;
-    }
-    .header__title {
-        display: none;
-    }
-        .search_content {
-            /* position: relative; */
-            width: 80px;
-            /* left: 172%; */
-            /* /* right: 56%; */
-        }
-}
 
 .header__hamburger_for_index {
     width: 43px;
     height: 150%;
     background-color: rgb(37 99 235);
-    /* filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06)); */
     color: rgb(107 114 128);
     border-radius: 0.375rem;
     box-shadow: 2px 2px 4px;
-    /* padding: 9%; */
-    /* margin: 6%; */
     position: relative;
     top: -6px;
 }
 
 .hamburger {
-    /* background-color: transparent; */
     border-color: transparent;
     z-index: 9999;
 }
+
 .logo_hamburger {
     display: flex;
 }
@@ -342,7 +246,6 @@ body {
     height: inherit;
     position: relative;
     justify-content: space-between;
-    /* flex-wrap: wrap; */
     width: 85vh;
 }
 
@@ -350,13 +253,11 @@ body {
     background-color: transparent;
     width: 100%;
     height: 50px;
-    /* position: fixed; */
     top: 0;
     left: 0;
     right: 0;
     z-index: 999;
     padding-bottom: 10px;
     padding-top: 10px;
-    /* margin-left: 4%; */
     margin-right: 4%;
 }

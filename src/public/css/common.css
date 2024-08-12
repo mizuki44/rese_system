@@ -12,7 +12,6 @@ body {
 }
 
 .header__inner {
-    /* margin: 0 auto; */
     padding: 20px 15px;
     max-width: 1230px;
 }
@@ -31,9 +30,6 @@ r .header-utilities {
     padding-left: 25px;
 }
 
-/* .header-utilities nav {
-    width: 18%;
-} */
 
 .header-nav {
     display: flex;

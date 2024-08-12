@@ -7,8 +7,6 @@
 <main>
     <h1 class='title'>管理画面</h1>
     <div class="body">
-
-
         <ul class='list'>
             @can ('admin_only')
             <li class='list_content'><a href="/admin/owner">店舗代表者一覧</a></li>
@@ -20,11 +18,8 @@
             @endcan
         </ul>
     </div>
-
     <form action="{{route('admin.logout')}}" method="post">
         @csrf
         <button class="admin__logout">Logout</button>
     </form>
-
-
 </main>

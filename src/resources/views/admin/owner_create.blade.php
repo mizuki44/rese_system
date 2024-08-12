@@ -5,7 +5,6 @@
 </head>
 
 <body>
-
     <div class="contact">
         <h1 class="contact-ttl">店舗代表者を登録</h1>
         <form action="{{ route('admin.owner_store') }}" method="POST">
@@ -59,9 +58,9 @@
                     </td>
                 </tr>
             </table>
-            <button type="submit" class="contact-submit">
+                <button type="submit" class="contact-submit">
                 {{ __('登録') }}
-            </button>
+                </button>
         </form>
         <a class="return" href="{{ route('admin.index') }}">戻る</a>
     </div>

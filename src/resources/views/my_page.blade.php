@@ -7,22 +7,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<main class="main">
+<main>
     @section('content')
     <div class="main_page">
         <h1 class="name">{{ Auth::user()->name }}さん</h1>
         <div class="main_contents">
             <div class="reserve_page">
                 <!-- 予約状況 -->
-                <!-- <h2 class="reserve_situation">予約状況</h2> -->
                 <div class="card_content">
                     <h2 class="reserve_situation">予約状況</h2>
                     <div class="card_contents_inner_1">
-                        <!-- <h2 class="reserve_situation">予約状況</h2> -->
                         <!-- 予約カード一覧 -->
                         <div>
                             @foreach ($reservations as $reservation)
-                            <div class="card_contents_inner_2 w-4/5 h-48 bg-blue-600 text-white rounded-md shadow-md mb-4 px-3 py-3 relative">
+                            <div class="card_contents_inner_2">
                                 <div class="flex">
                                     <div class="reservation_number">予約{{ $reservation['reservation_num'] }}</div>
                                     <div class='card_contents_inner_3'>
@@ -48,7 +46,7 @@
                                         </form>
                                     </div>
                                 </div>
-
+                                <!-- 予約情報 -->
                                 <table class="reservation_card">
                                     <tr>
                                         <td class="reservation_card_index">
@@ -111,10 +109,7 @@
                                     @csrf
                                     <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                                     <input type="hidden" name="shop_id" value="{{ $favorite->shop->id }}">
-
-
                                     <button class="heart"><img class="heart_image" src="{{ $favorite->shop->id ? url('../img/red_heart.jpeg') : url('../img/gray_heart.jpeg')}}"></button>
-                                    <!-- <button class="favorite_button {{ $favorite->shop ? 'color_red' : 'color_gray' }}" type="submit">&#9829;</button> -->
                                 </form>
                                 @endif
                             </div>
@@ -123,8 +118,7 @@
                     @endforeach
                 </div>
             </div>
-            <!-- main_contents -->
-        </div> <!-- main_page -->
+        </div>
         @endsection
     </div>
 </main>

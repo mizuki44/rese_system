@@ -63,10 +63,9 @@ class ShopController extends Controller
         // S3へファイルをアップロード
         $result = Storage::disk('s3')->put('/', $request->file('image_url'));
         $url = Storage::disk('s3')->url($result);
-        // 上記処理にて保存した画像に名前を付け、userテーブルのthumbnailカラムに、格納
         $shop->image_url = $url;
         $shop->save();
-        // dd(Config::get('filesystems'));
+
         return redirect('admin/shop/index');
     }
 
@@ -90,7 +89,6 @@ class ShopController extends Controller
         if ($item) {
             return redirect('admin/shop/index');
         } else {
-            # TODO エラーメッセージ出す
             return redirect('admin/shop/index');
         }
     }
@@ -98,15 +96,11 @@ class ShopController extends Controller
     // 店舗情報削除
     public function delete(Request $request)
     {
-        // dd($request);
         $id = $request->shop_id;
-        // dd($id);
         $item = Shop::where('id', $id)->delete();
-        // dd($item);
         if ($item) {
             return redirect('admin/shop/index');
         } else {
-            # TODO エラーメッセージ出す
             return redirect('admin/shop/index');
         }
     }

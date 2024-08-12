@@ -5,7 +5,6 @@
 </head>
 
 <body>
-
     <div class="contact">
         <h1 class="contact-ttl">店舗を登録</h1>
         <form action="{{ route('admin.shop_store') }}" method="POST" enctype="multipart/form-data">
@@ -74,8 +73,6 @@
                         {{ __('image_url') }}
                     </th>
                     <td class="contact-body">
-                        <!-- <input type="url" class="form-text" name="image_url" id="image_url"> -->
-
                         <input type="file" name="image_url" id="image_url" /><br>
                         {{ csrf_field() }}
                         @error('image_url')

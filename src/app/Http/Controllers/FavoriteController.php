@@ -9,10 +9,7 @@ use App\Models\Favorite;
 
 class FavoriteController extends Controller
 {
-    /*
-        お気に入り登録状態を反転させる関数
-        お気に入りに既に登録されている場合はお気に入りから削除、そうでない場合はお気に入り登録する
-    */
+    // お気に入りマークの反転
     public function flip(Request $request)
     {
         if (!$request->has('user_id')) return back();

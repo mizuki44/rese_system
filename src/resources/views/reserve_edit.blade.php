@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-    <!-- レスポンシブ対応用にmetaのviewportを記載 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -30,8 +29,6 @@
                         @enderror
                     </td>
                 </tr>
-
-
                 <tr class="">
                     <th class="contact-item">時間</th>
                     <td class="contact-body">

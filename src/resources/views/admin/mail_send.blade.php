@@ -5,12 +5,7 @@
 </head>
 
 
-
-
-<!-- お知らせメールの作成 -->
-
 <body>
-
     <div class="contact">
         <h1 class="contact-ttl">お知らせメールの作成</h1>
         <form method="POST" action="{{ url('admin/mail/send') }}">
@@ -18,16 +13,6 @@
             <div>
                 {{ session('message') }}
             </div>
-            <!-- <div>
-                @foreach($users as $user)
-                <label for="email" class="block">メールアドレス</label>
-                <div class="drop_email">
-                    <select name="email" class="email" id="email">
-                        <option value="{{ $user->email }}" lable="{{ $user->email }}" hidden>選択してください</option>
-                    </select>
-                </div>
-                @endforeach
-            </div> -->
             <table class="contact-table">
                 <tr>
                     <th class="contact-item_title">{{ __('タイトル') }}
