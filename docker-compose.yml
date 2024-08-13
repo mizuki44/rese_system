@@ -39,6 +39,8 @@ services:
             - mysql
         ports:
             - 8080:80
+        networks:
+            - sail
     
     mail:
         image: mailhog/mailhog
@@ -50,6 +52,3 @@ services:
             MH_STORAGE: maildir
             MH_MAILDIR_PATH: /tmp
         platform: linux/amd64
-    
-    networks:
-            - sail
