@@ -50,3 +50,6 @@ services:
             MH_STORAGE: maildir
             MH_MAILDIR_PATH: /tmp
         platform: linux/amd64
+    
+    networks:
+            - sail
