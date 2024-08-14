@@ -135,14 +135,9 @@ body {
 
 /* レスポンシブ (768px以上)*/
 @media screen and (max-width: 767.9px) {
-    .contact-table {
-        width: 50%;
-        margin-left: 15px;
-    }
-    .contact-ttl {
-        margin-left: -53%;
-    }
-    .contact-submit {
-        margin-left: 11%;
+    .contact {
+        width: 70%;
+        margin: 0 auto;
+        padding: 60px 0;
     }
 }

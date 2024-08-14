@@ -17,7 +17,7 @@ class CreateShopsTable extends Migration
             $table->id()->unsigned();
             $table->foreignId('area_id')->constrained()->cascadeOnDelete();
             $table->foreignId('genre_id')->constrained()->cascadeOnDelete();
-            $table->string('name', 255);
+            $table->varchar('name', 255);
             $table->text('description');
             $table->text('image_url');
             $table->timestamps();
