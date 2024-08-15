@@ -36,13 +36,13 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
 
-    // 情報を登録
+    // adminユーザー作成
     public function store(Request $request)
     {
         if (request()->is('admin/*')) {
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
                 'password' => ['required', Rules\Password::defaults()],
                 'role' => ['required', 'string'],
             ]);
@@ -59,25 +59,6 @@ class RegisteredUserController extends Controller
             Auth::login($admin);
 
             return redirect('admin/index');
-        } else {
-            $request->validate([
-                'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', Rules\Password::defaults()],
-
-            ]);
-
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-            ]);
-
-            event(new Registered($user));
-
-            Auth::login($user);
-
-            return redirect('my_page');
         }
     }
 }
