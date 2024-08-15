@@ -30,7 +30,7 @@
 * ログアウト機能（左上の左上のハンバーガーメニューから"Logout"を押下）
 
 * 検索<br>
-→トップページの右上の検索メニューから、エリア、ジャンル、店舗名ごとに店舗を検索することができる。検索実行時は、トップページに検索された店舗のみが表示される。<br>
+→トップページの右上の検索メニューから、エリア、ジャンル、店舗名ごとに店舗を検索することができる。検索実行時は、トップページに検索された店舗のみが表示される。検索実行はEnterキーをクリック<br>
 * 店舗詳細表示<br>
 →トップページの各店舗情報の"詳しくみる"ボタンを押すと店舗詳細画面を表示する。
 * 予約<br>
@@ -43,7 +43,10 @@
 * QRコード表示<br>
 マイページに表示された各予約情報の"QRコード"アイコンボタンから、来店時に提示するためのQRコードを表示することができる。
 * 決済機能<br>
-マイページに表示された各予約情報の"決済"アイコンボタンから、コースを選択し、決済できる。
+マイページに表示された各予約情報の"決済"アイコンボタンから、コースを選択し、決済できる。<br>
+  * テストカード情報<br>
+    →カード番号：4242424242424242<br>
+    →ブランド：Visa
 * お気に入り登録・解除<br>
 ログインしたユーザーは、トップページの各店舗のハートマーク（ログインしていない時は表示されない）をクリックすることで、お気に入り登録と解除ができる。
 お気に入り登録されるとハートマークが赤くなり、マイページに店舗情報が表示されるようになる。<br>
@@ -98,8 +101,9 @@
 ## 環境構築
 Docker ビルド
 1. git clone git@github.com:mizuki44/rese_system.git
-2. DockerDesktopアプリを立ち上げる
-3. docker-compose up -d --build
+2. cd rese_system
+3. DockerDesktopアプリを立ち上げる
+4. docker-compose up -d --build
 
 ## Laravel環境構築<br>
 1. コンテナに入る<br>
@@ -107,9 +111,18 @@ docker-compose exec php bash
 2. composerをインストールする<br>
 composer install
 3. 「.env.example」ファイルを 「.env」ファイルに命名を変更する。
-または、新しく.envファイルを作成
-4. .envに以下の環境変数を追加<br>
+または、新しく.envファイルを作成<br>
 <pre>
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost
+
+LOG_CHANNEL=stack
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
@@ -117,13 +130,45 @@ DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+FILESYSTEM_DRIVER=local
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+MEMCACHED_HOST=127.0.0.1
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_MAILER=smtp
+MAIL_HOST=mailhog
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+# MAIL_FROM_ADDRESS=null
 MAIL_FROM_ADDRESS=info@example.com
+MAIL_FROM_NAME="${APP_NAME}"
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
+
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+STRIPE_KEY=pk_test_51PXg28Bxqwjkh0Qxx44UY1PvjPd7wcaf1JVVwESDsVYhoFVf7WT418m5XZTAcsCfmQb0VEISP5iCuHByMsK8drPj002t3ljfMs
+STRIPE_SECRET=sk_test_51PXg28Bxqwjkh0QxRKfL2iuFxMSQjIby3BQl9jYRXT1Tw7lf8YI3nqHOPlMLT9mul9ljlQlOG8FpkihiTOp3KIne00z46CpRJ8
 </pre>
-5. keyを生成する<br>
+4. keyを生成する<br>
 php artisan key:generate
-6. マイグレーションの実行<br>
+5. マイグレーションの実行<br>
 php artisan migrate
-7. シーディングの実行<br>
+6. シーディングの実行<br>
 php artisan db:seed
-8. ユーザーの場合→トップページ左上のハンバーガーメニュー内「register」より会員登録
-9. 管理者の場合→アプリケーションURLに"admin/login"をつけたURLを直打ちし、サンプル管理者でログイン
+7. ユーザーの場合→トップページ左上のハンバーガーメニュー内「register」より会員登録
+8. 管理者の場合→アプリケーションURLに"admin/login"をつけたURLを直打ちし、サンプル管理者でログイン

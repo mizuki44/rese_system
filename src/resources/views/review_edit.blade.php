@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/review.css') }}">
-    <link rel="stylesheet" href="/css/sanitize.css">
-    <link rel="stylesheet" href="/css/review.css">
 </head>
 
 
@@ -127,7 +125,7 @@
                 <div class="my-6 text-center">
                     <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <button type="submit" class="text-blue-800 bg-white border-solid border border-blue-800 hover:bg-gray-200 rounded-full w-80">口コミを変更</button>
+                    <button type="submit" class="review_button">口コミを変更</button>
                 </div>
             </div>
     </div>

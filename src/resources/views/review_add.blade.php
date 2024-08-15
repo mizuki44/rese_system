@@ -107,8 +107,8 @@
                             <p class="comment_p">コメント</p>
                             <div>
                                 <!-- コメントテキストエリア -->
-                                <textarea name="comment" class="textarea w-full h-32" onkeyup="ShowLength(value)"></textarea>
-                                <div class="text-xs text-end">
+                                <textarea name="comment" class="textarea" onkeyup="ShowLength(value)"></textarea>
+                                <div class="">
                                     <span id="inputlength">0</span>
                                     <span>/400(最大文字数)</span>
                                 </div>
@@ -120,10 +120,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="my-6 text-center">
+                <div class="button">
                     <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <button type="submit" class="text-blue-800 bg-white border-solid border border-blue-800 hover:bg-gray-200 rounded-full w-80">口コミを投稿</button>
+                    <button type="submit" class="review_button">口コミを投稿</button>
                 </div>
             </div>
     </div>

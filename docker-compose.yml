@@ -39,9 +39,7 @@ services:
             - mysql
         ports:
             - 8080:80
-        networks:
-            - sail
-    
+
     mail:
         image: mailhog/mailhog
         container_name: mailhog

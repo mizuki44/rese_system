@@ -97,3 +97,25 @@
 .content {
     margin: 25px;
 }
+
+.review_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 36%;
+    height: 5%;
+    color: white;
+    font-size: 15px;
+    font-weight: 200;
+    text-decoration: none;
+    background-color: rgb(37 99 235);
+    border-radius: 20px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    border: none;
+    left: 30%;
+}
+
+.button {
+    margin: 6px;
+}
