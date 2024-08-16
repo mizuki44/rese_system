@@ -15,9 +15,9 @@ class CreateStocksTable extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id()->unsigned();
-            $table->varchar('price_id', 255);
-            $table->varchar('course_name', 255);
-            $table->varchar('price', 255);
+            $table->string('price_id', 255);
+            $table->string('course_name', 255);
+            $table->string('price', 255);
             $table->timestamps();
         });
     }
