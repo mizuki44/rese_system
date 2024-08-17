@@ -89,7 +89,7 @@
 ## テーブル設計
 <img width="649" alt="スクリーンショット 2024-08-10 17 58 05" src="https://github.com/user-attachments/assets/9649b36d-4117-4213-b942-92649ff0f505">
 <img width="649" alt="スクリーンショット 2024-08-10 17 58 50" src="https://github.com/user-attachments/assets/a82007f1-7a43-4771-ab27-ac2e02a696c1">
-<img width="649" alt="スクリーンショット 2024-08-10 17 59 06" src="https://github.com/user-attachments/assets/e324d7ed-15a8-4e5a-b61d-e5e656e6ef9c">
+<img width="648" alt="スクリーンショット 2024-08-17 11 49 40" src="https://github.com/user-attachments/assets/db706811-45f3-4f7f-b930-6d8f42b04535">
 
 
 

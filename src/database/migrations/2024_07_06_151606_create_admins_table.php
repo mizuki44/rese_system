@@ -19,7 +19,7 @@ class CreateAdminsTable extends Migration
             $table->string('email',80)->unique();
             $table->unsignedTinyInteger('role');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password', 255);
             $table->rememberToken();
             $table->timestamps();
         });
