@@ -56,10 +56,11 @@
 毎朝8：00に当日の予約があるユーザーに予約確認メールを送信する。<br>
 バッチを動かすには「php artisan schedule:work」のコマンドをうつ<br>
     * 動作確認方法<br>
-    1. 当日の予約を作成する<br>
-    2. ターミナルでphpコンテナにログイン<br>
+    1. フロント側で予約を作成する
+    2. phpMyAdminで予約日を当日に変更する<br>
+    3. ターミナルでphpコンテナにログイン<br>
     「docker exec -it rese_system-php-1 bash」
-    3. 「php artisan command:sendMail」とコマンド入力<br>
+    4. 「php artisan command:sendMail」とコマンド入力<br>
     4. MailHogにリマインドメールが届く<br>
 * 管理者・店舗代表者のログイン<br>
 上記アプリケーションURLに"admin/login"をつけたURLを直打ちするとログイン画面が表示される。

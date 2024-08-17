@@ -16,7 +16,7 @@ body {
     border: double 5px rgb(37 99 235);
     background: #f1f8ff;
     padding: 0.5em 0.5em 0.5em 2em;
-    width: auto;
+    width: 50vw;
 }
 
 .list_content {
