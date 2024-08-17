@@ -74,8 +74,8 @@ return [
     |
     */
 
-    // 'home' => RouteServiceProvider::HOME,
-    'home' => env('APP_URL'),
+    'home' => RouteServiceProvider::HOME,
+    // 'home' => env('APP_URL'),
 
     /*
     |--------------------------------------------------------------------------

@@ -10,8 +10,8 @@ body {
 }
 
 .contact {
-    width: 960px;
-    margin: 0 auto;
+    width: 98%;
+    margin: 1%;
     padding: 60px 0;
 }
 
@@ -131,4 +131,26 @@ body {
 
 .error_message {
     color: red;
+}
+
+/* レスポンシブ (768px以上)*/
+@media screen and (max-width: 767.9px) {
+    .contact-table {
+        width: 70%;
+        margin: auto;
+    }
+
+    .contact-submit {
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .contact-body {
+        padding: 10px;
+    }
+
+    .contact-item_title {
+        height: 30px;
+    }
 }

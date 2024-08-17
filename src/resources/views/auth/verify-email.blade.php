@@ -16,9 +16,6 @@
             <p class="messege_text">
                 メールをご確認ください！
             </p>
-            <div class="back_button">
-                <button class="back_button_2" onclick="history.back()">戻る</button>
-            </div>
         </div>
     </div>
 </main>
