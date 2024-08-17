@@ -474,6 +474,29 @@ main {
     }
 }
 
+@media screen and (max-width: 450.9px) {
+
+    .reservation_number {
+        font-size: small;
+        margin-left: 30px;
+        font-weight: normal;
+        color: white;
+        position: relative;
+        padding-left: 18px;
+    }
+
+    .reservation_number::before {
+        content: "";
+        width: 60%;
+        height: 51%;
+        background: url(../img/time.jpeg) no-repeat center center / auto 70%;
+        display: inline-block;
+        position: absolute;
+        left: -46%;
+        top: 26%;
+    }
+}
+
 .flex {
     display: flex;
     justify-content: space-between;
