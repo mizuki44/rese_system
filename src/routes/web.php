@@ -25,7 +25,7 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-
+// userページ
 Route::get('/', [ShopController::class, 'index'])->name('shop.index');
 Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->middleware(['verified'])->middleware('auth');
 Route::post('/reserve', [ReservationController::class, 'store'])->name('reserve');
@@ -36,9 +36,6 @@ Route::get('/reserve/qr_code_update/{reservation_id}', [ReservationController::c
 Route::post('/favorite', [FavoriteController::class, 'flip']);
 Route::get('/my_page', [MyPageController::class, 'create'])->middleware(['verified'])->middleware('auth')->name('mypage');
 Route::get('/qr_code', [MyPageController::class, 'showQrCode'])->middleware(['verified']);
-
-
-//Review機能の追加
 Route::get('/review/add/{shop_id}', [ReviewController::class, 'create'])->middleware(['verified']);
 Route::post('/review/store', [ReviewController::class, 'store'])->middleware(['verified']);
 Route::post('/review/delete', [ReviewController::class, 'destroy']);
@@ -46,7 +43,7 @@ Route::get('/review/edit/{shop_id}', [ReviewController::class, 'edit'])->middlew
 Route::post('/review/update', [ReviewController::class, 'update'])->middleware(['verified']);
 
 
-
+// 決済処理
 Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
@@ -58,7 +55,7 @@ Route::get('cancel', function () {
 })->name('cancel');
 Route::post('/checkout-payment', 'App\Http\Controllers\StripePaymentsController@checkout')->name('checkout.session'); // Stripeフォームへ遷移する処理
 
-// admin
+// adminページ
 Route::prefix('admin')->name('admin.')->group(function () {
     // ログイン・登録
     Route::view('/login', 'admin.auth.login')->middleware('guest:admin')->name('login');
