@@ -2,11 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Stripe\Stripe;
-use Stripe\Customer;
-use Stripe\Charge;
-use Illuminate\Foundation\Configuration\Exceptions;
 use App\Models\User;
 use App\Models\Stock;
 use App\Http\Requests\CheckoutRequest;

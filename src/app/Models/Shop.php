@@ -18,8 +18,6 @@ class Shop extends Model
         'genre_id',
         'description',
         'image_url',
-        // 'operation_pattern',
-        // 'time_per_reservation'
     ];
 
     public function scopeNameSearch($query, $name)

@@ -1,18 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\FavoriteController;
-use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\StripePaymentsController;
 use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\RegisteredUserController;
-use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------

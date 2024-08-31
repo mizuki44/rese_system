@@ -4,24 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use DateTime;
-use Arr;
-use Exception;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Storage;
-use App\Models\Admin;
 use App\Models\Shop;
-use App\Models\Genre;
-use App\Models\Area;
 use App\Models\Reservation;
 use App\Models\Favorite;
-use App\Http\Requests\UpdateShopRequest;
-use App\Http\Requests\AddShopRequest;
-use App\Http\Traits\Content;
-use App\Consts\SortOptConst;
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\AuthControllers;
 use Carbon\Carbon;
 
 

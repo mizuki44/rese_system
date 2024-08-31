@@ -22,17 +22,14 @@ class Reservation extends Model
 
 
     public function user()
-    { //追記
+    {
         return $this->belongsTo('App\Models\User');
     }
 
     public function shop()
-    { //追記
+    {
         return $this->belongsTo('App\Models\Shop');
     }
-
-
-
 
 
     public function scopeEndsAfterSearch($query, $time)
@@ -42,12 +39,6 @@ class Reservation extends Model
         }
     }
 
-    // public function scopeStartsBeforeSearch($query, $time)
-    // {
-    //     if (!empty($time)) {
-    //         $query->where('date', '<', $time);
-    //     }
-    // }
 
     public function scopeUserIdSearch($query, $user_id)
     {

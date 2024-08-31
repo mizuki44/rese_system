@@ -12,7 +12,7 @@ use Laravel\Cashier\Billable;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
-    use Billable; // クラス定義の中に記載する
+    use Billable;
     /**
      * The attributes that are mass assignable.
      *

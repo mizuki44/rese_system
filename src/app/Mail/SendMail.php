@@ -31,15 +31,6 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        //メールの設定を記述、下記のSendTestMail.php参考
-        // https://qiita.com/hinako_n/items/ff451ec558abefc41247
-        // return $this->view('mail.contact')
-        //     ->from('info@rese.com', '予約サイトRese')
-        //     ->subject('予約リマインドメール')
-        //     ->with(
-        //         'info',
-        //         $this->info
-        //     );
         return $this->view($this->view)
             ->from('info@rese.com', '予約サイトRese')
             ->subject($this->subject)

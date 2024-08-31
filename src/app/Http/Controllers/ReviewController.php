@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\AuthControllers;
 use App\Models\Shop;
 use App\Models\Favorite;
 use App\Models\Review;
-use App\Http\Traits\Content;
 use Illuminate\Http\Request;
 use App\Http\Requests\ReviewRequest;
 use Illuminate\Support\Facades\Auth;
@@ -46,9 +43,7 @@ class ReviewController extends Controller
     public function destroy(Request $request)
     {
         $account_check = false;
-        if (Auth::guard('admin')->check()) {
-            if ($this->isAdmin(Auth::guard('admin')->user()->role)) $account_check = true;
-        } elseif (Auth::check()) {
+        if (Auth::check()) {
             if (Auth::user()->id == $request->user_id) $account_check = true;
         }
 
