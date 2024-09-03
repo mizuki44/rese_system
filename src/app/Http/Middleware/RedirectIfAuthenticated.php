@@ -28,13 +28,12 @@ class RedirectIfAuthenticated
                 if ($guard === 'admin') {
 
                     return redirect()->route('admin.index');
+                } else {
+                    return redirect(RouteServiceProvider::HOME);
                 }
-
-                return redirect(RouteServiceProvider::HOME);
             }
         }
 
         return $next($request);
-
     }
 }

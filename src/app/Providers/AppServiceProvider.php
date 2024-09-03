@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Cashier::calculateTaxes();
+        if (request()->is('admin/*')) {
+            config(['session.cookie' => config('session.cookie_admin')]);
+        }
     }
 }
