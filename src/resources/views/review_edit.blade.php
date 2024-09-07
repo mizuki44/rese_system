@@ -66,56 +66,52 @@
 
     <div class="content">
         <p class="comment">レビュー変更ページ</p>
-            <div class="card_contents_inner_1">
+        <div class="card_contents">
             <form method="POST" action="{{ url('/review/update') }}" enctype="multipart/form-data">
                 @csrf
-                <div class="card_contents_inner_2">
+                <div class="card_contents_inner">
                     <img class="image" src="{{ $shop['image_url'] }}">
                     <div class="shop_name">
-                        <h2 class="shop_name1">{{ $shop['name'] }}</h2>
-                        <div class="shop_name2">
+                        <h2 class="shop_name_font">{{ $shop['name'] }}</h2>
+                        <div class="shop_name_inner">
                             <span>#{{ $shop['area']['name'] }}</span>
                             <span>#{{ $shop['genre']['name'] }}</span>
                         </div>
                         <a href="{{ url('/detail/'.$shop['id']) }}">店舗詳細へ</a>
                     </div>
-                    <div class="card_contents_inner_3">
-                        <p>体験を評価してください</p>
-                        <div class="star">
-                            <!-- 星ラジオボタン -->
-                            <input type="radio" id="star5" name="star" value=5 class="hidden peer" {{ 5 == $review['star'] ? "checked" : "" }}>
-                            <label for="star5" class="">5★</label>
-                            <input type="radio" id="star4" name="star" value=4 class="hidden peer" {{ 4 == $review['star'] ? "checked" : "" }}>
-                            <label for="star4" class="">4★</label>
-                            <input type="radio" id="star3" name="star" value=3 class="hidden peer" {{ 3 == $review['star'] ? "checked" : "" }}>
-                            <label for="star3" class="">3★</label>
-                            <input type="radio" id="star2" name="star" value=2 class="hidden peer" {{ 2 == $review['star'] ? "checked" : "" }}>
-                            <label for="star2" class="">2★</label>
-                            <input type="radio" id="star1" name="star" value=1 class="hidden peer" {{ 1 == $review['star'] ? "checked" : "" }}>
-                            <label for="star1" class="">1★</label>
-                        </div>
-                        @error('star')
-                        <p class='error_message'>{{$message}}</p>
-                        @enderror
-                        <p class="comment_p">コメント</p>
-                        <!-- コメントテキストエリア -->
-                        <textarea name="comment" class="textarea" onkeyup="ShowLength(value)">{{ $review['comment'] }}</textarea>
-                        <div class="">
-                            <span id="inputlength">0</span>
-                            <span>/400(最大文字数)</span>
-                        </div>
-                        @error('comment')
-                        <p class='error_message'>{{$message}}</p>
-                        @enderror
+                    <p>体験を評価してください</p>
+                    <div class="star">
+                        <!-- 星ラジオボタン -->
+                        <input type="radio" id="star5" name="star" value=5 class="hidden peer" {{ 5 == $review['star'] ? "checked" : "" }}>
+                        <label for="star5" class="">5★</label>
+                        <input type="radio" id="star4" name="star" value=4 class="hidden peer" {{ 4 == $review['star'] ? "checked" : "" }}>
+                        <label for="star4" class="">4★</label>
+                        <input type="radio" id="star3" name="star" value=3 class="hidden peer" {{ 3 == $review['star'] ? "checked" : "" }}>
+                        <label for="star3" class="">3★</label>
+                        <input type="radio" id="star2" name="star" value=2 class="hidden peer" {{ 2 == $review['star'] ? "checked" : "" }}>
+                        <label for="star2" class="">2★</label>
+                        <input type="radio" id="star1" name="star" value=1 class="hidden peer" {{ 1 == $review['star'] ? "checked" : "" }}>
+                        <label for="star1" class="">1★</label>
                     </div>
-                    <div class="card_contents_inner_4">
+                    @error('star')
+                    <p class='error_message'>{{$message}}</p>
+                    @enderror
+                    <p class="comment_p">コメント</p>
+                    <!-- コメントテキストエリア -->
+                    <textarea name="comment" class="textarea" onkeyup="ShowLength(value)">{{ $review['comment'] }}</textarea>
+                    <span id="inputlength">0</span>
+                    <span>/400(最大文字数)</span>
+                    @error('comment')
+                    <p class='error_message'>{{$message}}</p>
+                    @enderror
+                    <div class="button">
                         <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                         <button type="submit" class="review_button">口コミを変更</button>
                     </div>
                 </div>
-            </div>
             </form>
+        </div>
     </div>
 
 </body>

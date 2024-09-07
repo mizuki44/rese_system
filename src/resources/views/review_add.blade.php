@@ -64,14 +64,14 @@
 
 <div class="content">
     <p class="comment">今回のご利用はいかがでしたか？</p>
-    <div class="card_contents_inner_1">
+    <div class="card_contents">
         <form method="POST" action="{{ url('/review/store') }}" enctype="multipart/form-data">
             @csrf
-            <div class="card_contents_inner_2">
+            <div class="card_contents_inner">
                 <img class="image" src="{{ $shop['image_url'] }}">
                 <div class="shop_name">
-                    <h2 class="shop_name1">{{ $shop['name'] }}</h2>
-                    <div class="shop_name2">
+                    <h2 class="shop_name_font">{{ $shop['name'] }}</h2>
+                    <div class="shop_name_inner">
                         <span>#{{ $shop['area']['name'] }}</span>
                         <span>#{{ $shop['genre']['name'] }}</span>
                     </div>

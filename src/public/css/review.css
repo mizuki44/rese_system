@@ -16,7 +16,7 @@
 }
 
 
-.card_contents_inner_1 {
+.card_contents {
     width: 44vh;
     background-color: white;
     border-radius: 6px;
@@ -39,12 +39,12 @@
     padding: 1rem;
 }
 
-.shop_name1 {
+.shop_name_font {
     font-weight: bold;
     font-size: larger;
 }
 
-.shop_name2 {
+.shop_name_inner {
         font-size: 0.75rem;
         line-height: 1rem;
         padding-top: 5px;
@@ -53,7 +53,7 @@
         top: 5px;
     }
 
-.card_contents_inner_2 {
+.card_contents_inner {
     text-align: center;
 }
 

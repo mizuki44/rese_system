@@ -83,10 +83,9 @@
                     @endforeach
                 </div>
             </div>
-        </div>
 
-        <!-- お気に入り店舗 -->
-        <div class="favorite_page">
+            <!-- お気に入り店舗 -->
+            <div class="favorite_page">
             <h2 class="favorite_shop">お気に入り店舗</h2>
             <!-- お気に入りカード一覧 -->
             <div class="favorite_situation">
