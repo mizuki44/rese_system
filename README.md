@@ -112,8 +112,7 @@ Docker ビルド
 docker-compose exec php bash
 2. composerをインストールする<br>
 composer install
-3. 「.env.example」ファイルを 「.env」ファイルに命名を変更する。
-または、新しく.envファイルを作成<br>
+3. 新しく.envファイルを作成<br>
 <pre>
 APP_NAME=Laravel
 APP_ENV=local
