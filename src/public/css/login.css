@@ -125,7 +125,7 @@ main {
     margin-top: 5px;
     width: 10vw;
     position: relative;
-    left: 70%;
+    left:67%;
     padding-bottom: 20px;
 }
 
@@ -179,7 +179,7 @@ main {
         width: 45vh;
     }
     .button-login {
-        width: 315%;
+        width: 365%;
     }
     .form__button {
         position: relative;

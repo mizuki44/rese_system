@@ -216,7 +216,7 @@ small {
         width: 45vh;
     }
     .form__button-submit {
-        width: 20vw;
+        width: 365%;
     }
     .form__button {
         position: relative;

@@ -71,7 +71,7 @@
 
     <script>
         $(document).ready(function() {
-            var now = new Date(); // Sun Aug 04 2024 18:31:29 GMT+0900 (日本標準時)
+            var now = new Date();
             var yy = now.getFullYear();
             var month = now.getMonth() + 1;
             var mm = ('0' + month).slice(-2);
@@ -91,10 +91,9 @@
                 useSelect: true
             });
 
-            // $('#date').blur(function() {
             $('#date').on("change", function() {
 
-                var selected_date = $('#date').val(); // 2024-08-22
+                var selected_date = $('#date').val();
                 $('.drop_time').val('');
 
                 // 今日だったら

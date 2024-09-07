@@ -59,7 +59,7 @@ main {
     margin-bottom: 16px;
 }
 
-.card_contents_inner_2 {
+.card_inner {
     padding-bottom: 4px;
     padding-top: 17px;
     background-color: rgb(37 99 235);
@@ -70,13 +70,13 @@ main {
 
 
 
-.card_contents_inner_3 {
+.card_contents_inner {
     align-items: center;
     display: flex;
     justify-content: space-around;
 }
 
-.card_contents_inner_4 {
+.card_contents_inner_detail {
     padding-top: 17px;
 }
 
@@ -120,12 +120,12 @@ main {
     height: 20%;
 }
 
-.shop_name1 {
+.shop_name_font {
     font-weight: bold;
     font-size: larger;
 }
 
-.shop_name2 {
+.shop_name_inner {
     font-size: 0.75rem;
     line-height: 1rem;
     padding-top: 5px;

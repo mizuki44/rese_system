@@ -42,41 +42,33 @@
             </nav>
 
             <div class="logo_hamburger">
-                <div class="logo_hamburger_1">
-                    <button class=" header__hamburger_for_index hamburger" id="js-hamburger">
-                        <span class="span_1"></span>
-                        <span class="span_2"></span>
-                        <span class="span_3"></span>
-                    </button>
-                </div>
-                <div class="header__inner">
-                    <h1 class="header__title header-title">
-                        <a href="/">
-                            Rese
-                        </a>
-                    </h1>
-                </div>
+                <button class=" header__hamburger_for_index hamburger" id="js-hamburger">
+                    <span class="span_1"></span>
+                    <span class="span_2"></span>
+                    <span class="span_3"></span>
+                </button>
+                <h1 class="header__title header-title">
+                    <a href="/">
+                        Rese
+                    </a>
+                </h1>
             </div>
 
             <!-- 検索メニュー -->
             <form method="GET" action="{{ route('shop.index') }}">
                 <div class="search_content">
-                    <div class="search_content2">
-                        <select class="search_content_area" id="a" name="a">
-                            <option value="">All area</option>
-                            @foreach($areas as $area)
-                            <option value="{{ $area->id }}" @if($a==$area->id) selected @endif>{{ $area->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="search_content2">
-                        <select class="search_content_genre" id="g" name="g">
-                            <option value="">All genre</option>
-                            @foreach($genres as $genre)
-                            <option value="{{ $genre->id }}" @if($g==$genre->id) selected @endif>{{ $genre->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                    <select class="search_content_area" id="a" name="a">
+                        <option value="">All area</option>
+                        @foreach($areas as $area)
+                        <option value="{{ $area->id }}" @if($a==$area->id) selected @endif>{{ $area->name }}</option>
+                        @endforeach
+                    </select>
+                    <select class="search_content_genre" id="g" name="g">
+                        <option value="">All genre</option>
+                        @foreach($genres as $genre)
+                        <option value="{{ $genre->id }}" @if($g==$genre->id) selected @endif>{{ $genre->name }}</option>
+                        @endforeach
+                    </select>
                     <div class="search_box">
                         <input name="s" class="search_content_shop" id="s" type="search" placeholder="Search..." aria-label="Search" value="{{ $s }}">
                     </div>
@@ -100,18 +92,16 @@
         <!-- カード一覧 -->
         <div class="card_contents">
             @foreach ($shops as $shop)
-            <div class="card_contents_inner_1">
-                <div>
-                    <img class="image" src="{{ $shop->image_url }}">
-                </div>
+            <div class="card_contents_inner">
+                <img class="image" src="{{ $shop->image_url }}">
                 <div class="shop_name">
-                    <h2 class="shop_name1">{{ $shop->name }}</h2>
-                    <div class="shop_name2">
+                    <h2 class="shop_name_font">{{ $shop->name }}</h2>
+                    <div class="shop_name_inner">
                         <span>#{{ $shop['area']['name'] }}</span>
                         <span>#{{ $shop['genre']['name'] }}</span>
                     </div>
 
-                    <div class="card_contents_inner_2">
+                    <div class="card_contents_inner_detail">
                         <a class="detail" href="{{ url('/detail/'.$shop['id']) }}">詳しくみる</a>
                         @if( Auth::check() )
                         <form method="POST" action="{{ url('/favorite') }}">
