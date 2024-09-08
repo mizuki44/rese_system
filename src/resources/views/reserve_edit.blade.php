@@ -96,26 +96,21 @@
                 var selected_date = $('#date').val();
                 $('.drop_time').val('');
 
-                // 今日だったら
                 if (selected_date == `${yy}-${mm}-${dd}`) {
                     var minTime = `${h}:00`
                     console.log(h);
-                    // 現在時間が22:0~23:59の間なら
                     if (h >= '22') {
-                        // 選択不可
                         $('#TimePicker').prop('disabled', true);
                         $('.timepicker').data('TimePicker').options.dropdown = false;
                         $('.timepicker').data('TimePicker').items = null;
                         $('.timepicker').data('TimePicker').widget.instance = null;
                     } else {
-                        // 現在時間以降を選択可能 ex)今15:59-> 16時以降のもの
                         $('#TimePicker').prop('disabled', false);
                         $('.timepicker').data('TimePicker').options.minTime = minTime;
                         $('.timepicker').data('TimePicker').options.dropdown = true;
                         $('.timepicker').data('TimePicker').items = null;
                         $('.timepicker').data('TimePicker').widget.instance = null;
                     }
-                // 今日以外
                 } else {
                     $('#TimePicker').prop('disabled', false);
                     $('.timepicker').data('TimePicker').options.minTime = '10:00';

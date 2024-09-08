@@ -42,21 +42,12 @@ class Shop extends Model
     }
 
     public function area()
-    { //追記
+    {
         return $this->belongsTo('App\Models\Area');
     }
 
     public function genre()
-    { //追記
+    {
         return $this->belongsTo('App\Models\Genre');
     }
-    // public function admins(): BelongsToMany
-    // {
-    //     return $this->belongsToMany(Admin::class);
-    // }
-
-    // public function reviews()
-    // {
-    //     return $this->hasMany(Review::class);
-    // }
 }

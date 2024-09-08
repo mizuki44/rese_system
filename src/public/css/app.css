@@ -27,7 +27,7 @@
     font-size: x-large;
     text-decoration: none;
     color: rgb(37 99 235);
-    margin-left: 10%;
+    margin-left: 13%;
 }
 
 .header__title img {
@@ -83,8 +83,8 @@
 
 /* ハンバーガーメニュー */
 .header__hamburger {
-    width: 50px;
-    height: 80%;
+    width: 43px;
+    height: 40px;
     background-color: rgb(37 99 235);
     color: rgb(107 114 128);
     border-radius: 0.375rem;

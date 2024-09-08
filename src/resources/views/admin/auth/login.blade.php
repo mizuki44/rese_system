@@ -14,7 +14,7 @@
 <body>
 <div class="login__content">
     <div class="login-form__heading">
-        <h2>Admin Login</h2>
+        <h1 class="login_font">Admin Login</h1>
     </div>
     <form class="form" action="/admin/login" method="post">
         @csrf

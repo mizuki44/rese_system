@@ -89,15 +89,15 @@
 
 
 ## テーブル設計
-<img width="649" alt="スクリーンショット 2024-08-10 17 58 05" src="https://github.com/user-attachments/assets/9649b36d-4117-4213-b942-92649ff0f505">
-<img width="649" alt="スクリーンショット 2024-08-10 17 58 50" src="https://github.com/user-attachments/assets/a82007f1-7a43-4771-ab27-ac2e02a696c1">
-<img width="648" alt="スクリーンショット 2024-08-17 11 49 40" src="https://github.com/user-attachments/assets/db706811-45f3-4f7f-b930-6d8f42b04535">
+<img width="665" alt="スクリーンショット 2024-09-08 12 28 48" src="https://github.com/user-attachments/assets/89333768-1055-4260-a423-8eb0e8c211a2">
+<img width="666" alt="スクリーンショット 2024-09-08 12 23 03" src="https://github.com/user-attachments/assets/4e7c2dd7-8778-4e76-ae40-74edbf75eb34">
+<img width="666" alt="スクリーンショット 2024-09-08 12 23 21" src="https://github.com/user-attachments/assets/f4f07a66-2620-47c5-91cd-ee5839ef6c41">
+<img width="666" alt="スクリーンショット 2024-09-08 12 23 36" src="https://github.com/user-attachments/assets/3f9f0653-0f9a-4dbb-bca2-dc421c872486">
 
 
 
 ## ER図
-<img width="840" alt="スクリーンショット 2024-08-11 16 05 10" src="https://github.com/user-attachments/assets/1ca3fcca-f54c-42a3-adad-1a464c633523">
-
+<img width="756" alt="スクリーンショット 2024-09-08 12 20 32" src="https://github.com/user-attachments/assets/c13f55d4-fb27-4811-82ff-231fd21259b7">
 
 
 ## 環境構築

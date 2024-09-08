@@ -1,12 +1,12 @@
 .card_contents {
     display: flex;
-    justify-content:space-around;
+    justify-content:space-evenly;
     flex-wrap: wrap;
     background-color: #f5f5f5;
 }
 
 .card_contents_inner {
-    width: 40vh;
+    width: 38vh;
     background-color:white;
     border-radius: 6px;
     filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
@@ -211,7 +211,7 @@ body {
 
 
 .header__hamburger_for_index {
-    width: 43px;
+    width: 53px;
     height: 40px;
     background-color: rgb(37 99 235);
     color: rgb(107 114 128);
@@ -251,4 +251,8 @@ body {
     padding-bottom: 10px;
     padding-top: 10px;
     margin-right: 4%;
+}
+
+.header__title {
+    margin-left: 21%;
 }

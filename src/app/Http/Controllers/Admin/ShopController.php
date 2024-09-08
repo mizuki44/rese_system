@@ -54,7 +54,6 @@ class ShopController extends Controller
     // 店舗情報変更フォーム表示
     public function edit(Request $request)
     {
-        // dd($request);
         $shop = $request->shop_id;
         $item = Shop::find($shop);
 

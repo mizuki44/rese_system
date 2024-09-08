@@ -15,7 +15,7 @@
 <body>
     <div class="register__content">
         <div class="register-form__heading">
-            <h2>Admin Registration</h2>
+            <h1 class="register_font">Admin Registration</h1>
         </div>
         <form class="form" action="/admin/register" method="post">
             @csrf

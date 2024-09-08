@@ -39,7 +39,7 @@ main {
     margin-top: 90px;
 }
 
-.login__content h2 {
+.login_font {
     font-size: smaller;
     font-weight: normal;
     padding-left: 9px;
