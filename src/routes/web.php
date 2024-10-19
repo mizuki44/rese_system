@@ -74,6 +74,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // お知らせメール
         Route::get('/mail', [App\Http\Controllers\Admin\UserController::class, 'create']);
         Route::post('/mail/send', [App\Http\Controllers\Admin\UserController::class, 'send']);
+        Route::get('/review', [App\Http\Controllers\Admin\ReviewController::class, 'index']);
+        Route::post('/review/delete', [App\Http\Controllers\Admin\ReviewController::class, 'delete']);
     });
 
     // 店舗情報
