@@ -61,10 +61,12 @@ class ShopController extends Controller
         $time_array = [];
         $num_array = [];
         $my_review = null;
+        $reviews = Review::where('shop_id', $shop_id)->get();
+        // dd($review);
         if( Auth::check() ){
             $tmp_review = Review::select()->UserSearch(Auth::id())->ShopSearch($shop_id)->get();
             $my_review = $tmp_review->isEmpty() ? null : $tmp_review->toArray()[0];
         }
-        return view('shop_detail', compact('shop', 'tomorrow', 'reserve_date', 'time_array', 'num_array', 'my_review'));
+        return view('shop_detail', compact('shop', 'tomorrow', 'reserve_date', 'time_array', 'num_array','my_review', 'reviews'));
     }
 }

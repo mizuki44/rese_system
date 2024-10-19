@@ -58,33 +58,33 @@
             <div class="review">
                 <a href="{{ url('/review/add/'.$shop['id']) }}" class="review_button_add">口コミを投稿する</a>
             </div>
-            @else
-            <div class="py-5">
-                <hr>
-                <div class="button_flex">
-                    <div class="review_button_flex">
-                        <a href="{{ url('/review/edit/'.$shop['id']) }}" class="review_button">口コミを編集</a>
+            
+            @endif
+            @endif
+            <hr>
+            @foreach($reviews as $review)
+                @if($review->user_id == Auth::user()->id)
+                    <div class="button_flex">
+                        <div class="review_button_flex">
+                            <a href="{{ url('/review/edit/'.$shop['id']) }}" class="review_button">口コミを編集</a>
+                        </div>
+                        <div class="review_button_flex">
+                            <form method="POST" action="{{ url('/review/delete') }}">
+                                @csrf
+                                <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <button type="submit" class="review_button">口コミを削除</button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="review_button_flex">
-                        <form method="POST" action="{{ url('/review/delete') }}">
-                            @csrf
-                            <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
-                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                            <button type="submit" class="review_button">口コミを削除</button>
-                        </form>
-                    </div>
-                </div>
+                @endif
                 <div class="star">
-                    @for ($counter = 0; $counter < 5; $counter++) <span class="{{ $counter < $my_review['star'] ? 'text-blue-600' : 'text-gray-200'}}">★</span>
+                    @for ($counter = 0; $counter < 5; $counter++) <span class="{{ $counter < $review['star'] ? 'text-blue-600' : 'text-gray-200'}}">★</span>
                         @endfor
                 </div>
-                <div>
-                    <p>{{$my_review['comment']}}</p>
-                </div>
+                <p>{{$review['comment']}}</p>
                 <hr>
-            </div>
-            @endif
-            @endif
+            @endforeach
 
         </div>
 
