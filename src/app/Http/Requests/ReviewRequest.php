@@ -26,6 +26,7 @@ class ReviewRequest extends FormRequest
         return [
             'star' => 'required',
             'comment' => 'required|max:400',
+            'image_url' => 'mimes:jpeg,png,jpg',
         ];
     }
 
@@ -40,6 +41,7 @@ class ReviewRequest extends FormRequest
             'star.required' => ':attributeは必ず選択してください',
             'comment.required' => ':attributeは必ず入力してください',
             'comment.max' => ':attributeは最大:max文字以内で入力してください。',
+            'image_url.mimes' => ':attributeは拡張子がjpeg、pngのみアップロード可能です。',
 
 
         ];
@@ -55,6 +57,7 @@ class ReviewRequest extends FormRequest
         return [
             'star' => '星',
             'comment' => 'コメント',
+            'image_url' => 'イメージ画像',
         ];
     }
 }
