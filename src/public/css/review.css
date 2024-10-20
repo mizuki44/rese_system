@@ -118,3 +118,18 @@
 .button {
     margin: 6px;
 }
+
+.drop-zone {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.drop-zone.highlight {
+    background-color: #f0f0f0;
+}
+
+
+.custom-upload_input {
+    /* display: none; */
+}

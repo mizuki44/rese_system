@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/review.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('css')
 </head>
 
@@ -103,12 +104,23 @@
                 <p class='error_message'>{{$message}}</p>
                 @enderror
                 <!-- 画像アップロード -->
-                <input type="file" name="image_url" id="image_url" /><br>
-                {{ csrf_field() }}
+
+                <!-- <div class="drop-area" id="drop-area">
+                    <p>アップロードするファイルをドラッグするか、クリックして選択してください</p>
+                    <input type="file" name="image_url" id="image_url" onchange="handleFiles(this.files)">
+                    <div class="gallery" id="gallery"></div>
+                </div> -->
+
+                <div id="drop-zone" class="drop-zone">
+                    <p>ファイルをドラッグ＆ドロップもしくは</p>
+                    <!-- <label for="upload" class="custom-upload">画像を選択 -->
+                    <input type="file" name="image_url" id="file-input" class="custom-upload_input">
+                </div>
+
                 @error('image_url')
                 <p class='error_message'>{{$message}}</p>
                 @enderror
-                <div class="button">
+                <div class=" button">
                     <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <button type="submit" class="review_button">口コミを投稿</button>

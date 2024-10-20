@@ -105,11 +105,20 @@
                     <p class='error_message'>{{$message}}</p>
                     @enderror
                     <!-- 画像アップロード -->
-                    <input type="file" name="image_url" id="image_url" /><br>
-                    {{ csrf_field() }}
+                    @if($review->image_url)
+                    <img class="image" src="{{ $review['image_url'] }}" />
+                    @endif
+                    <div id="drop-zone" class="drop-zone" tabindex="0">
+                        <p>ファイルをドラッグ＆ドロップもしくは</p>
+                        <!-- <label for="upload" class="custom-upload">画像を選択 -->
+                        <input type="file" name="image_url" id="file-input" class="custom-upload_input">
+                    </div>
+
                     @error('image_url')
                     <p class='error_message'>{{$message}}</p>
                     @enderror
+
+
 
                     <div class="button">
                         <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
