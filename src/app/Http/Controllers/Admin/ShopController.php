@@ -9,6 +9,7 @@ use App\Models\Genre;
 use App\Models\Area;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ShopCreateRequest;
+use Illuminate\Support\Facades\Validator;
 
 
 class ShopController extends Controller
@@ -84,5 +85,69 @@ class ShopController extends Controller
         } else {
             return redirect('admin/shop/index');
         }
+    }
+
+    // csvインポート画面表示
+    public function pre_import()
+    {
+        return view('admin.shop_import');
+    }
+    // csvインポート
+    public function import(Request $request)
+    {
+        if (!($request->hasFile('csvFile'))) {
+            return redirect('/admin/shop/import')->with('message', 'ファイルを選択してください');
+        }
+        // リクエストからファイルを取得
+        $path = $request->file('csvFile')->getRealPath();
+        $csvArray = array();
+        $firstFlg = true;
+        $keys = array();
+        $count = 0;
+        $file = fopen($path, 'r');
+        // csvヘッダーをキーにして連想配列の作成 https://qiita.com/Terasan_Koshigaya/items/00ce0b114e527a572865
+        // [ 0 => ["area" => "東京都", "ganre" => "焼肉",・・・],
+        //   1 => ["area" => "大阪府", "ganre" => "寿司",・・・], ・・・]
+        while ($line = fgetcsv($file)) {
+            if ($firstFlg) {
+                for ($i = 0; $i < count($line); $i++) {
+                    array_push($keys, $line[$i]);
+                }
+                $firstFlg = false;
+            } else {
+                for ($i = 0; $i < count($line); $i++) {
+                    $csvArray[$count][$keys[$i]] = $line[$i];
+                }
+                $count++;
+            }
+        }
+        fclose($file);
+        $error_list = [];
+        // バリデーションチェック後、データ作成
+        foreach ($csvArray as $key => $value) {
+            // foreach ($csvArray as $row) {
+            $validator = Validator::make(
+                $value,
+                ShopCreateRequest::rules_for_csv(),
+                ShopCreateRequest::messages_for_csv()
+            );
+            if ($validator->fails()) {
+                $line = $key + 1;
+                $err_msg = array_map(fn($message) => "{$line}行目: {$message}", $validator->errors()->all());
+                $error_list = array_merge($error_list, $err_msg);
+            }
+            if (!empty($error_list)) {
+                $excep_msg = implode("\n", $error_list);
+                return redirect('/admin/shop/import')->with('error', $excep_msg);
+            }
+            $area_id = Area::where('name', $value['area'])->first()->id;
+            $genre_id = Genre::where('name', $value['genre'])->first()->id;
+
+            $shop = new Shop($value);
+            $shop->area_id = $area_id;
+            $shop->genre_id = $genre_id;
+            $shop->save();
+        }
+        return redirect('/admin/shop/import')->with('message', '店舗情報の登録に成功しました。');
     }
 }

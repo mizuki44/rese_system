@@ -76,6 +76,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/mail/send', [App\Http\Controllers\Admin\UserController::class, 'send']);
         Route::get('/review', [App\Http\Controllers\Admin\ReviewController::class, 'index']);
         Route::post('/review/delete', [App\Http\Controllers\Admin\ReviewController::class, 'delete']);
+        // 店舗登録（csvインポート）
+        Route::get('/shop/import', [App\Http\Controllers\Admin\ShopController::class, 'pre_import']);
+        Route::post('/shop/import', [App\Http\Controllers\Admin\ShopController::class, 'import']);
     });
 
     // 店舗情報
