@@ -62,7 +62,6 @@ class ShopController extends Controller
         $num_array = [];
         $my_review = null;
         $reviews = Review::where('shop_id', $shop_id)->get();
-        // dd($review);
         if( Auth::check() ){
             $tmp_review = Review::select()->UserSearch(Auth::id())->ShopSearch($shop_id)->get();
             $my_review = $tmp_review->isEmpty() ? null : $tmp_review->toArray()[0];

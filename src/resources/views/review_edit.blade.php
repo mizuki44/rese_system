@@ -104,6 +104,13 @@
                     @error('comment')
                     <p class='error_message'>{{$message}}</p>
                     @enderror
+                    <!-- 画像アップロード -->
+                    <input type="file" name="image_url" id="image_url" /><br>
+                    {{ csrf_field() }}
+                    @error('image_url')
+                    <p class='error_message'>{{$message}}</p>
+                    @enderror
+
                     <div class="button">
                         <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">

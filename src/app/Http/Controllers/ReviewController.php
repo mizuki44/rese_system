@@ -8,6 +8,7 @@ use App\Models\Review;
 use Illuminate\Http\Request;
 use App\Http\Requests\ReviewRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ReviewController extends Controller
 {
@@ -28,13 +29,17 @@ class ReviewController extends Controller
     {
         if (!Auth::check()) return redirect('login');
 
-        $table = [
+        $result = Storage::disk('s3')->put('/', $request->file('image_url'));
+        $url = Storage::disk('s3')->url($result);
+
+        Review::create([
             'user_id' => $request->user_id,
             'shop_id' => $request->shop_id,
             'star' => $request->star,
             'comment' => $request->comment,
-        ];
-        $review = Review::create($table);
+            'image_url' => $url,
+        ]);
+
 
         return redirect('/detail/' . $request->shop_id);
     }
@@ -74,11 +79,16 @@ class ReviewController extends Controller
     {
         if (!Auth::check()) return redirect('login');
 
+
+        $result = Storage::disk('s3')->put('/', $request->file('image_url'));
+        $url = Storage::disk('s3')->url($result);
+
         $table = [
             'user_id' => $request->user_id,
             'shop_id' => $request->shop_id,
             'star' => $request->star,
             'comment' => $request->comment,
+            'image_url' => $url,
         ];
 
         $review = Review::select()->UserSearch($request->user_id)->ShopSearch($request->shop_id);
