@@ -148,6 +148,6 @@ class ShopController extends Controller
             $shop->genre_id = $genre_id;
             $shop->save();
         }
-        return redirect('/admin/shop/import')->with('message', '店舗情報の登録に成功しました。');
+        return redirect('/admin/shop/import')->with('success_message', '店舗情報の登録に成功しました。');
     }
 }
