@@ -42,11 +42,9 @@
                 <span class="span_3"></span>
             </button>
             <div class="header__inner">
-                <h1 class="header__title header-title">
-                    <a href="/">
+                    <a href="/" class="header__title">
                         Rese
                     </a>
-                </h1>
             </div>
         </div>
         <script>

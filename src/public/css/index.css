@@ -55,6 +55,7 @@
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     position: relative;
+    text-decoration: none;
 }
 
 .favorite_button {
@@ -235,9 +236,10 @@ body {
     display: flex;
     align-items: center;
     height: inherit;
-    /* position: relative; */
+    position: relative;
     justify-content: space-between;
-    /* width: 85vh; */
+    width: auto;
+    font-size: x-large;
 }
 
 .header {
@@ -254,5 +256,16 @@ body {
 }
 
 .header__title {
+    width: 80px;
+    position: relative;
+    font-size: x-large;
+    text-decoration: none;
+    color: rgb(37 99 235);
     margin-left: 21%;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
 }

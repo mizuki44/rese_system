@@ -60,19 +60,19 @@
             </div>
             @endif
             @endif
-            <hr>
             @foreach($reviews as $review)
             @if($review->user_id == Auth::user()->id)
+            <hr>
             <div class="button_flex">
                 <div class="review_button_flex">
-                    <a href="{{ url('/review/edit/'.$shop['id']) }}" class="review_button">口コミを編集</a>
+                    <a href="{{ url('/review/edit/'.$shop['id']) }}" class="review__edit__button">口コミを編集</a>
                 </div>
                 <div class="review_button_flex">
                     <form method="POST" action="{{ url('/review/delete') }}">
                         @csrf
                         <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                        <button type="submit" class="review_button">口コミを削除</button>
+                        <button type="submit" class="review__delete__button">口コミを削除</button>
                     </form>
                 </div>
             </div>
@@ -83,7 +83,7 @@
             </div>
             <p>{{$review['comment']}}</p>
             <div class="image_content">
-                <img class="image" src="{{ $review['image_url'] }}" />
+                <img class="review_image" src="{{ $review['image_url'] }}" />
             </div>
             <hr>
             @endforeach

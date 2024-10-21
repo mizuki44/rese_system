@@ -16,6 +16,7 @@
         var dropZone = document.getElementById('drop-zone');
         var preview = document.getElementById('preview');
         var fileInput = document.getElementById('file-input');
+        var displayElement = document.getElementById('contents');
 
         dropZone.addEventListener('dragover', function(e) {
             e.stopPropagation();
@@ -42,6 +43,23 @@
         fileInput.addEventListener('change', function() {
             previewFile(this.files[0]);
         });
+
+        // 追加した分
+        dropZone.addEventListener('click', (e) => {
+            fileInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const fileContents = e.target.result;
+                    displayElement.textContent = file.name;
+                }
+                reader.readAsText(file);
+                fileInput.files = e.target.files;
+            }, false);
+
+            fileInput.click();
+        }, false);
 
     });
 
@@ -112,6 +130,7 @@
                         <p>ファイルをドラッグ＆ドロップもしくは</p>
                         <!-- <label for="upload" class="custom-upload">画像を選択 -->
                         <input type="file" name="image_url" id="file-input" class="custom-upload_input">
+                        <pre><code id="contents"></code></pre>
                     </div>
 
                     @error('image_url')

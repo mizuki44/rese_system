@@ -244,21 +244,36 @@
     padding-left: 30px;
 }
 
-.review_button {
+.review__edit__button {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     width: 57%;
     height: 100%;
-    color: white;
+    font-size: 15px;
+    font-weight: 100;
+    /* color: white;
     font-size: 15px;
     font-weight: 100;
     text-decoration: none;
     background-color: rgb(37 99 235);
     border-radius: 20px;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    border: none; */
+    color: black;
+}
+
+.review__delete__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 15px;
+    font-weight: 100;
     border: none;
+    text-decoration: underline;
+    background-color: transparent;
 }
 
 .button_flex {
@@ -275,7 +290,7 @@
 }
 
 .review_button_add {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -288,5 +303,9 @@
     background-color: rgb(37 99 235);
     border-radius: 20px;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-    border: none;
+    border: none; */
+    color: black;
+}
+.review_image {
+    width: 100%;
 }

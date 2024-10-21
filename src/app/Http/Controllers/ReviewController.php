@@ -20,7 +20,6 @@ class ReviewController extends Controller
         $shop = Shop::find($shop_id);
         $tmp_favorites = Favorite::select()->UserSearch(Auth::id())->ShopSearch($shop_id)->get();
         $shop['favorite'] = !$tmp_favorites->isEmpty();
-
         return view('review_add', compact('shop'));
     }
 

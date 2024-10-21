@@ -41,9 +41,19 @@ class ShopController extends Controller
         if ($g !== null) {
             $shops->where('genre_id', '=', $g);
         }
-        $shops = $shops->get();
 
-        return view('index', compact('shops', 'genres', 'areas', 'g', 'a', 's'));
+        $sort_option = session()->has('sort_option') ? session('sort_option') : Shop::RANDOM;
+        if ($request->has('sort_option')) {
+            $sort_option = $request->sort_option;
+        }
+        session(['sort_option' => $sort_option]);
+        if ($sort_option == Shop::RANDOM) {
+            $shops->inRandomOrder();
+        } elseif ($sort_option == Shop::ORDER_HIGHER or $sort_option == Shop::ORDER_LOWER) {
+            $shops->SortReview($sort_option);
+        }
+        $shops = $shops->get();
+        return view('index', compact('shops', 'genres', 'areas', 'g', 'a', 's', 'sort_option'));
     }
 
     // 店舗詳細表示

@@ -14,10 +14,35 @@
 .error_message {
     color: red;
 }
+.separate__content {
+    width: 100%;
+    display: flex;
+    gap: 2%;
+}
 
+.left__side {
+    width: 40%;
+}
+.right__side {
+    width: 60%;
+}
+.left__side{
+    position: relative;
+    display: inline-block;
+}
+.left__side::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 350px;
+    background-color: d3d3d3;
+    position: absolute;
+    top: 60px;
+    right: 40px;
+    }
 
 .card_contents {
-    width: 44vh;
+    width: 30vh;
     background-color: white;
     border-radius: 6px;
     filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
@@ -29,7 +54,7 @@
 
 .image {
     width: 100%;
-    min-height: 112px;
+    /* min-height: 112px; */
     object-fit: cover;
     border-top-left-radius: 0.375rem;
     border-top-right-radius: 0.375rem;
@@ -37,6 +62,7 @@
 
 .shop_name {
     padding: 1rem;
+    text-align: left;
 }
 
 .shop_name_font {
@@ -59,7 +85,9 @@
 
 .comment {
     text-align: center;
-    font-size: larger;
+    font-size: xx-large;
+    width: 70%;
+    padding: 53px;
 }
 
 .submit {
@@ -80,17 +108,23 @@
 }
 
 .textarea {
-    width: 94%;
+    width: 90%;
     min-height: 8rem;
-    margin: 10px;
-}
+    background-color: #f5f5f5;
+    border-color: c0c0c0;
+    border-width: initial;
+    margin-top: 10px;
+    }
+
 
 .comment_p {
     margin-top: 10px;
+    font-size: larger;
 }
 
 .star {
     margin: 5px;
+    font-size: x-large;
 }
 
 .content {
@@ -98,21 +132,20 @@
 }
 
 .review_button {
-    display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    width: 36%;
+    width: 35%;
     height: 5%;
-    color: white;
+    /* color: white; */
     font-size: 15px;
     font-weight: 200;
     text-decoration: none;
-    background-color: rgb(37 99 235);
+    background-color: white;
     border-radius: 20px;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); */
     border: none;
-    left: 30%;
+    display: block;
+        margin: auto;
 }
 
 .button {
@@ -120,9 +153,11 @@
 }
 
 .drop-zone {
-    border: 2px dashed #ccc;
     border-radius: 5px;
     padding: 20px;
+    background-color: white;
+    height: 15vh;
+    width: 40vw;
 }
 
 .drop-zone.highlight {
@@ -131,5 +166,36 @@
 
 
 .custom-upload_input {
-    /* display: none; */
+    display: none;
+}
+
+.heart {
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    display: inline-block;
+    position: absolute;
+    top: 84%;
+    right: 5%;
+    width: 14%;
+}
+
+.character__count {
+    text-align: right;
+}
+
+.detail {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    min-height: 1.5rem;
+    border-radius: 0.375rem;
+    background-color: rgb(37 99 235);
+    color: rgb(255 255 255);
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+    text-decoration: none;
 }
