@@ -38,7 +38,7 @@
     background-color: d3d3d3;
     position: absolute;
     top: 60px;
-    right: 40px;
+    right: 20px;
     }
 
 .card_contents {
@@ -108,7 +108,7 @@
 }
 
 .textarea {
-    width: 90%;
+    width: 52vw;
     min-height: 8rem;
     background-color: #f5f5f5;
     border-color: c0c0c0;
@@ -120,11 +120,14 @@
 .comment_p {
     margin-top: 10px;
     font-size: larger;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .star {
     margin: 5px;
     font-size: x-large;
+    color: rgb(37 99 235);
 }
 
 .content {
@@ -145,8 +148,11 @@
     /* box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); */
     border: none;
     display: block;
-        margin: auto;
-}
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    }
+
 
 .button {
     margin: 6px;
@@ -157,7 +163,11 @@
     padding: 20px;
     background-color: white;
     height: 15vh;
-    width: 40vw;
+    width: 50vw;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .drop-zone.highlight {
@@ -183,6 +193,7 @@
 
 .character__count {
     text-align: right;
+    margin-right: 5%;
 }
 
 .detail {
@@ -198,4 +209,48 @@
     padding-bottom: 0.5rem;
     position: relative;
     text-decoration: none;
+}
+
+.review__image {
+    width: 30vw;
+    margin: 10px;
+}
+
+@media screen and (max-width: 767.9px) {
+    .separate__content {
+    flex-wrap: wrap;
+    margin: auto;
+    }
+
+    .left__side {
+        width: 50%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .right__side {
+        width: 50%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .drop-zone {
+        margin: 0 auto;
+        width: auto;
+    }
+
+    .character__count {
+        text-align: center;
+    }
+
+    .left__side::after {
+        content: none;
+    }
+
+    .comment {
+        text-align: center;
+        font-size: larger;
+        width: 100%;
+        padding: 7px;
+}
 }

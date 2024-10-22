@@ -57,7 +57,6 @@
             <form method="GET" action="{{ url('/') }}" id="sort_form">
                 @csrf
                 <select class="search_content_sort" id="search_content_sort" name="sort_option">
-                    <option value="">並び替え：評価高/低</option>
                     @foreach (App\Models\Shop::SORT_LIST as $key => $value)
                     <option value="{{ $key }}" @if($sort_option==$key) selected @endif>{{ $value }}</option>
                     @endforeach

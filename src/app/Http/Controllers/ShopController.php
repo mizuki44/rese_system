@@ -42,7 +42,7 @@ class ShopController extends Controller
             $shops->where('genre_id', '=', $g);
         }
 
-        $sort_option = session()->has('sort_option') ? session('sort_option') : Shop::RANDOM;
+        $sort_option = session()->has('sort_option') ? session('sort_option') : Shop::DEFAULT;
         if ($request->has('sort_option')) {
             $sort_option = $request->sort_option;
         }
@@ -72,10 +72,10 @@ class ShopController extends Controller
         $num_array = [];
         $my_review = null;
         $reviews = Review::where('shop_id', $shop_id)->get();
-        if( Auth::check() ){
+        if (Auth::check()) {
             $tmp_review = Review::select()->UserSearch(Auth::id())->ShopSearch($shop_id)->get();
             $my_review = $tmp_review->isEmpty() ? null : $tmp_review->toArray()[0];
         }
-        return view('shop_detail', compact('shop', 'tomorrow', 'reserve_date', 'time_array', 'num_array','my_review', 'reviews'));
+        return view('shop_detail', compact('shop', 'tomorrow', 'reserve_date', 'time_array', 'num_array', 'my_review', 'reviews'));
     }
 }

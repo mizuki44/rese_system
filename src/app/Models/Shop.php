@@ -21,13 +21,16 @@ class Shop extends Model
         'image_url',
     ];
 
-    const RANDOM = '0';
-    const ORDER_HIGHER = '1';
-    const ORDER_LOWER = '2';
+    const DEFAULT = '0';
+    const RANDOM = '1';
+    const ORDER_HIGHER = '2';
+    const ORDER_LOWER = '3';
+    const DEFAULT_NAME = '並び替え：評価高/低';
     const RANDOM_NAME = 'ランダム';
     const ORDER_HIGHER_NAME = '評価が高い順';
     const ORDER_LOWER_NAME = '評価が低い順';
     const SORT_LIST = [
+        self::DEFAULT => self::DEFAULT_NAME,
         self::RANDOM => self::RANDOM_NAME,
         self::ORDER_HIGHER => self::ORDER_HIGHER_NAME,
         self::ORDER_LOWER => self::ORDER_LOWER_NAME
@@ -68,16 +71,16 @@ class Shop extends Model
     {
         if ($sort_option === self::ORDER_HIGHER) {
             $query->leftjoin('reviews', 'reviews.shop_id', '=', 'shops.id')
-            ->select('shops.*')
-            ->selectRaw('avg(reviews.star) as avg_star')
-            ->groupBy('shops.id')
-            ->orderByDesc('avg_star');
+                ->select('shops.*')
+                ->selectRaw('avg(reviews.star) as avg_star')
+                ->groupBy('shops.id')
+                ->orderByDesc('avg_star');
         } elseif ($sort_option === self::ORDER_LOWER) {
             $query->leftjoin('reviews', 'reviews.shop_id', '=', 'shops.id')
-            ->select('shops.*')
-            ->selectRaw('avg(reviews.star) as avg_star')
-            ->groupBy('shops.id')
-            ->orderBy('avg_star');
+                ->select('shops.*')
+                ->selectRaw('avg(reviews.star) as avg_star')
+                ->groupBy('shops.id')
+                ->orderBy('avg_star');
         }
         return $query;
     }
