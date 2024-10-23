@@ -63,7 +63,35 @@
 
             fileInput.click();
         }, false);
+        // 星評価
+        var stars = document.getElementsByClassName("star_mark");
+        var star_form = document.getElementById("star_form");
+        var clicked = false;
+        for (let i = 0; i < star_form.value; i++) {
+            if (i < star_form.value) {
+                console.log(i);
+                stars[i].style.color = "blue";
+            } else {
+                stars[1].style.color = "gray";
+            }
+        }
 
+        for (let i = 0; i < stars.length; i++) {
+            stars[i].addEventListener(
+                "click",
+                () => {
+                    clicked = true;
+                    for (let j = 0; j <= i; j++) {
+                        stars[j].style.color = "blue";
+                    }
+                    for (let j = i + 1; j < stars.length; j++) {
+                        stars[j].style.color = "gray";
+                    }
+                    star_form.value = i + 1;
+                },
+                false
+            );
+        }
     });
 
     function previewFile(file) {
@@ -117,18 +145,13 @@
             <form method="POST" action="{{ url('/review/update') }}" enctype="multipart/form-data">
                 @csrf
                 <p class="comment_p">体験を評価してください</p>
-                <div class="star">
-                    <!-- 星ラジオボタン -->
-                    <input type="radio" id="star5" name="star" value=5 class="hidden peer" {{ 5 == $review['star'] ? "checked" : "" }}>
-                    <label for="star5" class="">5★</label>
-                    <input type="radio" id="star4" name="star" value=4 class="hidden peer" {{ 4 == $review['star'] ? "checked" : "" }}>
-                    <label for="star4" class="">4★</label>
-                    <input type="radio" id="star3" name="star" value=3 class="hidden peer" {{ 3 == $review['star'] ? "checked" : "" }}>
-                    <label for="star3" class="">3★</label>
-                    <input type="radio" id="star2" name="star" value=2 class="hidden peer" {{ 2 == $review['star'] ? "checked" : "" }}>
-                    <label for="star2" class="">2★</label>
-                    <input type="radio" id="star1" name="star" value=1 class="hidden peer" {{ 1 == $review['star'] ? "checked" : "" }}>
-                    <label for="star1" class="">1★</label>
+                <div class="star_box">
+                    <input type="hidden" id="star_form" name="star" value="{{$review['star']}}">
+                    <span class="star_mark" id="1">★</span>
+                    <span class="star_mark" id="2">★</span>
+                    <span class="star_mark" id="3">★</span>
+                    <span class="star_mark" id="4">★</span>
+                    <span class="star_mark" id="5">★</span>
                 </div>
                 @error('star')
                 <p class='error_message'>{{$message}}</p>

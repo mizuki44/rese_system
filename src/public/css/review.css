@@ -124,10 +124,14 @@
     margin-bottom: 10px;
 }
 
-.star {
+.star_box {
     margin: 5px;
     font-size: x-large;
     color: rgb(37 99 235);
+}
+.star_mark {
+    font-size: 300%;
+    color: #a09a9a;
 }
 
 .content {
@@ -168,6 +172,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .drop-zone.highlight {
