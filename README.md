@@ -79,6 +79,24 @@
      * email => owner@example.com<br>
      * password => 'password'<br>
 
+## 追加機能
+* 口コミ機能
+会員登録したユーザは店舗詳細画面から口コミを投稿、編集、削除することができる。なお、同じ店舗に同一のユーザが複数の口コミを行うことはできない。
+管理者は、左上のプルダウンメニュー”口コミ管理へ”から全ての口コミの閲覧と削除ができる。
+* 店舗一覧ソート機能
+トップページのヘッダー中央付近の「並び替え：評価高/低」タブから、同画面に表示する店舗を並び変えることができる。並び替え方法は、"ランダム"、"口コミ評価が高い順"、"口コミ評価が低い順"から選択できる。
+* csvインポート機能
+管理者は、左上のプルダウンメニュー”店舗CSV登録へ”から、複数の新規店舗を、csvファイルをアップロードすることにより一括して追加することができる。
+  * csvファイルの仕様
+    * 文字コード: UTF-8
+    * カンマ区切り
+    * 1行目はヘッダ情報
+    * 項目は全て入力必須
+    * 'name'列: 店舗名 50文字以内
+    * 'region'列: 地域　'東京都'、'大阪府'、'福岡県'のいずれか
+    * 'genre'列: ジャンル　'寿司'、'焼肉'、'イタリアン'、'居酒屋'、'ラーメン'のいずれか
+    * 'description'列: 店舗概要 400文字以内
+    * 'image_url'列: 画像のURL ファイルの種類(拡張子)は'.jpeg'、'.jpg'、'.png'に対応
 
 
 
@@ -89,16 +107,14 @@
 
 
 ## テーブル設計
-<img width="665" alt="スクリーンショット 2024-09-08 12 28 48" src="https://github.com/user-attachments/assets/89333768-1055-4260-a423-8eb0e8c211a2">
-<img width="666" alt="スクリーンショット 2024-09-08 12 23 03" src="https://github.com/user-attachments/assets/4e7c2dd7-8778-4e76-ae40-74edbf75eb34">
-<img width="666" alt="スクリーンショット 2024-09-08 12 23 21" src="https://github.com/user-attachments/assets/f4f07a66-2620-47c5-91cd-ee5839ef6c41">
-<img width="666" alt="スクリーンショット 2024-09-08 12 23 36" src="https://github.com/user-attachments/assets/3f9f0653-0f9a-4dbb-bca2-dc421c872486">
-
+<img width="664" alt="スクリーンショット 2024-10-23 18 59 57" src="https://github.com/user-attachments/assets/16421fe7-2a43-4d58-9529-afd5f2fab352">
+<img width="664" alt="スクリーンショット 2024-10-23 19 00 31" src="https://github.com/user-attachments/assets/79a0b4c5-4082-4225-8b74-37cd11a4576f">
+<img width="664" alt="スクリーンショット 2024-10-23 19 00 48" src="https://github.com/user-attachments/assets/6ff856a4-2faa-4e2c-8b93-5e4576a56480">
+<img width="664" alt="スクリーンショット 2024-10-23 19 01 02" src="https://github.com/user-attachments/assets/ba10a630-8f68-43be-9c85-48decc90ea4b">
 
 
 ## ER図
-<img width="756" alt="スクリーンショット 2024-09-08 12 20 32" src="https://github.com/user-attachments/assets/c13f55d4-fb27-4811-82ff-231fd21259b7">
-
+<img width="652" alt="スクリーンショット 2024-10-23 19 04 12" src="https://github.com/user-attachments/assets/dd6ecf93-049c-4075-91cd-39a44697e269">
 
 ## 環境構築
 Docker ビルド
@@ -172,4 +188,5 @@ php artisan migrate
 6. シーディングの実行<br>
 php artisan db:seed
 7. ユーザーの場合→トップページ左上のハンバーガーメニュー内「register」より会員登録
-8. 管理者の場合→アプリケーションURLに"admin/login"をつけたURLを直打ちし、サンプル管理者でログイン
+8. 管理者の場合→アプリケーションURLに"admin/login"をつけたURLを直打ちし、サンプル管理者でログイン<br>
+  もしくは"admin/register"をつけたURLを直打ちし、管理者を新規作成しログイン

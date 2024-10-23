@@ -51,6 +51,7 @@
             <!-- 説明 -->
             <div class="classification">
                 <p>{{ $shop['description']}}</p>
+                <p class="review__information">全ての口コミ情報</p>
             </div>
             <!-- 口コミ表示 -->
             @if( Auth::check() )
