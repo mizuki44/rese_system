@@ -6,7 +6,7 @@
 </head>
 
 <main>
-    <h1 class="title">レビュー一覧</h1>
+    <h1 class="title">口コミ一覧</h1>
 
     <div class="list">
         <table class="shop_list">
@@ -15,6 +15,8 @@
                 <th class="table-title_inner">店舗名</th>
                 <th class="table-title_inner">評価</th>
                 <th class="table-title_inner">コメント</th>
+                <th class="table-title_inner">イメージ画像</th>
+                <th class="table-title_inner">削除ボタン</th>
             </tr>
             @foreach($reviews as $review)
 
@@ -24,6 +26,8 @@
                 <td class="table-inner" data-label="店舗名">{{$review->shop->name}}</td>
                 <td class="table-inner" data-label="評価">{{$review['star']}}</td>
                 <td class="table-inner" data-label="コメント">{{$review['comment']}}</td>
+                <td class="table-inner" data-label="イメージ画像"><img class="image" src="{{ $review['image_url'] }}" />
+                </td>
                 <td class="table-inner">
                     <div class="button_layout">
                         <form method="POST" action="{{url('/admin/review/delete')}}">

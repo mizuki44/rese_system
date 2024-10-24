@@ -60,51 +60,53 @@
 
             fileInput.click();
         }, false);
-    });
 
-    // 星評価
-    var stars = document.getElementsByClassName("star_mark");
-    var star_form = document.getElementById("star_form");
-    var clicked = false;
+        // 星評価
+        var stars = document.getElementsByClassName("star_mark");
+        var star_form = document.getElementById("star_form");
+        var clicked = false;
 
-    for (let i = 0; i < stars.length; i++) {
-        stars[i].addEventListener(
-            "mouseover",
-            () => {
-                if (!clicked) {
+        for (let i = 0; i < stars.length; i++) {
+            stars[i].addEventListener(
+                "mouseover",
+                () => {
+                    if (!clicked) {
+                        for (let j = 0; j <= i; j++) {
+                            stars[j].style.color = "blue";
+                        }
+                    }
+                },
+                false
+            );
+            stars[i].addEventListener(
+                "mouseout",
+                () => {
+                    if (!clicked) {
+                        for (let j = 0; j < stars.length; j++) {
+                            stars[j].style.color = "gray";
+                        }
+                    }
+                },
+                false
+            );
+            stars[i].addEventListener(
+                "click",
+                () => {
+                    clicked = true;
                     for (let j = 0; j <= i; j++) {
                         stars[j].style.color = "blue";
                     }
-                }
-            },
-            false
-        );
-        stars[i].addEventListener(
-            "mouseout",
-            () => {
-                if (!clicked) {
-                    for (let j = 0; j < stars.length; j++) {
+                    for (let j = i + 1; j < stars.length; j++) {
                         stars[j].style.color = "gray";
                     }
-                }
-            },
-            false
-        );
-        stars[i].addEventListener(
-            "click",
-            () => {
-                clicked = true;
-                for (let j = 0; j <= i; j++) {
-                    stars[j].style.color = "blue";
-                }
-                for (let j = i + 1; j < stars.length; j++) {
-                    stars[j].style.color = "gray";
-                }
-                star_form.value = i + 1;
-            },
-            false
-        );
-    }
+                    star_form.value = i + 1;
+                },
+                false
+            );
+        }
+    });
+
+
 
     function previewFile(file) {
         var fr = new FileReader();
@@ -163,50 +165,50 @@
                     <span class="star_mark" id="3">★</span>
                     <span class="star_mark" id="4">★</span>
                     <span class="star_mark" id="5">★</span>
-                    </div>
-                    @error('star')
-                    <p class='error_message'>{{$message}}</p>
-                    @enderror
-                    <p class="comment_p">口コミを投稿</p>
-                    <!-- コメントテキストエリア -->
-                    <textarea name="comment" class="textarea" onkeyup="ShowLength(value)" placeholder="カジュアルな夜のお出かけにおすすめのスポット"></textarea>
-                    <div class="character__count">
-                        <span id="inputlength">0</span>
-                        <span>/400(最大文字数)</span>
-                    </div>
-                    @error('comment')
-                    <p class='error_message'>{{$message}}</p>
-                    @enderror
-                    <!-- 画像アップロード -->
+                </div>
+                @error('star')
+                <p class='error_message'>{{$message}}</p>
+                @enderror
+                <p class="comment_p">口コミを投稿</p>
+                <!-- コメントテキストエリア -->
+                <textarea name="comment" class="textarea" onkeyup="ShowLength(value)" placeholder="カジュアルな夜のお出かけにおすすめのスポット"></textarea>
+                <div class="character__count">
+                    <span id="inputlength">0</span>
+                    <span>/400(最大文字数)</span>
+                </div>
+                @error('comment')
+                <p class='error_message'>{{$message}}</p>
+                @enderror
+                <!-- 画像アップロード -->
 
-                    <!-- <div class="drop-area" id="drop-area">
+                <!-- <div class="drop-area" id="drop-area">
                 <p>アップロードするファイルをドラッグするか、クリックして選択してください</p>
                 <input type="file" name="image_url" id="image_url" onchange="handleFiles(this.files)">
                 <div class="gallery" id="gallery"></div>
             </div> -->
-                    <p class="comment_p">画像の追加</p>
-                    <div id="drop-zone" class="drop-zone">
-                        <p>クリックして写真を追加<br>またはドロッグアンドドロップ</p>
-                        <!-- <label for="upload" class="custom-upload">画像を選択 -->
-                        <input type="file" name="image_url" id="file-input" class="custom-upload_input">
-                        <!-- 追加した分 -->
-                        <pre><code id="contents"></code></pre>
-                    </div>
-
-                    @error('image_url')
-                    <p class='error_message'>{{$message}}</p>
-                    @enderror
+                <p class="comment_p">画像の追加</p>
+                <div id="drop-zone" class="drop-zone">
+                    <p>クリックして写真を追加<br>またはドロッグアンドドロップ</p>
+                    <!-- <label for="upload" class="custom-upload">画像を選択 -->
+                    <input type="file" name="image_url" id="file-input" class="custom-upload_input">
+                    <!-- 追加した分 -->
+                    <pre><code id="contents"></code></pre>
                 </div>
-                <!-- <div class=" button"> -->
-                <!-- <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
+
+                @error('image_url')
+                <p class='error_message'>{{$message}}</p>
+                @enderror
+        </div>
+        <!-- <div class=" button"> -->
+        <!-- <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
     <button type="submit" class="review_button">口コミを投稿</button> -->
-                <!-- </div> -->
-        </div>
-        <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
-        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-        <button type="submit" class="review_button">口コミを投稿</button>
-        </form>
+        <!-- </div> -->
+    </div>
+    <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
+    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+    <button type="submit" class="review_button">口コミを投稿</button>
+    </form>
     </div>
 
     </div>

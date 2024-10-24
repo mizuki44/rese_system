@@ -12,6 +12,7 @@
             <li class='list_content'><a href="/admin/owner">店舗代表者一覧</a></li>
             <li class='list_content'><a href="/admin/mail">利用者へお知らせメール送信</a></li>
             <li class='list_content'><a href="/admin/shop/import">店舗情報csvインポート</a></li>
+            <li class='list_content'><a href="/admin/review">口コミ一覧</a></li>
             @endcan
             @can ('owner_only')
             <li class='list_content'><a href="/admin/reserve">予約状況一覧</a></li>
