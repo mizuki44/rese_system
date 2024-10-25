@@ -458,10 +458,18 @@ main {
         width: 57%;
     }
     .card_content {
-        width: 85%;
+        width: 110%;
     }
     .favorite_shop {
         margin-left: 6%;
+    }
+    .reserve_page {
+        /* margin: 0 auto; */
+        width: 92%;
+    }
+    .reservation_number::before {
+        width: 73%;
+        height: 51%;
     }
 }
 
@@ -469,7 +477,7 @@ main {
 
     .reservation_number {
         font-size: small;
-        margin-left: 30px;
+        margin-left: 24px;
         font-weight: normal;
         color: white;
         position: relative;
@@ -478,13 +486,13 @@ main {
 
     .reservation_number::before {
         content: "";
-        width: 60%;
-        height: 51%;
+        width: 90%;
+        height: 75%;
         background: url(../img/time.jpeg) no-repeat center center / auto 70%;
         display: inline-block;
         position: absolute;
         left: -46%;
-        top: 26%;
+        top: 14%;
     }
 }
 

@@ -268,7 +268,7 @@ body {
     align-items: center;
     height: inherit;
     position: relative;
-    justify-content: space-around;
+    justify-content: space-between;
     width: auto;
     font-size: x-large;
 }
