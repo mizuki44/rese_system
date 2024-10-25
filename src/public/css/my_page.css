@@ -27,12 +27,12 @@ main {
 .main_page {
     margin: 20px;
 }
+
 .reserve_page {
     width: 50%;
     display: flex;
     justify-content:space-evenly;
 }
-
 
 .reservation_card {
     scroll-margin-left: 0.75rem;
@@ -51,7 +51,6 @@ main {
     padding-left: 20px;
 }
 
-
 .card_content {
     width: 62vh;
     border-radius: 6px;
@@ -67,8 +66,6 @@ main {
     filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
     margin-bottom: 20px;
 }
-
-
 
 .card_contents_inner {
     align-items: center;
@@ -98,7 +95,6 @@ main {
     flex-wrap: wrap;
 }
 
-
 .favorite_page_inner {
     width: 18rem;
     background-color: rgb(255 255 255);
@@ -109,7 +105,6 @@ main {
     margin-right: 10px;
     margin-top: 1rem;
 }
-
 
 .image {
     width: 100%;
@@ -134,7 +129,6 @@ main {
     top: 5px;
 }
 
-
 .detail {
     font-size: 0.75rem;
     line-height: 1rem;
@@ -148,7 +142,6 @@ main {
     padding-bottom: 0.5rem;
     position: relative;
 }
-
 
 .favorite_button {
     font-size: 3.5rem;
@@ -181,7 +174,6 @@ main {
     scroll-margin-bottom: 0.5rem;
     scroll-margin-top: 1rem;
     padding-bottom: 16px;
-
 }
 
 .overlay {
@@ -196,8 +188,6 @@ main {
     left: 0;
     right: 0;
 }
-
-
 
 .modal {
     width: 65%;
@@ -265,7 +255,6 @@ main {
     box-shadow: 2px 2px 4px gray;
     margin-right: 10px;
 }
-
 
 .overlay.open {
     display: block;
@@ -344,13 +333,11 @@ main {
     margin-right: 7px;
 }
 
-
 .reserve_content {
     margin-left: auto;
     margin-right: auto;
     margin-top: 80px;
 }
-
 
 .drop_time {
     height: 100%;
@@ -359,7 +346,6 @@ main {
 .drop_number {
     height: 100%;
 }
-
 
 .main_contents {
     display: flex;
@@ -395,7 +381,6 @@ main {
     background-color: white;
     margin-right: 10px;
 }
-
 
 .payment_button::after {
     content: "";
@@ -440,7 +425,6 @@ main {
 .shop_name {
     padding: 22px;
 }
-
 
 /* レスポンシブ (768px以上)*/
 @media screen and (max-width: 767.9px) {

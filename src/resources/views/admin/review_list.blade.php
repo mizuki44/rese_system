@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="/css/sanitize.css">
-    <link rel="stylesheet" href="/css/admin_shop_list.css">
+    <link rel="stylesheet" href="/css/admin_review_list.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -9,7 +9,7 @@
     <h1 class="title">口コミ一覧</h1>
 
     <div class="list">
-        <table class="shop_list">
+        <table class="review_list">
             <tr class="table-low">
                 <th class="table-title_inner">ユーザー名</th>
                 <th class="table-title_inner">店舗名</th>

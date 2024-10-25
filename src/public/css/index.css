@@ -12,6 +12,7 @@
     filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
     margin-bottom: 20px;
 }
+
 .image {
     width: 100%;
     min-height: 23px;
@@ -28,6 +29,7 @@
     font-weight: bold;
     font-size: larger;
 }
+
 .shop_name_inner {
     font-size: 0.75rem;
     line-height: 1rem;
@@ -36,6 +38,7 @@
     position: relative;
     top: 5px;
 }
+
 .card_contents_inner_detail {
     flex: content;
     justify-content:space-between;
@@ -112,14 +115,8 @@ main {
 
 .search_content {
     justify-content: center;
-    /* margin-right: 0.5rem; */
     display: flex;
     justify-content: flex-end;
-    /* margin-top: -45px; */
-    /* position: relative;
-    top: 24px;
-    left: 15%;
-    width: 440px; */
     }
 
 .search_content_area {
@@ -192,11 +189,11 @@ main {
     right: 5%;
     width: 14%;
 }
+
 /* レスポンシブ (768px以上)*/
 @media screen and (max-width: 767.9px) {
     .card_contents {
         width: 85vh;
-        /* margin-left: 20px; */
         margin-top: 40px;
     }
     .search_box input {
@@ -207,13 +204,11 @@ main {
     }
     .header__inner {
         padding: 0 5px;
-        /* justify-content: space-around; */
         flex-wrap: wrap;
         height: 60px;
         }
-
-    
 }
+
 /* レスポンシブ（666px以上） */
 @media screen and (max-width: 665.9px) {
     .card_contents {
@@ -224,10 +219,6 @@ main {
     .search_content_sort {
         margin-bottom: 10px;
     }
-
-    /* .search_content {
-        margin-top: 12px;
-    } */
 }
 
 @media screen and (max-width: 747.9px) {
@@ -239,7 +230,6 @@ body {
     margin: 10px;
     font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
-
 
 .header__hamburger_for_index {
     width: 53px;
