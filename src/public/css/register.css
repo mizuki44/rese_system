@@ -3,7 +3,7 @@ body {
     font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
-main {
+.container {
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
@@ -34,10 +34,10 @@ main {
 .register-form__heading {
     margin-bottom: 9px;
     text-align: left;
-    background-color: blue;
+    background-color: rgb(37 99 235);
     color: white;
     line-height: 70px;
-    width: 96%;
+    /* width: 96%; */
     padding-left: 12px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -142,7 +142,7 @@ main {
     height: 40px;
     border: none;
     border-radius: 3px;
-    background: #0033CC;
+    background: rgb(37 99 235);
     color: #fff;
     cursor: pointer;
     margin-top: 5px;

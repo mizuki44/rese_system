@@ -1,4 +1,4 @@
-main {
+.container {
     max-width: 80rem;
     scroll-padding-left: 1rem;
     scroll-padding-right: 1rem;
@@ -141,6 +141,7 @@ main {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     position: relative;
+    text-decoration: none;
 }
 
 .favorite_button {
@@ -439,7 +440,7 @@ main {
 
     .favorite_situation {
         margin-left: 8%;
-        width: 57%;
+        width: 115%;
     }
     .card_content {
         width: 110%;

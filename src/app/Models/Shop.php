@@ -78,8 +78,9 @@ class Shop extends Model
         } elseif ($sort_option === self::ORDER_LOWER) {
             $query->leftjoin('reviews', 'reviews.shop_id', '=', 'shops.id')
                 ->select('shops.*')
-                ->selectRaw('avg(reviews.star) as avg_star')
+                ->selectRaw('CAST(avg(reviews.star) AS SIGNED) as avg_star')
                 ->groupBy('shops.id')
+                ->orderByRaw('avg_star IS NULL ASC')
                 ->orderBy('avg_star');
         }
         return $query;

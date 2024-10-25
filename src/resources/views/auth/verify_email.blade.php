@@ -4,7 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="/css/sanitize.css">
-    <link rel="stylesheet" href="/css/verify-email.css">
+    <link rel="stylesheet" href="/css/verify_email.css">
 </head>
 
 

@@ -98,16 +98,12 @@ class ShopController extends Controller
         if (!($request->hasFile('csvFile'))) {
             return redirect('/admin/shop/import')->with('message', 'ファイルを選択してください');
         }
-        // リクエストからファイルを取得
         $path = $request->file('csvFile')->getRealPath();
         $csvArray = array();
         $firstFlg = true;
         $keys = array();
         $count = 0;
         $file = fopen($path, 'r');
-        // csvヘッダーをキーにして連想配列の作成 https://qiita.com/Terasan_Koshigaya/items/00ce0b114e527a572865
-        // [ 0 => ["area" => "東京都", "ganre" => "焼肉",・・・],
-        //   1 => ["area" => "大阪府", "ganre" => "寿司",・・・], ・・・]
         while ($line = fgetcsv($file)) {
             if ($firstFlg) {
                 for ($i = 0; $i < count($line); $i++) {
@@ -123,9 +119,8 @@ class ShopController extends Controller
         }
         fclose($file);
         $error_list = [];
-        // バリデーションチェック後、データ作成
+
         foreach ($csvArray as $key => $value) {
-            // foreach ($csvArray as $row) {
             $validator = Validator::make(
                 $value,
                 ShopCreateRequest::rules_for_csv(),
