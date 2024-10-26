@@ -27,9 +27,11 @@ class ReviewController extends Controller
     public function store(ReviewRequest $request)
     {
         if (!Auth::check()) return redirect('login');
-
-        $result = Storage::disk('s3')->put('/', $request->file('image_url'));
-        $url = Storage::disk('s3')->url($result);
+        $url = '';
+        if ($request->image_url) {
+            $result = Storage::disk('s3')->put('/', $request->file('image_url'));
+            $url = Storage::disk('s3')->url($result);
+        }
 
         Review::create([
             'user_id' => $request->user_id,
@@ -78,17 +80,24 @@ class ReviewController extends Controller
     {
         if (!Auth::check()) return redirect('login');
 
-
-        $result = Storage::disk('s3')->put('/', $request->file('image_url'));
-        $url = Storage::disk('s3')->url($result);
-
-        $table = [
-            'user_id' => $request->user_id,
-            'shop_id' => $request->shop_id,
-            'star' => $request->star,
-            'comment' => $request->comment,
-            'image_url' => $url,
-        ];
+        if ($request->image_url) {
+            $result = Storage::disk('s3')->put('/', $request->file('image_url'));
+            $url = Storage::disk('s3')->url($result);
+            $table = [
+                'user_id' => $request->user_id,
+                'shop_id' => $request->shop_id,
+                'star' => $request->star,
+                'comment' => $request->comment,
+                'image_url' => $url,
+            ];
+        } else {
+            $table = [
+                'user_id' => $request->user_id,
+                'shop_id' => $request->shop_id,
+                'star' => $request->star,
+                'comment' => $request->comment,
+            ];
+        }
 
         $review = Review::select()->UserSearch($request->user_id)->ShopSearch($request->shop_id);
         switch ($request->img_edit_mode) {

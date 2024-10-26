@@ -3,6 +3,9 @@
     justify-content:space-evenly;
     flex-wrap: wrap;
     background-color: #f5f5f5;
+    padding-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .card_contents_inner {
@@ -77,13 +80,6 @@
 
 .color_gray {
     color: gray;
-}
-
-main {
-    padding-top: 20px;
-    background-color: #f5f5f5;
-    margin-left: 10px;
-    margin-right: 10px;
 }
 
 .main__title {

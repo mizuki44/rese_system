@@ -26,7 +26,10 @@
                 <td class="table-inner" data-label="店舗名">{{$review->shop->name}}</td>
                 <td class="table-inner" data-label="評価">{{$review['star']}}</td>
                 <td class="table-inner" data-label="コメント">{{$review['comment']}}</td>
-                <td class="table-inner" data-label="イメージ画像"><img class="image" src="{{ $review['image_url'] }}" />
+                <td class="table-inner" data-label="イメージ画像">
+                    @if($review['image_url'])
+                    <img class="image" src="{{ $review['image_url'] }}" />
+                    @endif
                 </td>
                 <td class="table-inner">
                     <div class="button_layout">
