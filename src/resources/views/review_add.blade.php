@@ -13,7 +13,6 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var dropZone = document.getElementById('drop-zone');
-        var preview = document.getElementById('preview');
         var fileInput = document.getElementById('file-input');
         var displayElement = document.getElementById('contents');
 
@@ -37,12 +36,7 @@
             if (files.length > 1) return alert('アップロードできるファイルは1つだけです');
             fileInput.files = files;
             displayElement.textContent = files[0].name;
-            previewFile(files[0]);
         }, false);
-
-        fileInput.addEventListener('change', function() {
-            previewFile(this.files[0]);
-        });
 
         dropZone.addEventListener('click', (e) => {
             fileInput.addEventListener('change', (e) => {
@@ -104,52 +98,41 @@
         }
     });
 
-    function previewFile(file) {
-        var fr = new FileReader();
-        fr.readAsDataURL(file);
-        fr.onload = function() {
-            var img = document.createElement('img');
-            img.setAttribute('src', fr.result);
-            preview.innerHTML = '';
-            preview.appendChild(img);
-        };
-    }
-
     function ShowLength(str) {
         document.getElementById("inputlength").innerHTML = str.length;
     }
 </script>
 <main>
     @section('content')
-    <form method="POST" action="{{ url('/review/store') }}" enctype="multipart/form-data">
-        @csrf
-        <div class="separate__content">
-            <div class="left__side">
-                <p class="comment">今回のご利用はいかがでしたか？</p>
-                <div class="card_contents">
-                    <div class="card_contents_inner">
-                        <img class="image" src="{{ $shop['image_url'] }}">
-                        <div class="shop_name">
-                            <h2 class="shop_name_font">{{ $shop->name }}</h2>
-                            <div class="shop_name_inner">
-                                <span>#{{ $shop['area']['name'] }}</span>
-                                <span>#{{ $shop['genre']['name'] }}</span>
-                            </div>
-                            <div class="card_contents_inner_detail">
-                                <a class="detail" href="{{ url('/detail/'.$shop['id']) }}">詳しくみる</a>
-                                @if( Auth::check() )
-                                <form method="POST" action="{{ url('/favorite') }}">
-                                    @csrf
-                                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                                    <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
-                                    <button class="heart"><img class="image" src="{{ Auth::user()->favorites->where('shop_id', $shop->id)->first->id ? url('../img/red_heart.jpeg') : url('../img/gray_heart.jpeg')}}"></button>
-                                </form>
-                                @endif
-                            </div>
+    <div class="separate__content">
+        <div class="left__side">
+            <p class="comment">今回のご利用はいかがでしたか？</p>
+            <div class="card_contents">
+                <div class="card_contents_inner">
+                    <img class="image" src="{{ $shop['image_url'] }}">
+                    <div class="shop_name">
+                        <h2 class="shop_name_font">{{ $shop->name }}</h2>
+                        <div class="shop_name_inner">
+                            <span>#{{ $shop['area']['name'] }}</span>
+                            <span>#{{ $shop['genre']['name'] }}</span>
+                        </div>
+                        <div class="card_contents_inner_detail">
+                            <a class="detail" href="{{ url('/detail/'.$shop['id']) }}">詳しくみる</a>
+                            @if( Auth::check() )
+                            <form method="POST" action="{{ url('/favorite') }}">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
+                                <button class="heart"><img class="image" src="{{ Auth::user()->favorites->where('shop_id', $shop->id)->first->id ? url('../img/red_heart.jpeg') : url('../img/gray_heart.jpeg')}}"></button>
+                            </form>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <form method="POST" action="{{ url('/review/store') }}" enctype="multipart/form-data">
+            @csrf
             <div class="right__side">
                 <p class="comment_p">体験を評価してください</p>
                 <div class="star_box">
@@ -181,11 +164,11 @@
                 @error('image_url')
                 <p class='error_message'>{{$message}}</p>
                 @enderror
+                </div>
             </div>
-        </div>
-        <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
-        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-        <button type="submit" class="review_button">口コミを投稿</button>
-    </form>
+            <input type="hidden" name="shop_id" value="{{ $shop['id'] }}">
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+            <button type="submit" class="review_button">口コミを投稿</button>
+        </form>
     @endsection
 </main>
