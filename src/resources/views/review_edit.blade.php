@@ -40,6 +40,7 @@
             var files = e.dataTransfer.files;
             if (files.length > 1) return alert('アップロードできるファイルは1つだけです');
             fileInput.files = files;
+            displayElement.textContent = files[0].name;
             previewFile(files[0]);
         }, false);
 
