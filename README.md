@@ -97,6 +97,15 @@
     * 'genre'列: ジャンル　'寿司'、'焼肉'、'イタリアン'、'居酒屋'、'ラーメン'のいずれか
     * 'description'列: 店舗概要 400文字以内
     * 'image_url'列: 画像のURL ファイルの種類(拡張子)は'.jpeg'、'.jpg'、'.png'に対応
+  * CSVファイル作成方法
+    1. スプレットシート新規作成を開き、1行目に「area」「genre」「name」「description」「image_url」を入力する
+    2. 2行目から作成したい店舗のデータを入力する
+    3. 入力後、左上付近の「ファイル」→ダウンロード→「カンマ区切り形式（.csv）」を選択し、保存する
+    <img width="929" alt="スクリーンショット 2024-10-31 21 24 24" src="https://github.com/user-attachments/assets/d8ce7a9f-59f7-414d-bca8-dee15fd11695">
+
+        <img width="200" alt="スクリーンショット 2024-10-31 21 25 11" src="https://github.com/user-attachments/assets/cc1912fa-c2fb-46de-8ad5-9757b50563b9">
+
+
 
 
 
