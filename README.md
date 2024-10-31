@@ -103,7 +103,7 @@
     3. 入力後、左上付近の「ファイル」→ダウンロード→「カンマ区切り形式（.csv）」を選択し、保存する
     <img width="929" alt="スクリーンショット 2024-10-31 21 24 24" src="https://github.com/user-attachments/assets/d8ce7a9f-59f7-414d-bca8-dee15fd11695">
 
-      <img width="200" alt="スクリーンショット 2024-10-31 21 25 11" src="https://github.com/user-attachments/assets/00ec9832-9663-44ac-93fc-06ab966a99ff">
+      <img width="645" alt="スクリーンショット 2024-10-31 21 25 11" src="https://github.com/user-attachments/assets/00ec9832-9663-44ac-93fc-06ab966a99ff">
 
 
 
